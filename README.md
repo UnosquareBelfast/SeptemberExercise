@@ -42,3 +42,4 @@ yarn start // runs the front end application
 ## Tool Recommendations
 - IntelliJ
 - Visual Studio Code 
+- PGAdmin 4
