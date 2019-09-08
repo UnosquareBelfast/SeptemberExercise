@@ -16,9 +16,9 @@ The first exercise here is to update the current web application to be able to:
 4. Delete an item from the list.
 
 Relevant links:
-[Local Swagger URL](http://localhost/swagger/index.html)
-[Local Todo list Website](http://localhost:3000/)
-[REST overview](https://restfulapi.net/)
+- [Local Swagger URL](http://localhost/swagger/index.html)
+- [Local Todo list Website](http://localhost:3000/)
+- [REST overview](https://restfulapi.net/)
 
 The second exercise is for us to create our own back end application and modify it to handle errors in a better way.
 
