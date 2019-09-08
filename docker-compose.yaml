@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+   image: postgres
+   restart: always
+   ports:
+    - 5432:5432
+   environment:
+     POSTGRES_DB: September
+     POSTGRES_USER: user
+     POSTGRES_PASSWORD: password
+   volumes:
+    - db:/var/lib/postgresql/data
+  flyway:
+    image: boxfuse/flyway:5.2.4
+    command: -url=jdbc:postgresql://db/September -schemas=public -user=user -password=password -connectRetries=5 migrate
+    volumes:
+      - ./Migrations:/flyway/sql
+    depends_on:
+      - db
+  exercise-backend:
+    image: brownmark/todobackend:latest
+    restart: always
+    ports:
+      - 80:5000
+    environment:
+     DB_CONFIG: Server=db;Database=September;User Id=user;Password=password
+    depends_on:
+      - flyway
+volumes:
+   db:
