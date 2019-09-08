@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <Fragment>
-          <TodoList displayText={'Hello World'} />
+          <TodoList />
           <GlobalStyle />
         </Fragment>
       </ThemeProvider>

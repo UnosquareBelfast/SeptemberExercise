@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoList } from '../../services/todoService'
+import { retrieveTodoList, deleteTodoListItem } from '../../services/todoService'
 
 const TodoList = (Wrapped) =>
   class extends React.Component {
@@ -21,8 +21,20 @@ const TodoList = (Wrapped) =>
       });
     };
 
+    deleteItemFromList = (id) => {
+      deleteTodoListItem(id).then(() => {
+        const { todoListItems } = this.state;
+        const updatedItems = todoListItems.filter(x => x.id !== id);
+
+        this.setState({ todoListItems: updatedItems});
+      });
+    };
+
     render() {
-      return <Wrapped {...this.state} />;
+      return <Wrapped 
+        deleteItemFromList={this.deleteItemFromList}
+        {...this.state} 
+      />;
     }
   };
 
