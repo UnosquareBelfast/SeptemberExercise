@@ -24,9 +24,7 @@ const TodoList = (Wrapped) =>
     deleteItemFromList = (id) => {
       deleteTodoListItem(id).then(() => {
         const { todoListItems } = this.state;
-        const updatedItems = todoListItems.filter(x => x.id !== id);
-
-        this.setState({ todoListItems: updatedItems});
+        this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
       });
     };
 

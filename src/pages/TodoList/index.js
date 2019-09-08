@@ -1,17 +1,21 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { TodoListTitle } from './styled';
 import container from './container';
+import { 
+  TodoListTitle
+ } from './styled';
 
 export const TodoList = ({ deleteItemFromList, isLoading, todoListItems }) => {
 
   const buildTodoListItems = (items) => {
       return items && items.length > 0 ? (
       <ul>
-        {items.map(x => (<li key={x.id}>
-        {x.title}
-        <button onClick={() => deleteItemFromList(x.id)} >Delete</button>
-        </li>))}
+        {items.map(x => 
+          (<li key={x.id}>
+            {x.title}
+            <button onClick={() => deleteItemFromList(x.id)}>Delete</button>
+          </li>
+        ))}
       </ul>) : 'Nothing to do.';
   }
 
