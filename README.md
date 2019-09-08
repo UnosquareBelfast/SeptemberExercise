@@ -39,4 +39,6 @@ yarn install // installs dependencies for the front end application
 yarn start // runs the front end application
 ```
 
-I recommend using Visual Studio Code to develop the front end application and for the back end I recommend using IntelliJ.
+## Tool Recommendations
+- IntelliJ
+- Visual Studio Code 
