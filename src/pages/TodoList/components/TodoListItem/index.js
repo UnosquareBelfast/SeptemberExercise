@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import { TitleContainer, ItemButtons, ToDoItem } from './styled';
+import { TitleContainer, ItemButtons, ToDoItem, UpdateButtons, UpdateTaskTextArea } from './styled';
 
 export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
 
@@ -9,9 +9,13 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
       <li>  
         {isUpdating ? (
           <Fragment>
-            <input type='text' onChange={(event) => onTitleChanged(event)} value={title}></input> 
-            <button onClick={() => saveItem(id)}>Save</button>
-            <button onClick={() => toggleUpdateMode()}>Cancel</button>
+            <UpdateTaskTextArea>
+              <textarea onChange={(event) => onTitleChanged(event)} value={title}></textarea>
+            </UpdateTaskTextArea>
+            <UpdateButtons>
+              <button onClick={() => saveItem(id)}>Save</button>
+              <button onClick={() => toggleUpdateMode()}>Cancel</button>
+            </UpdateButtons>
           </Fragment>) :    
           (<Fragment>
             <TitleContainer>{displayText}</TitleContainer>

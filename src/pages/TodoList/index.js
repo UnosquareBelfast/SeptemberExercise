@@ -3,10 +3,10 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
 import container from './container';
 import { 
-  TodoListTitle, TitleContainer,TaskContainer,ToDoItem, ItemButtons, NewTask,AddTaskButton, TaskTextArea
+  TodoListTitle, TaskContainer, NewTask,AddTaskButton, TaskTextArea
  } from './styled';
 
-export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, updateItemOnList, createItemOnList,handleChange,handleTaskSubmission }) => {
+export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,handleChange,handleTaskSubmission }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
@@ -28,7 +28,6 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, updateI
 TodoList.propTypes = {
   deleteItemFromList: PT.func.isRequired,
   createItemOnList: PT.func.isRequired,
-  updateItemOnList: PT.func.isRequired,
   isLoading: PT.bool.isRequired,
   todoListItems: PT.array.isRequired,
 };

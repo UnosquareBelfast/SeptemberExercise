@@ -24,3 +24,16 @@ export const ToDoItem=styled.div`
   padding:10px;
   margin:10px 10px 10px 10px;
 `;
+
+export const UpdateButtons=styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
+
+export const UpdateTaskTextArea=styled.div`
+  padding: 8px;
+  margin: 0px 0px 0px 0px;
+`;
