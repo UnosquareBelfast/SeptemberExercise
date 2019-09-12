@@ -7,6 +7,7 @@ export const TitleContainer = styled.div`
   height:150px;
   font-size: xx-large;
   padding-top:10px;
+  
 
 `;
 
@@ -14,8 +15,7 @@ export const ItemButtons = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  
 `;
 
 export const ToDoItem=styled.div`
@@ -29,11 +29,10 @@ export const UpdateButtons=styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
-  padding-left: 10px;
-  padding-right: 10px;
+  
 `;
 
 export const UpdateTaskTextArea=styled.div`
-  padding: 8px;
-  margin: 0px 0px 0px 0px;
+  padding: 5px;
+  margin: 2px 2px 2px 8px;
 `;

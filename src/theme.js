@@ -24,6 +24,8 @@ export const GlobalStyle = createGlobalStyle`
 
   button{
     padding: 10px;
+    background:khaki;
+    border-color: black;
   }
 
   ul{
@@ -32,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
 
   textarea{
     height:150px;
-    width:195px;
+    width:190px;
     resize:none;
     background:khaki;
     border:solid;

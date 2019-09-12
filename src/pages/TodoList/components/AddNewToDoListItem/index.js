@@ -10,10 +10,10 @@ export const AddNewToDoListItem = ({ title, onNewTaskBoxChange, addNewTask }) =>
         <NewTask>
           <TaskTextArea>
           <textarea onChange={(event) => onNewTaskBoxChange(event)} value={title}></textarea>
-          <button onClick={() => addNewTask(title)}> Add Task </button>
+          
           </TaskTextArea>
           <AddTaskButton>
-          
+          <button onClick={() => addNewTask(title)}> Add Task </button>
           </AddTaskButton>
     </NewTask>
     </Fragment>

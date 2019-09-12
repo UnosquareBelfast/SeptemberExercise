@@ -15,17 +15,6 @@ text-align:center;
 
 `;
 
-export const TitleContainer = styled.div`
-  //background:khaki;
-  text-align:center;
-  margin:10px 10px 10px 10px;
-  width:200px;
-  height:150px;
-  font-size: xx-large;
-  padding-top:10px;
-
-`;
-
 export const TaskContainer=styled.div`
 
 //background:yellow;
@@ -34,6 +23,7 @@ display:flex;
 flex-direction:row;
 flex-wrap:wrap;
 justify-content:space-between;
+align-content: flex-start;
 `;
 
 
@@ -41,9 +31,10 @@ justify-content:space-between;
 export const ItemButtons=styled.div`
   display:flex;
   flex-direction:row;
-  justify-content:space-between;
+  justify-content:flex-start;
   padding-left: 10px;
   padding-right: 10px;
+
 `;
 
 

@@ -14,7 +14,7 @@ export const NewTask=styled.div`
 export const AddTaskButton=styled.div`
 
   //background:blue;
-  text-align:end;
+  text-align:right;
   padding-right:10px;
   padding-bottom:7px;
   
