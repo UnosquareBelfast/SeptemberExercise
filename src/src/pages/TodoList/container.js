@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoList, deleteTodoListItem, createTodoListItem,updateTodoListItem } from '../../services/todoService';
+import { retrieveTodoList, deleteTodoListItem, updateTodoListItem,createTodoListItem } from '../../services/todoService'
 
 const TodoList = (Wrapped) =>
   class extends React.Component {
@@ -8,7 +8,6 @@ const TodoList = (Wrapped) =>
       this.state = {
         todoListItems: [],
         isLoading: true,
-        value:'',
       };
     }
 
@@ -16,11 +15,23 @@ const TodoList = (Wrapped) =>
       this.retrieveTodosForDisplay();
     }
 
+    handleChange = (event) => {
+      console.log('event.target.value', event.target.value); 
+      this.setState({ title: event.target.value });
+      console.log('this.state', this.state);
+      this.retrieveTodosForDisplay();
+    }
+
+
     retrieveTodosForDisplay = () => {
       retrieveTodoList().then((todoListItems) => {
         this.setState({ todoListItems, isLoading: false });
       });
     };
+
+    createTodoListItem = () => {
+      
+    }
 
     deleteItemFromList = (id) => {
       deleteTodoListItem(id).then(() => {
@@ -28,15 +39,6 @@ const TodoList = (Wrapped) =>
         this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
       });
     };
-
-    handleChange(event){
-      this.setState({value: event.target.value});
-    }
-
-    handleTaskSubmission(event){
-      alert('New Task Added' +this.state.value);
-      event.preventDefault();
-    }
 
     UpdateItemFromList = (id, title) => {
       updateTodoListItem(id,title).then(() => {
@@ -46,23 +48,12 @@ const TodoList = (Wrapped) =>
       });
     };
 
-    createItemOnList = (title) => {
-      alert(title);
-
-      createTodoListItem(title).then(() => {
-
-        this.retrieveTodosForDisplay();
-      })
-    }
-
     render() {
       return <Wrapped 
-      deleteItemFromList={this.deleteItemFromList}
-      UpdateItemFromList={this.UpdateItemFromList}
-      createItemOnList={this.createItemOnList}
-      handleChange={() => this.handleChange}
-      handleTaskSubmission={this.handleTaskSubmission}
-      {...this.state} 
+        deleteItemFromList={this.deleteItemFromList}
+        UpdateItemFromList={this.UpdateItemFromList}
+        handleChange={() => this.handleChange}
+        {...this.state} 
       />;
     }
   };

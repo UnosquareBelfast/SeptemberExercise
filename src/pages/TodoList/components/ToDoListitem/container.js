@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateTodoListItem } from '../../../../services/todoService'
+import {  updateTodoListItem } from '../../../../services/todoService'
 
 const TodoListItem = (Wrapped) =>
   class extends React.Component {
@@ -11,8 +11,8 @@ const TodoListItem = (Wrapped) =>
         isUpdating: false,
         displayText: title,
         title,
-      };  
-    };
+      };
+    }
 
     saveItem = (id) => {
       console.log('Update clicked' + id);
@@ -33,18 +33,19 @@ const TodoListItem = (Wrapped) =>
       console.log(event.target.value);
     }
 
+
     render() {
       const { isUpdating, title, displayText } = this.state;
       const { deleteItem, item: { id }} = this.props;
       return <Wrapped 
-        id={id}
-        deleteItem={deleteItem}
-        title={title}
-        displayText={displayText}
-        isUpdating={isUpdating}
-        saveItem={this.saveItem}
-        toggleUpdateMode={this.toggleUpdateMode}
-        onTitleChanged={this.onTitleChanged}
+      id={id}
+      deleteItem={deleteItem}
+      title={title}
+      displayText={displayText}
+      isUpdating={isUpdating}
+      saveItem={this.saveItem}
+      toggleUpdateMode={this.toggleUpdateMode}
+      onTitleChanged={this.onTitleChanged}
       />;
     }
   };
