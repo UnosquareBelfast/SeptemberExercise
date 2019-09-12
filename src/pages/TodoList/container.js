@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoList, deleteTodoListItem } from '../../services/todoService'
+import { retrieveTodoList, deleteTodoListItem, createTodoListItem } from '../../services/todoService'
 
 const TodoList = (Wrapped) =>
   class extends React.Component {
@@ -8,6 +8,7 @@ const TodoList = (Wrapped) =>
       this.state = {
         todoListItems: [],
         isLoading: true,
+        value:'',
       };
     }
 
@@ -20,6 +21,13 @@ const TodoList = (Wrapped) =>
         this.setState({ todoListItems, isLoading: false });
       });
     };
+    
+    createItemOnList = (title) => {
+      //alert(title);
+      createTodoListItem(title).then(() => {
+        this.retrieveTodosForDisplay();
+      });
+    };
 
     deleteItemFromList = (id) => {
       deleteTodoListItem(id).then(() => {
@@ -28,9 +36,21 @@ const TodoList = (Wrapped) =>
       });
     };
 
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    };
+
+    handleTaskSubmission(event) {
+      //alert('New Todo Added' + this.state.value);
+      event.preventDefault();
+    };
+
     render() {
       return <Wrapped 
         deleteItemFromList={this.deleteItemFromList}
+        createItemOnList={this.createItemOnList}
+        handleChange={() => this.handleChange}
+        handleTaskSubmission={this.handleTaskSubmission}
         {...this.state} 
       />;
     }
