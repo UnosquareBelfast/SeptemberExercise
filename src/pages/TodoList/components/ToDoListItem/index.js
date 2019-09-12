@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import { TitleContainer, ItemButtons, ToDoItem } from './styled';
+import { TitleContainer, ItemButtonSpacing, ToDoItem,ItemButton } from './styled';
 
-export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
+const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
 
 
   return (
@@ -11,15 +11,15 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
       {isUpdating ? (
         <Fragment>
           <input type='text' onChange={(event) => onTitleChanged(event)} value={title}></input> 
-          <button onClick={() => saveItem(id)}>Save</button>
+          <button onClick={() => saveItem(id,title)}>Save</button>
           <button onClick={() => toggleUpdateMode()}>Cancel</button>
         </Fragment>) :    
         (<Fragment>
           <TitleContainer>{displayText}</TitleContainer>
-          <ItemButtons>
-            <button onClick={() => deleteItem(id)}>Delete</button>
-            <button onClick={() => toggleUpdateMode()}>Update</button>
-          </ItemButtons>
+          <ItemButtonSpacing>
+            <ItemButton onClick={() => deleteItem(id)}>Delete</ItemButton>
+            <ItemButton onClick={() => toggleUpdateMode()}>Update</ItemButton>
+          </ItemButtonSpacing>
         </Fragment>)
       }
       </li>

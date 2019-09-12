@@ -3,10 +3,10 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
 import container from './container';
 import { 
-  TodoListTitle, TitleContainer,TaskContainer,ToDoItem, ItemButtons, NewTask,AddTaskButton, TaskTextArea
+  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton
  } from './styled';
 
- export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, updateItemOnList, createItemOnList,handleChange,handleTaskSubmission }) => {
+ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
@@ -15,10 +15,10 @@ import {
   return (
     <Fragment>
     <TodoListTitle>ToDo List</TodoListTitle>
-    <NewTask>
-      <TaskTextArea><textarea id='newtasktitle'></textarea></TaskTextArea>
-      <AddTaskButton><button onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task </button></AddTaskButton>
-    </NewTask>
+    <TodoAdd>
+      <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
+      <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>
+    </TodoAdd>
     {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
   </Fragment>
       
@@ -28,7 +28,6 @@ import {
 TodoList.propTypes = {
   deleteItemFromList: PT.func.isRequired,
   createItemOnList: PT.func.isRequired,
-  updateItemOnList: PT.func.isRequired,
   isLoading: PT.bool.isRequired,
   todoListItems: PT.array.isRequired,
 };

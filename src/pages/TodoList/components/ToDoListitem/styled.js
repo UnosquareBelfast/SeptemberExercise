@@ -10,7 +10,7 @@ export const TitleContainer = styled.div`
 
 `;
 
-export const ItemButtons = styled.div`
+export const ItemButtonSpacing = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
@@ -23,4 +23,13 @@ export const ToDoItem=styled.div`
   background:khaki;
   padding:10px;
   margin:10px 10px 10px 10px;
+`;
+
+export const ItemButton=styled.button`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  background:khaki;
 `;

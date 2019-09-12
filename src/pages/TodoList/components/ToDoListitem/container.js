@@ -1,5 +1,5 @@
 import React from 'react';
-import {  updateTodoListItem } from '../../../../services/todoService'
+import {  updateTodoListItem,retrieveTodosForDisplay} from '../../../../services/todoService'
 
 const TodoListItem = (Wrapped) =>
   class extends React.Component {
@@ -13,11 +13,6 @@ const TodoListItem = (Wrapped) =>
         title,
       };
     }
-
-    saveItem = (id) => {
-      console.log('Update clicked' + id);
-    }
-
     toggleUpdateMode = () => {
       const { displayText, isUpdating, title } = this.state;
       this.setState({
@@ -26,6 +21,15 @@ const TodoListItem = (Wrapped) =>
       });
     };
 
+    saveItem = (id,changedText) => {
+      updateTodoListItem(id,changedText).then(() => {
+        console.log(changedText);
+        this.setState({
+          displayText: changedText,
+        }, () => { this.toggleUpdateMode() })
+      });
+
+    }
     onTitleChanged = (event) => {
       this.setState({
         title: event.target.value,

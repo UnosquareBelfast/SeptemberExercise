@@ -6,10 +6,13 @@ const fonts = {
 
 export const theme = {
   colours: {
-    background: '#ffffff',
+    background: 'black',
     title: '#28529a',
   },
   fonts: fonts,
+
+
+  
 };
 
 export const GlobalStyle = createGlobalStyle`
