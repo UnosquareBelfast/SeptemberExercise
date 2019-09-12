@@ -31,14 +31,6 @@ const TodoList = (Wrapped) =>
       });
     };
 
-    handleChange(event){
-      this.setState({value: event.target.value});
-    }
-
-    handleTaskSubmission(event){
-      alert('New Task Added' +this.state.value);
-      event.preventDefault();
-    }
 
    
     render() {
@@ -46,8 +38,6 @@ const TodoList = (Wrapped) =>
         retrieveTodosForDisplay={this.retrieveTodosForDisplay}
         deleteItemFromList={this.deleteItemFromList}
         updateItemOnList={this.updateItemOnList}
-        handleChange={() => this.handleChange}
-        handleTaskSubmission={this.handleTaskSubmission}
         {...this.state} 
       />;
     }

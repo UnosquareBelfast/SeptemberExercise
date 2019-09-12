@@ -3,13 +3,13 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem, AddNewToDoListItem } from './components';
 import container from './container';
 import { 
-  TodoListTitle, TaskContainer
+  TodoListTitle, TaskContainer, NothingMessage
  } from './styled';
 
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
-    return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
+    return items && items.length>0 ? (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>) : <NothingMessage>Nothing to do</NothingMessage>;
   };
 
   const newTaskBox = () => {
