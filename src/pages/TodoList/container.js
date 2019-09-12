@@ -18,7 +18,9 @@ const TodoList = (Wrapped) =>
 
     retrieveTodosForDisplay = () => {
       retrieveTodoList().then((todoListItems) => {
-        this.setState({ todoListItems, isLoading: false });
+        this.setState({ 
+          todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
+          isLoading: false });
       });
     };
 

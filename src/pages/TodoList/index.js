@@ -12,6 +12,7 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createI
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
   };
 
+
   return (
       <Fragment>
         <TodoListTitle>To Do List</TodoListTitle>

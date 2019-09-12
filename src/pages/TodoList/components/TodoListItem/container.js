@@ -14,8 +14,20 @@ const TodoListItem = (Wrapped) =>
       };  
     };
 
-    saveItem = (id) => {
+    saveItem = (id, title) => {
       console.log('Update clicked' + id);
+
+      updateTodoListItem(id, title).then(() =>{
+        const { isUpdating, title } = this.state;
+        this.setState({
+          isUpdating: !isUpdating,
+          displayText:title
+        })
+        
+      } 
+      
+      )
+
     }
 
     toggleUpdateMode = () => {

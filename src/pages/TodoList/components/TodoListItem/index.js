@@ -13,7 +13,7 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
               <textarea onChange={(event) => onTitleChanged(event)} value={title}></textarea>
             </UpdateTaskTextArea>
             <UpdateButtons>
-              <button onClick={() => saveItem(id)}>Save</button>
+              <button onClick={() => saveItem(id, title)}>Save</button>
               <button onClick={() => toggleUpdateMode()}>Cancel</button>
             </UpdateButtons>
           </Fragment>) :    

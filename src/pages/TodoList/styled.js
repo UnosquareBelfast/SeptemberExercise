@@ -38,13 +38,6 @@ justify-content:space-between;
 
 
 
-export const ToDoItem=styled.div`
-
-background:khaki;
-padding:10px;
-margin:10px 10px 10px 10px;
-`;
-
 export const ItemButtons=styled.div`
   display:flex;
   flex-direction:row;
