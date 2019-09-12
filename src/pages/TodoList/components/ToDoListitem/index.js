@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import container from './container';
 import { TitleContainer, ItemButtons, ToDoItem } from './styled';
 
-export const TodoList = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
+export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
 
 
   return (

@@ -5,7 +5,7 @@ import {
 
  } from './styled';
 
-export const TodoList = ({ deleteItemFromList, isLoading, todoListItems,UpdateItemFromList, handleChange }) => {
+export const TodoList = ({ deleteItemFromList, isLoading, todoListItems,updateTodoListItem, handleChange }) => {
 
   const buildTodoListItems = (items) => {
     return items && items.length > 0 ? (
@@ -15,10 +15,10 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems,UpdateIt
           >
             {x.title}
             <br/>
-            <button onClick={() => deleteItemFromList(x.id)}>Delete</button>
+            <button onClick={() => deleteItemFromList(x.id)}>Delete Maybe?</button>
             <br/>
             <input type="text" id='updatetext' name= "updatedText" onChange={handleChange("updatedText")}></input>
-            <Todobutton><button onClick={() => UpdateItemFromList(x.id,document.getElementById('updatetext').value)}>Update</button></Todobutton>
+            <Todobutton><button onClick={() => updateTodoListItem(x.id,document.getElementById('updatetext').value)}>Update</button></Todobutton>
           </li>
           </TodoListBody>
         ))}

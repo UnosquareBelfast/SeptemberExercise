@@ -46,7 +46,7 @@ const TodoListItem = (Wrapped) =>
       saveItem={this.saveItem}
       toggleUpdateMode={this.toggleUpdateMode}
       onTitleChanged={this.onTitleChanged}
-      />;
+      />
     }
   };
 

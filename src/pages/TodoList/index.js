@@ -14,7 +14,7 @@ import {
 
   return (
     <Fragment>
-    <TodoListTitle>To Do List</TodoListTitle>
+    <TodoListTitle>ToDo List</TodoListTitle>
     <NewTask>
       <TaskTextArea><textarea id='newtasktitle'></textarea></TaskTextArea>
       <AddTaskButton><button onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task </button></AddTaskButton>

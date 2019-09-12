@@ -71,6 +71,7 @@ export const AddTaskButton=styled.div`
   padding-right:10px;
   padding-bottom:7px;
   
+  
 `;
 
 export const TaskTextArea=styled.div`
