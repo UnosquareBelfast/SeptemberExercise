@@ -12,15 +12,6 @@ const TodoListItem = (Wrapped) =>
         title,
       };
     }
-    
-    retrieveTodosForDisplay = () => {
-      retrieveTodoListItem().then((todoListItems) => {
-        todoListItems.sort(function(a, b){
-          return a.id - b.id;
-        });
-        this.setState({ todoListItems, isLoading: false });
-      });
-    };
 
     saveItem = (id) => {
       const { title } = this.state;
