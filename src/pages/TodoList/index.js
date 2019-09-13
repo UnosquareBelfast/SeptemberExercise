@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { TodoListItem } from './components';
+import { AddListItem, TodoListItem } from './components';
 import container from './container';
-import { MyTodoBoard, TodoListTitle, AddTodoArea, AddTodo, AddTaskText, TextArea, AddTaskButton, MyAddButton, MyTodoList } from './styled';
+import { MyTodoBoard, TodoListTitle, MyTodoList } from './styled';
+import { retrieveTodoList } from '../../services/todoService';
 
-export const TodoList = ({ deleteItemFromList, createItemOnList, isLoading, todoListItems, handleChange,  handleTaskSubmission}) => {
+export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (
@@ -12,19 +13,22 @@ export const TodoList = ({ deleteItemFromList, createItemOnList, isLoading, todo
         {items.map(x => (
           <TodoListItem key={x.id} item={x} deleteItem={deleteItem} />)
         )}
-      </MyTodoList>)
+      </MyTodoList>
+    );
   };
+
+  const addListItem = () => {
+    return (
+      <AddListItem retrieveTodosForDisplay={retrieveTodosForDisplay} />
+    )
+  }
 
   return (
     <Fragment>
       <MyTodoBoard>
         <TodoListTitle>Todo List</TodoListTitle>
-        <AddTodoArea>
-          <AddTodo>
-            <AddTaskText><TextArea id='newTaskTitle'></TextArea></AddTaskText>
-            <AddTaskButton><MyAddButton onClick={() => createItemOnList(document.getElementById('newTaskTitle').value)}>Add</MyAddButton></AddTaskButton>
-          </AddTodo>
-        </AddTodoArea>
+        {/* <AddListItem/> */}
+        { addListItem() }
         {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
       </MyTodoBoard>
     </Fragment>
@@ -34,6 +38,7 @@ export const TodoList = ({ deleteItemFromList, createItemOnList, isLoading, todo
 TodoList.propTypes = {
   deleteItemFromList: PT.func.isRequired,
   createItemOnList: PT.func.isRequired,
+  retrieveTodosForDisplay: PT.func.isRequired,
   isLoading: PT.bool.isRequired,
   todoListItems: PT.array.isRequired,
 };
