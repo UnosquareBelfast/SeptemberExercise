@@ -23,11 +23,8 @@ const TodoListItem = (Wrapped) =>
           isUpdating: !isUpdating,
           displayText:title
         })
-        
       } 
-      
       )
-
     }
 
     toggleUpdateMode = () => {
