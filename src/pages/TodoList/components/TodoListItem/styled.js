@@ -11,7 +11,7 @@ export const TitleContainer = styled.div`
 
 `;
 
-export const ItemButtons = styled.div`
+export const ItemButtonsPadding = styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
@@ -25,7 +25,7 @@ export const ToDoItem=styled.div`
   margin:10px 10px 10px 10px;
 `;
 
-export const UpdateButtons=styled.div`
+export const UpdateButtonPadding=styled.div`
   display:flex;
   flex-direction:row;
   justify-content:space-between;
@@ -36,3 +36,20 @@ export const UpdateTaskTextArea=styled.div`
   padding: 5px;
   margin: 2px 2px 2px 8px;
 `;
+
+
+export const DeleteButton=styled.button`
+
+`;
+
+export const UpdateButton=styled.button`
+`;
+
+export const CancelButton=styled.button`
+`;
+
+export const SaveButton=styled.button`
+`;
+
+
+

@@ -26,6 +26,11 @@ export const GlobalStyle = createGlobalStyle`
     padding: 10px;
     background:khaki;
     border-color: black;
+
+    &:hover {
+      background: yellow;
+      border-color: white;
+    }
   }
 
   ul{

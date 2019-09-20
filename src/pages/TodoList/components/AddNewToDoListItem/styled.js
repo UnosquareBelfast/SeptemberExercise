@@ -21,12 +21,6 @@ export const AddTaskButtonPadding=styled.div`
 `;
 
 export const AddTaskButton=styled.button`
- 
-&:hover {
-  background: yellow;
-  border-color: white;
-}
-
 
 `;
 

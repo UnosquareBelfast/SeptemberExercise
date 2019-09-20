@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import { TitleContainer, ItemButtons, ToDoItem, UpdateButtons, UpdateTaskTextArea } from './styled';
+import { TitleContainer, ItemButtonsPadding, ToDoItem, UpdateButtonPadding, UpdateTaskTextArea, DeleteButton, UpdateButton, CancelButton, SaveButton } from './styled';
 
 export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
 
@@ -12,18 +12,18 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
             <UpdateTaskTextArea>
               <textarea onChange={(event) => onTitleChanged(event)} value={title}></textarea>
             </UpdateTaskTextArea>
-            <UpdateButtons>
-            <button onClick={() => toggleUpdateMode()}>Cancel</button>
-              <button onClick={() => saveItem(id, title)}>Save</button>
+            <UpdateButtonPadding>
+            <CancelButton onClick={() => toggleUpdateMode()}>Cancel</CancelButton>
+              <SaveButton onClick={() => saveItem(id, title)}>Save</SaveButton>
               
-            </UpdateButtons>
+            </UpdateButtonPadding>
           </Fragment>) :    
           (<Fragment>
             <TitleContainer>{displayText}</TitleContainer>
-            <ItemButtons>
-              <button onClick={() => deleteItem(id)}>Delete</button>
-              <button onClick={() => toggleUpdateMode()}>Update</button>
-            </ItemButtons>
+            <ItemButtonsPadding>
+              <DeleteButton onClick={() => deleteItem(id)}>Delete</DeleteButton>
+              <UpdateButton onClick={() => toggleUpdateMode()}>Update</UpdateButton>
+            </ItemButtonsPadding>
           </Fragment>)
         }
         </li>
