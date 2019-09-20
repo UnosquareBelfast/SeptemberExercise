@@ -18,6 +18,7 @@ const DeletedItems = (Wrapped) =>
 
     retrieveDeletedTodosForDisplay = () => {
       retrieveDeletedTodoList().then((deletedTodoListItems) => {
+        console.log(deletedTodoListItems);
         this.setState({ 
           deletedTodoListItems: deletedTodoListItems.sort(function(a,b) {return a.id-b.id}),
           isLoading: false });

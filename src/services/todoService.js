@@ -1,4 +1,4 @@
-import instance from '../utilities/Axios';
+import {instance} from '../utilities/Axios';
 
 export const retrieveTodoList = () => {
     return instance.get().then((response) => response.data);
