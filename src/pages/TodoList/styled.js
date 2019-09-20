@@ -6,6 +6,7 @@ export const TodoListTitle = styled.h1`
   text-transform: uppercase;
   text-align: center;
   text-decoration: underline;
+  padding-top:-10px;
 `;
 
 export const AddToDoButtonContainer = styled.a`
@@ -49,5 +50,8 @@ export const NothingMessage = styled.div`
   
 
 `;
+
+
+
 
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {NewTask,AddTaskButton, TaskTextArea} from './styled';
+import {NewTask,AddTaskButtonPadding, TaskTextArea, AddTaskButton} from './styled';
 
 
 export const AddNewToDoListItem = ({ title, onNewTaskBoxChange, addNewTask }) => {
@@ -12,9 +12,10 @@ export const AddNewToDoListItem = ({ title, onNewTaskBoxChange, addNewTask }) =>
           <textarea onChange={(event) => onNewTaskBoxChange(event)} value={title}></textarea>
           
           </TaskTextArea>
-          <AddTaskButton>
-          <button onClick={() => addNewTask(title)}> Add Task </button>
-          </AddTaskButton>
+          <AddTaskButtonPadding>
+            
+          <AddTaskButton onClick={() => addNewTask(title)}> Add Task </AddTaskButton>
+          </AddTaskButtonPadding>
     </NewTask>
     </Fragment>
  );

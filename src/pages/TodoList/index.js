@@ -6,6 +6,7 @@ import {
   TodoListTitle, TaskContainer, NothingMessage
  } from './styled';
 
+
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
@@ -19,9 +20,12 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
 
   return (
       <Fragment>
+
+        
         <TodoListTitle>To Do List</TodoListTitle>
         {newTaskBox()}
         {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
+        
       </Fragment>
   );
 };
