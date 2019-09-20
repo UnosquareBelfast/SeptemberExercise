@@ -11,8 +11,8 @@ const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpda
       {isUpdating ? (
         <Fragment>
           <input type='text' onChange={(event) => onTitleChanged(event)} value={title}></input> 
-          <button onClick={() => saveItem(id,title)}>Save</button>
-          <button onClick={() => toggleUpdateMode()}>Cancel</button>
+          <ItemButton onClick={() => saveItem(id,title)}>Save</ItemButton>
+          <ItemButton onClick={() => toggleUpdateMode()}>Cancel</ItemButton>
         </Fragment>) :    
         (<Fragment>
           <TitleContainer>{displayText}</TitleContainer>

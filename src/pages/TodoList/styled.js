@@ -8,6 +8,16 @@ export const TodoListTitle = styled.h1`
   text-decoration: underline;
 `;
 
+export const TodoNavBar = styled.button`
+  color: white;
+  border-color: white; 
+  background: black;
+  display:flex;
+  font-size: 20px;
+  text-align: center;
+  
+`;
+
 export const TodoAdd = styled.div`
   color: white;
   font-size: 45px;
@@ -56,4 +66,7 @@ export const ItemButton=styled.button`
   padding-right: 10px;
 `;
 
-
+export const CheckoutButton=styled.button`
+  display:flex;
+  text-align: center;
+`;

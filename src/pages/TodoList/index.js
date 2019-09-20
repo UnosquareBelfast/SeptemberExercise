@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
+import { Link } from "react-router-dom";
 import container from './container';
 import { 
-  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton
+  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton,TodoNavBar
  } from './styled';
 
  export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList }) => {
@@ -14,13 +15,16 @@ import {
 
   return (
     <Fragment>
-    <TodoListTitle>ToDo List</TodoListTitle>
+      <TodoListTitle>To do's</TodoListTitle>
+      <TodoNavBar ><Link to='/about/'>About us</Link></TodoNavBar>
     <TodoAdd>
       <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
       <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>
     </TodoAdd>
     {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
+    
   </Fragment>
+    
       
   );
 };

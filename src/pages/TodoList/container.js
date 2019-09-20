@@ -23,17 +23,25 @@ const TodoList = (Wrapped) =>
     };
 
     deleteItemFromList = (id) => {
-      deleteTodoListItem(id).then(() => {
-        const { todoListItems } = this.state;
+    deleteTodoListItem(id).then(() => {
+       const { todoListItems } = this.state;
         this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
       });
     };
+
+    deleteAllItemsFromList = (id) => {
+      deleteTodoListItem(id).then(() => {
+         const { todoListItems } = this.state;
+          this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
+        });
+      };
 
     createItemOnList = (title) => {
       createTodoListItem(title).then(() => {
         this.retrieveTodosForDisplay();
       })
     }
+
     render() {
       return <Wrapped 
       deleteItemFromList={this.deleteItemFromList}
