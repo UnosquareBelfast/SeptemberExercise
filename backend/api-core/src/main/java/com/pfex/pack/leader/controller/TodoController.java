@@ -1,7 +1,9 @@
 package com.pfex.pack.leader.controller;
 
+import com.pfex.pack.leader.model.DeletedTodos;
 import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.TodoRepository;
+import com.pfex.pack.leader.service.DeletedTodosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,8 @@ public class TodoController {
 
     @Autowired
     private TodoRepository repository;
+    @Autowired
+    private  DeletedTodosService deletedTodosService;
 
     @PostMapping
     public Todos createTools(@RequestBody Todos todoModel) {
@@ -33,7 +37,6 @@ public class TodoController {
             return ResponseEntity.notFound().build();
         }
     }
-
 
     @GetMapping()
     public ResponseEntity allTodos() {
@@ -66,14 +69,13 @@ public class TodoController {
 //    }
 
     @DeleteMapping("{id}")
-    public void deleteTodos(@PathVariable Integer id) {
-        repository.deleteById(id);
-    }
+    public ResponseEntity deleteTodos(@PathVariable Integer id) {
+        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(id);
+        if (response.isPresent()) {
+            return ResponseEntity.ok(response.get());
+        }
 
-    @DeleteMapping("DeleteAll")
-    public void deleteTodos() {
-        repository.deleteAll();
-        ResponseEntity.ok("Deleted");
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping("{id}")

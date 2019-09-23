@@ -1,10 +1,7 @@
 package com.pfex.pack.leader.model;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -15,12 +12,13 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "deletedtodos")
 public class DeletedTodos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name="seq",sequenceName="deletedtodos_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy=GenerationType.AUTO,generator="seq")
     private Integer id;
-    @NotNull
     private String title;
 
 }

@@ -10,8 +10,10 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class DeletedTodosService {
+
     private final DeletedTodoRepository deletedTodoRepository;
     private final TodoRepository todoRepository;
+
     public Optional<DeletedTodos> createDeletedTodo(Integer id){
         Optional<Todos> optionalTodos = todoRepository.findById(id);
         if(!optionalTodos.isPresent()) {

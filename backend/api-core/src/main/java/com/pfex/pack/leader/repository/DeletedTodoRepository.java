@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface DeletedTodoRepository extends JpaRepository<DeletedTodos,Integer>{
-    List<DeletedTodos> findAllByTitle(String title);
 }
