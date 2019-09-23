@@ -19,11 +19,29 @@ export const TodoListTitle = styled.h1`
   margin-bottom: 0px;
 `;
 
-export const MyTodoList = styled.div`
+export const MyDeletedTodoList = styled.div`
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
   padding: 10px;
+`;
+
+export const MyDeletedTodoNotes = styled.div`
+  width: 250px;
+  height: 200px;
+  background-color: #F6D55C;
+  border: 1px solid grey;
+  box-shadow: 5px 7.5px #888888;
+  padding: 10px;
+  margin: 20px;
+`;
+
+export const MyDeletedTodos = styled.div`
+  display: flex;
+  justify-content: center;
+  font: bold 30px arial, sans-serif;
+  color: #333333;
+  padding: 10px 0px;
 `;
 
 export const MyNavBar = styled.div`

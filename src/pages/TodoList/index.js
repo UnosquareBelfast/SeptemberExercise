@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
 import { AddListItem, TodoListItem } from './components';
 import container from './container';
-import { MyTodoBoard, TodoListTitle, MyTodoList } from './styled';
-import { retrieveTodoList } from '../../services/todoService';
+import { Link } from 'react-router-dom';
+import { MyTodoBoard, TodoListTitle, MyTodoList, MyNavBar, MyNavButtons } from './styled';
 
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems }) => {
 
@@ -27,7 +27,10 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
     <Fragment>
       <MyTodoBoard>
         <TodoListTitle>Todo List</TodoListTitle>
-        {/* <AddListItem/> */}
+        <MyNavBar>
+          <MyNavButtons><Link to='/about/'>About Us</Link></MyNavButtons>
+          <MyNavButtons><Link to='/deleted/'>Deleted</Link></MyNavButtons>
+        </MyNavBar>
         { addListItem() }
         {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
       </MyTodoBoard>

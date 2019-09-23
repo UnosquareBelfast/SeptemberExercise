@@ -19,13 +19,6 @@ export const TodoListTitle = styled.h1`
   margin-bottom: 0px;
 `;
 
-export const MyTodoList = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-  padding: 10px;
-`;
-
 export const MyNavBar = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -41,4 +34,12 @@ export const MyNavBar = styled.div`
   justify-content: space-between;
   border-right: 2px grey solid;
   padding: 10px;
+`;
+
+export const aboutUsText = styled.div`
+  display: flex;
+  justify-content: center;
+  font: bold 30px arial, sans-serif;
+  color: #333333;
+  padding: 10px 0px;
 `;
