@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { 
   TodoListTitle,
   TodoNavBar,
-  TodoAdd
-
+  TodoAdd,
+  DeleteToDo
  } from './styled';
 
  export const DeletedLog = ({isLoading,DeletedListItems}) => {
@@ -15,9 +15,9 @@ import {
       <ul>
         {items.map(x=>
           (
-            <li key={x.id}>
+            <DeleteToDo key={x.id}>
               {x.title}
-            </li>
+            </DeleteToDo>
           ))}
       </ul>): 'No Dice';
   }

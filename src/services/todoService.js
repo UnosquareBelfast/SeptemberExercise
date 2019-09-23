@@ -19,6 +19,6 @@ export const createTodoListItem = (title) => {
 };
 
 export const deleteTodoListItem = (id) => {
-    return instance.delete(`${id}`).then((response) => response.data);
+    return instance.delete(`todos/${id}`).then((response) => response.data);
 };
 

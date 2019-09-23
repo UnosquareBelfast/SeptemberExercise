@@ -15,25 +15,16 @@ export const TodoNavBar = styled.button`
   font-size: 20px;
 `;
 
-export const TodoTextBox = styled.h2`
-color: white;
-font-size: 25px;
-text-align: center;
-text-decoration: underline;
-`;
-
-
-export const TodoAddButton = styled.button`
-  color: white;
-  background: black;
-  font-size: 30px;
-  text-transform: uppercase;
-  text-align: center;
-`;
 
 export const TodoAdd = styled.div`
   color: white;
   font-size: 45px;
   text-transform: uppercase;
+  text-align: center;
+`;
+
+
+export const DeleteToDo = styled.li`
+  color: white;
   text-align: center;
 `;
