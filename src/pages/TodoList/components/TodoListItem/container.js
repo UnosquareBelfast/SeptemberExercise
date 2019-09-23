@@ -16,15 +16,19 @@ const TodoListItem = (Wrapped) =>
 
     saveItem = (id, title) => {
       console.log('Update clicked' + id);
-
-      updateTodoListItem(id, title).then(() =>{
-        const { isUpdating, title } = this.state;
-        this.setState({
-          isUpdating: !isUpdating,
-          displayText:title
-        })
-      } 
-      )
+      (title.length<2 || title.length>30) ?
+        alert("To do item must be between 2 and 30 characters in length")
+      :   updateTodoListItem(id, title).then(() =>{
+          const { isUpdating, title } = this.state;
+          this.setState({
+            isUpdating: !isUpdating,
+            displayText:title
+          })
+        } 
+        )
+        
+      
+      
     }
 
     toggleUpdateMode = () => {
@@ -39,6 +43,7 @@ const TodoListItem = (Wrapped) =>
       this.setState({
         title: event.target.value,
       });
+
       console.log(event.target.value);
     }
 

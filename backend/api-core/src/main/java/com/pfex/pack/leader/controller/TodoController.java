@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("todos")
 @RequiredArgsConstructor
@@ -22,7 +24,7 @@ public class TodoController {
 
 
     @PostMapping
-    public Todos createTodo(@RequestBody Todos todosModel) {
+    public Todos createTodo(@Valid @RequestBody Todos todosModel) {
         return repository.save(todosModel);
     }
 
@@ -47,7 +49,7 @@ public class TodoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity updateTodos(@PathVariable Integer id, @RequestBody Todos todos) {
+    public ResponseEntity updateTodos(@Valid @PathVariable Integer id, @RequestBody Todos todos) {
         // Use the ID from path variable
         todos.setId(id);
 
