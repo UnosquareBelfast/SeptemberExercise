@@ -23,8 +23,6 @@ const AddNewToDoListItem = (Wrapped) =>
 
       (title.length<2 || title.length>30) ?
         alert("To do item must be between 2 and 30 characters in length") :
-      
-        console.log('New task title: '+title);
       createTodoListItem(title).then(()=>{
         const { retrieveTodosForDisplay } = this.props;
         this.setState({

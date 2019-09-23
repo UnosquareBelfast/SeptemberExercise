@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TitleContainer = styled.div`
+export const DeletedTitleContainer = styled.div`
   text-align:center;
   margin:10px 10px 10px 10px;
   width:200px;
