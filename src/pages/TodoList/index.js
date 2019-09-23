@@ -17,6 +17,7 @@ import {
     <Fragment>
       <TodoListTitle>To do's</TodoListTitle>
       <TodoNavBar ><Link to='/about/'>About us</Link></TodoNavBar>
+      <TodoNavBar ><Link to='/DeletedLog/'>DeletedLog</Link></TodoNavBar>
     <TodoAdd>
       <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
       <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>

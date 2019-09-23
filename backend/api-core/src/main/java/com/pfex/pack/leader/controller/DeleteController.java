@@ -14,10 +14,9 @@ import java.util.List;
 @RestController
 @RequestMapping("deletedtodos")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class DeleteController {
 
-    private final DeletedTodosService service;
+    private final DeletedTodosService servicegi;
 
     @Autowired
     private final DeletedTodoRepository deleteRepo;
