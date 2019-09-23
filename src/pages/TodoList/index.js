@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { TodoListItem, AddNewToDoListItem } from './components';
+import { TodoListItem, AddNewToDoListItem,SearchBar } from './components';
 import container from './container';
 import { 
   TodoListTitle, TaskContainer, NothingMessage
@@ -17,13 +17,20 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
     return (<AddNewToDoListItem retrieveTodosForDisplay={retrieveTodosForDisplay}></AddNewToDoListItem>)
   };
 
+  const searchBox = () => {
+    return (<SearchBar></SearchBar>)
+  }
+
 
   return (
       <Fragment>
 
         
         <TodoListTitle>To Do List</TodoListTitle>
+
+        
         {newTaskBox()}
+        {searchBox()}
         {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
         
       </Fragment>

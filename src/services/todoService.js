@@ -21,3 +21,7 @@ export const createTodoListItem = (title) => {
 export const deleteTodoListItem = (id) => {
     return instance.delete(`${id}`).then((response) => response.data);
 };
+
+export const searchToDoListItems = (title) =>{
+    return instance.get(`/${title}`).then((response) => response.data);
+}
