@@ -28,8 +28,13 @@ const SearchBar = (Wrapped) =>
     (searchTerm<2) ?
     alert("Please enter a search term ") :
     searchToDoListItems(searchTerm).then((results) => { 
-      (results.length===0)? alert("No to do tasks match this search"): 
-      this.props.setDisplayItems(results);
+      if(results.length===0){
+        alert("No to do tasks match this search");
+      }else{
+        this.props.setDisplayItems(results);
+        this.clearButtonVisible();
+      }
+      
       console.log(searchTerm+": searched for");
       console.log(results);
     });
