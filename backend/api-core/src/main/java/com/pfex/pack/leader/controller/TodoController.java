@@ -18,6 +18,7 @@ public class TodoController {
 
     @Autowired
     private TodoRepository repository;
+
     @Autowired
     private  DeletedTodosService deletedTodosService;
 
@@ -30,11 +31,9 @@ public class TodoController {
     public ResponseEntity getTodosById(@PathVariable Integer id) {
         Optional<Todos> response = repository.findById(id);
 
-        if (response.isPresent()) {
-            return ResponseEntity.ok(response.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return response.isPresent() ?
+                ResponseEntity.ok(response.get()) :
+                ResponseEntity.notFound().build();
     }
 
     @GetMapping()
@@ -73,9 +72,18 @@ public class TodoController {
         if (response.isPresent()) {
             return ResponseEntity.ok(response.get());
         }
-
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/recover/{id}")
+    public ResponseEntity recoverTodos(@PathVariable Integer id) {
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(id);
+
+        return response.isPresent() ?
+                ResponseEntity.ok(response.get()) :
+                ResponseEntity.notFound().build();
+    }
+
 
     @PutMapping("{id}")
     public ResponseEntity updateTest(@PathVariable Integer id, @RequestBody @Valid Todos todoModel) {

@@ -8,7 +8,7 @@ import {
   DeleteToDo
  } from './styled';
 
- export const DeletedLog = ({isLoading,DeletedListItems}) => {
+ export const DeletedLog = ({isLoading,DeletedListItems,removeDeletedTodoListItem}) => {
 
   const buildDeletedListItems = (items) => {
     return items && items.length>0 ? (
@@ -16,7 +16,7 @@ import {
         {items.map(x=>
           (
             <DeleteToDo key={x.id}>
-              {x.title}
+              {x.title} <button onClick= {() => removeDeletedTodoListItem(x.id)} >Recover</button>
             </DeleteToDo>
           ))}
       </ul>): 'No Dice';
