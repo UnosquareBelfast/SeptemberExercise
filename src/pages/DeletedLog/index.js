@@ -5,7 +5,8 @@ import {
   TodoListTitle,
   TodoNavBar,
   TodoAdd,
-  DeleteToDo
+  DeleteToDo,
+  NumberOfTodo
  } from './styled';
 
  export const DeletedLog = ({isLoading,DeletedListItems,removeDeletedTodoListItem}) => {
@@ -22,6 +23,10 @@ import {
       </ul>): 'No Dice';
   }
 
+  const numberOfDeletedObjects = (items) => {
+    return items.length;
+  }
+
 
   return (
     <Fragment>
@@ -30,6 +35,7 @@ import {
         <TodoNavBar ><Link to='/'>home</Link></TodoNavBar>
       </TodoAdd>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}
+      <NumberOfTodo>Number of deleted Todos: {numberOfDeletedObjects(DeletedListItems)}</NumberOfTodo>
   </Fragment>
   );
 };

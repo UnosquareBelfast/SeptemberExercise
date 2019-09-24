@@ -20,7 +20,7 @@ public class DeletedTodosService {
             return Optional.empty();
         }
         Todos todos = optionalTodos.get();
-        DeletedTodos deletedTodos = new DeletedTodos(todos.getId(), todos.getTitle());
+        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
         DeletedTodos response = deletedTodoRepository.save(deletedTodos);
         if (response != null) {
             todoRepository.deleteById(todos.getId());
@@ -37,7 +37,7 @@ public class DeletedTodosService {
             return Optional.empty();
         }
         DeletedTodos RecoverTodos = optionalDeletedTodos.get();
-        Todos recoveredTodos = new Todos(RecoverTodos.getId(), RecoverTodos.getTitle());
+        Todos recoveredTodos = new Todos(RecoverTodos.getTodoId(), RecoverTodos.getTitle());
         Todos response = todoRepository.save(recoveredTodos);
 
         if (response != null) {

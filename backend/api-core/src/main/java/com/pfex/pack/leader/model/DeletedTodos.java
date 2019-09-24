@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name = "deletedtodos")
 public class DeletedTodos {
-
     @Id
     @SequenceGenerator(name="seq",sequenceName="deletedtodos_id_seq", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.AUTO,generator="seq")
     private Integer id;
+    private Integer todoId;
     private String title;
 
 }

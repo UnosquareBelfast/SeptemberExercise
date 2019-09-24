@@ -15,7 +15,6 @@ export const TodoNavBar = styled.button`
   font-size: 20px;
 `;
 
-
 export const TodoAdd = styled.div`
   color: white;
   font-size: 45px;
@@ -23,6 +22,10 @@ export const TodoAdd = styled.div`
   text-align: center;
 `;
 
+export const NumberOfTodo = styled.div`
+  color: white;
+  text-align: center;
+`;
 
 export const DeleteToDo = styled.li`
   color: white;
