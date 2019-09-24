@@ -9,6 +9,7 @@ const SearchBar = (Wrapped) =>
       
       this.state = {
         searchTerm: '',
+        buttonHidden: true,
       };
     };
 
@@ -35,9 +36,13 @@ const SearchBar = (Wrapped) =>
   };
 
   clearButtonVisible = () =>{
+
+    const {buttonHidden} =this.state;
     this.setState({
-     
+      buttonHidden: false
     })
+
+    console.log(buttonHidden);
     
   }
 
@@ -54,9 +59,10 @@ const SearchBar = (Wrapped) =>
 
        
     render() {
-      const {searchTerm}=this.state;
+      const {searchTerm, buttonHidden}=this.state;
       return <Wrapped 
         searchTerm={searchTerm}
+        buttonHidden={buttonHidden}
         clearButtonVisible={this.clearButtonVisible}
         searchTermProvided={this.searchTermProvided}
         searchForToDoListItem={this.searchForToDoListItem}
