@@ -67,12 +67,10 @@ public class TodoController {
     @GetMapping("search")
     public ResponseEntity searchTodos(@Valid @RequestParam String title) {
         List<Todos> response = repository.findAllByTitleContainsIgnoreCase(title);
-        if (response.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        } else {
+
             return ResponseEntity.ok(response);
         }
-    }
+
 
     @GetMapping
     public ResponseEntity allTodos() {
