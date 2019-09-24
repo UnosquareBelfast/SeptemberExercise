@@ -10,9 +10,7 @@ export const DeletedItems = ({ deletedTodoListItems, isLoading }) => {
       <MyDeletedTodoList>
         {items.map( x => (
           <MyDeletedTodoNotes>
-            <li key={x.id}>
-              <MyDeletedTodos>{x.title}</MyDeletedTodos>
-            </li>
+            <MyDeletedTodos key={x.id}>{x.title}</MyDeletedTodos>
           </MyDeletedTodoNotes>
           ))}
       </MyDeletedTodoList>
