@@ -59,7 +59,6 @@ const SearchBar = (Wrapped) =>
   }
 
   clearButtonInvisible = () => {
-    const {buttonHidden} =this.state;
     this.setState({
       buttonHidden: true
     })

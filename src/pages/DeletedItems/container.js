@@ -25,12 +25,13 @@ const DeletedItems = (Wrapped) =>
       });
     };
 
-
   
 
     render() {
       
       return <Wrapped 
+      //recoverDeletedTodoListItem = {this.recoverDeletedTodoListItem}
+      retrieveDeletedTodosForDisplay={this.retrieveDeletedTodosForDisplay}
       {...this.state} 
       />;
     }

@@ -81,4 +81,12 @@ public class TodoController {
             return ResponseEntity.ok(response);
         }
     }
+
+    @GetMapping("/recover/{id}")
+    public ResponseEntity recoverTodos(@PathVariable Integer id){
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(id);
+        return response.isPresent() ?
+                ResponseEntity.ok(response.get()) :
+                ResponseEntity.notFound().build();
+    }
 }

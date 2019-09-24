@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {DeletedTitleContainer, OneDeletedTask, DeletedContainer} from './styled';
+import {DeletedContainer} from './styled';
+import {DeletedItem} from './components';
 
 
 
@@ -12,10 +13,7 @@ export const DeletedItems = ({isLoading, deletedTodoListItems}) => {
     <ul>
       <DeletedContainer>
       {allDeletedItems.map(y=>
-          (<OneDeletedTask><li key={y.id}>
-             <DeletedTitleContainer>{y.title} </DeletedTitleContainer>
-           </li>
-           </OneDeletedTask> 
+          (<DeletedItem key={y.id} item={y}></DeletedItem>
            ))}
        </DeletedContainer>   
     </ul>) : 'Nothing Deleted yet';
