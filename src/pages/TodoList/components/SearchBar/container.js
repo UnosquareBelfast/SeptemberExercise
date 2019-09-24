@@ -30,13 +30,33 @@ const SearchBar = (Wrapped) =>
     });
   };
 
+  clearButtonVisible = () =>{
+    this.setState({
+     
+    })
+    
+  }
+
+  clearSearchResults = () => {
+    const { retrieveTodosForDisplay } = this.props;
+    this.setState({
+      searchTerm: ''
+    }, () => { retrieveTodosForDisplay() });
+  }
+
+
+
+
+
        
     render() {
       const {searchTerm}=this.state;
       return <Wrapped 
         searchTerm={searchTerm}
+        clearButtonVisible={this.clearButtonVisible}
         searchTermProvided={this.searchTermProvided}
         searchForToDoListItem={this.searchForToDoListItem}
+        clearSearchResults={this.clearSearchResults}
       />;
     }
   };

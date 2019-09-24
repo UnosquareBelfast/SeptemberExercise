@@ -28,6 +28,15 @@ export const SearchButton=styled.button`
 `;
 
 
+export const ClearButton = styled.button`
+   
+`;
+
+export const ClearButtonPadding=styled.div`
+  text-align:right;
+  padding-right:20px;
+`;
+
 
 
 

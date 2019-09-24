@@ -18,7 +18,7 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
   };
 
   const searchBox = () => {
-    return (<SearchBar setDisplayItems={setDisplayItems} />)
+    return (<SearchBar setDisplayItems={setDisplayItems} retrieveTodosForDisplay={retrieveTodosForDisplay} />)
   };
 
   // const searchResults=(results)=>{

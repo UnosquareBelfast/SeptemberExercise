@@ -1,17 +1,24 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {SearchBox, SearchTitle, SearchSection, SearchButton} from './styled';
+import {SearchBox, SearchTitle, SearchSection, SearchButton, ClearButton, ClearButtonPadding} from './styled';
 
-export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem}) => {
+export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem, clearSearchResults}) => {
   return (
 
     <Fragment>
 
       <SearchSection>
       <SearchTitle>Search To Do List</SearchTitle>
-      <SearchBox onChange={(event)=> searchTermProvided(event)}  value={searchTerm} placeholder="Search...."></SearchBox>
+      <SearchBox value={searchTerm} placeholder="Search...." onChange={(event)=> searchTermProvided(event)}  ></SearchBox>
       <SearchButton onClick={() => searchForToDoListItem(searchTerm)}>Search</SearchButton>
+     
+      
       </SearchSection>
+
+      <ClearButtonPadding>
+
+      <ClearButton onClick={() => clearSearchResults()}>Clear Search Results</ClearButton>
+      </ClearButtonPadding>
       
     </Fragment>
     
