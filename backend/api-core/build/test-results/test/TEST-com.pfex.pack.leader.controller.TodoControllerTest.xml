@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pfex.pack.leader.controller.TodoControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-09-20T15:44:38" hostname="BEL-LT-190902B" time="0.066">
+  <properties/>
+  <testcase name="whenGetTodosByIdCalledThenExpectTodosReturnsNotFound" classname="com.pfex.pack.leader.controller.TodoControllerTest" time="0.065"/>
+  <testcase name="whenGetTodosByIdCalledThenExpectTodosReturnedOk" classname="com.pfex.pack.leader.controller.TodoControllerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
