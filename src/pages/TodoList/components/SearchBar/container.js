@@ -53,6 +53,13 @@ const SearchBar = (Wrapped) =>
     }, () => { retrieveTodosForDisplay() });
   }
 
+  clearButtonInvisible = () => {
+    const {buttonHidden} =this.state;
+    this.setState({
+      buttonHidden: true
+    })
+  }
+
 
 
 
@@ -67,6 +74,7 @@ const SearchBar = (Wrapped) =>
         searchTermProvided={this.searchTermProvided}
         searchForToDoListItem={this.searchForToDoListItem}
         clearSearchResults={this.clearSearchResults}
+        clearButtonInvisible={this.clearButtonInvisible}
       />;
     }
   };

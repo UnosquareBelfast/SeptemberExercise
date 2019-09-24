@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import container from './container';
 import {SearchBox, SearchTitle, SearchSection, SearchButton, ClearButton, ClearButtonPadding} from './styled';
 
-export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem, clearSearchResults, clearButtonVisible, buttonHidden}) => {
+export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem, clearSearchResults, clearButtonVisible, buttonHidden, clearButtonInvisible}) => {
   return (
 
     <Fragment>
@@ -12,14 +12,14 @@ export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem
       <SearchBox value={searchTerm} placeholder="Search...." onChange={(event)=> searchTermProvided(event)}  ></SearchBox>
       <SearchButton onClick={() => {searchForToDoListItem(searchTerm); clearButtonVisible()}}>Search</SearchButton>
 
-      {!buttonHidden ? <button>Hello new button</button> :<div>It didn't workjdjdjdjdjdjddjdjj</div>}
+      {!buttonHidden ? 
+      <ClearButtonPadding> 
+        <ClearButton onClick={() => {clearSearchResults(); clearButtonInvisible()}}>Clear Search Results</ClearButton>
+      </ClearButtonPadding> :<div>Button failure</div>}
       
       </SearchSection>
 
-      <ClearButtonPadding>
-
-      <ClearButton onClick={() => clearSearchResults()}>Clear Search Results</ClearButton>
-      </ClearButtonPadding>
+      
       
     </Fragment>
     
