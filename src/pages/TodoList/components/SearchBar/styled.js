@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const SearchBox=styled.input`
     width:400px;
+    height:29px;
 `;
 
 export const SearchTitle=styled.div`
@@ -20,6 +21,11 @@ export const SearchSection=styled.div`
   text-align:center;
   
   `;
+
+export const SearchButton=styled.button`
+
+
+`;
 
 
 

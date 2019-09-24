@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TodoRepository extends JpaRepository<Todos, Integer> {
     List<Todos> findAllByTitle(String title);
-    List<Todos> findAllByTitleContains(String title);
+    List<Todos> findAllByTitleContainsIgnoreCase(String title);
 }

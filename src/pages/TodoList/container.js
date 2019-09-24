@@ -18,9 +18,7 @@ const TodoList = (Wrapped) =>
 
     retrieveTodosForDisplay = () => {
       retrieveTodoList().then((todoListItems) => {
-        this.setState({ 
-          todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
-          isLoading: false });
+        this.setDisplayItems(todoListItems);
       });
     };
 
@@ -31,6 +29,13 @@ const TodoList = (Wrapped) =>
       });
     };
 
+    setDisplayItems = (todoListItems) => {
+      this.setState({ 
+        todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
+        isLoading: false 
+      });
+    };
+
     
    
     render() {
@@ -38,6 +43,7 @@ const TodoList = (Wrapped) =>
         retrieveTodosForDisplay={this.retrieveTodosForDisplay}
         deleteItemFromList={this.deleteItemFromList}
         updateItemOnList={this.updateItemOnList}
+        setDisplayItems={this.setDisplayItems}
         {...this.state} 
       />;
     }

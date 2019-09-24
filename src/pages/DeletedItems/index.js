@@ -1,21 +1,21 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {DeletedTitleContainer, DeletedTask, DeletedContainer} from './styled';
+import {DeletedTitleContainer, OneDeletedTask, DeletedContainer} from './styled';
 
 
 
 
 export const DeletedItems = ({isLoading, deletedTodoListItems}) => {
 
-  const buildDeletedTodoListItems = (items) => {
-    return items && items.length>0 ? (
+  const buildDeletedTodoListItems = (allDeletedItems) => {
+    return allDeletedItems && allDeletedItems.length>0 ? (
     <ul>
       <DeletedContainer>
-      {items.map(x=>
-          (<DeletedTask><li key={x.id}>
-             <DeletedTitleContainer>{x.title} </DeletedTitleContainer>
+      {allDeletedItems.map(y=>
+          (<OneDeletedTask><li key={y.id}>
+             <DeletedTitleContainer>{y.title} </DeletedTitleContainer>
            </li>
-           </DeletedTask> 
+           </OneDeletedTask> 
            ))}
        </DeletedContainer>   
     </ul>) : 'Nothing Deleted yet';
@@ -25,7 +25,6 @@ export const DeletedItems = ({isLoading, deletedTodoListItems}) => {
     <Fragment>
 
     <div>Deleted Items</div>
-    <div></div>
     {isLoading ? 'Loading....' : buildDeletedTodoListItems(deletedTodoListItems) }
 
     </Fragment>

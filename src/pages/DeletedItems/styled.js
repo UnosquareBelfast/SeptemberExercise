@@ -11,8 +11,7 @@ export const DeletedTitleContainer = styled.div`
 
 `;
 
-
-export const DeletedTask=styled.div`
+export const OneDeletedTask=styled.div`
 
   justify-content:space-between;
   background:khaki;
