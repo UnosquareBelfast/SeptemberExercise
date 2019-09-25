@@ -37,11 +37,13 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
   return (
     <Fragment>
       <CenterDiv>
+        <Link to='/about/'><button >About Us</button></Link>
+        <Link to='/archive/'><button >Archive</button></Link>
         <TodoListTitle>Todo List</TodoListTitle>
         {SearchTodoItems()}
         {AddTodoListItems()}
         <ToDoCard>{isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}</ToDoCard>
-        <Link to='/about/'><button >About Us</button></Link>
+        
       </CenterDiv>
     </Fragment>
   );

@@ -26,10 +26,13 @@ const TodoList = (Wrapped) =>
     };
 
     setDisplayItems = (todoListItems) => {
+      if(todoListItems){
       this.setState({
         todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
         isLoading: false
-      });
+      });  
+      }
+      return null;
     };
 
     deleteItemFromList = (id) => {

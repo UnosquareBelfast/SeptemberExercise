@@ -10,7 +10,6 @@ const AddToDo = (Wrapped) =>
     };
 
     handleSubmit = (event) => {
-      console.log(this.state.taskValue);
       const { retrieveTodosForDisplay } = this.props;
       let title = this.state.taskValue;
       createTodoListItem(title).then(() => {
