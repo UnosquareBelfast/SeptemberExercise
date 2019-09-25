@@ -25,7 +25,7 @@ import {
     {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
     <TodoAdd>
       <textarea id='searchbar'></textarea>
-      <TodoAddButton variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</TodoAddButton>
+      <button variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</button>
       </TodoAdd>
     
   </Fragment>

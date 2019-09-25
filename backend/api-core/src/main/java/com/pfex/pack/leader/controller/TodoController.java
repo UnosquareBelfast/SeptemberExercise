@@ -56,13 +56,16 @@ public class TodoController {
 
     }
 
-    @GetMapping("/search/{id}")
+    @GetMapping("/search")
     public ResponseEntity searchTodos(@RequestParam String title) {
         List<Todos> response = repository.findAllByTitle(title);
         if (response.isEmpty()) {
+            System.out.println("Found");
             return ResponseEntity.notFound().build();
         } else {
+            System.out.println("Not Found");
             return ResponseEntity.ok(response);
+
         }
     }
 

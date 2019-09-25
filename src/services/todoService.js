@@ -8,8 +8,8 @@ export const retrieveTodoListItem = (id) => {
     return instance.get(`todos/${id}`).then((response) => response.data);
 };
 
-export const searchForTodoListItem = (id) => {
-    return instance.get(`todos/search/${id}`).then((response) => response.data);
+export const searchForTodoListItem = (title) => {
+    return instance.get(`todos/search?title=${title}`).then((response) => response.data);
 };
 
 export const updateTodoListItem = (id, title) => {

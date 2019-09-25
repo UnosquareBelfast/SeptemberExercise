@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoList, deleteTodoListItem, createTodoListItem,searchForTodoListItem } from '../../services/todoService';
+import { retrieveTodoList, deleteTodoListItem, createTodoListItem, searchForTodoListItem } from '../../services/todoService';
 
 const TodoList = (Wrapped) =>
   class extends React.Component {
@@ -9,6 +9,7 @@ const TodoList = (Wrapped) =>
         todoListItems: [],
         isLoading: true,
         value:'',
+        Found: false,
       };
     }
 
@@ -18,16 +19,16 @@ const TodoList = (Wrapped) =>
 
     retrieveTodosForDisplay = () => {
       retrieveTodoList().then((todoListItems) => {
-        this.setState({ todoListItems, isLoading: false });
+        this.setTodoListItems(todoListItems);
       });
     };
 
     searchForTodoList = (title) => {
-      searchForTodoListItem(title).then(() => {
-        this.retrieveTodosForDisplay()
-      })
+      searchForTodoListItem(title).then((todoListItems) => { 
+        this.setTodoListItems(todoListItems);
+      });
+    };
 
-    }
     deleteItemFromList = (id) => {
     deleteTodoListItem(id).then(() => {
        const { todoListItems } = this.state;
@@ -48,12 +49,17 @@ const TodoList = (Wrapped) =>
       })
     }
 
+    setTodoListItems = (todoListItems) => {
+      console.log(todoListItems);
+      this.setState({ todoListItems, isLoading: false });
+    }
+    
     render() {
       return <Wrapped 
       deleteItemFromList={this.deleteItemFromList}
       UpdateItemFromList={this.UpdateItemFromList}
       createItemOnList={this.createItemOnList}
-      searchForTodoList={this.createItemOnList}
+      searchForTodoList={this.searchForTodoList}
       {...this.state} 
       />;
     }
