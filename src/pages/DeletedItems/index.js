@@ -6,14 +6,15 @@ import {DeletedItem} from './components';
 
 
 
-export const DeletedItems = ({isLoading, deletedTodoListItems}) => {
+export const DeletedItems = ({isLoading, deletedTodoListItems, restoreDeletedTodoListItem}) => {
 
-  const buildDeletedTodoListItems = (allDeletedItems) => {
+  const buildDeletedTodoListItems = (allDeletedItems, restoreItem) => {
     return allDeletedItems && allDeletedItems.length>0 ? (
     <ul>
       <DeletedContainer>
       {allDeletedItems.map(y=>
-          (<DeletedItem key={y.id} item={y}></DeletedItem>
+          (<DeletedItem key={y.id} item={y} restoreItem={restoreItem}>            
+          </DeletedItem>
            ))}
        </DeletedContainer>   
     </ul>) : 'Nothing Deleted yet';
@@ -23,11 +24,12 @@ export const DeletedItems = ({isLoading, deletedTodoListItems}) => {
     <Fragment>
 
     <div>Deleted Items</div>
-    {isLoading ? 'Loading....' : buildDeletedTodoListItems(deletedTodoListItems) }
+    {isLoading ? 'Loading....' : buildDeletedTodoListItems(deletedTodoListItems, restoreDeletedTodoListItem) }
 
     </Fragment>
  );
 };
+
 
 
 export default container(DeletedItems);

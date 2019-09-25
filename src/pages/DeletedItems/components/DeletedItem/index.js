@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import container from './container';
 import { DeleteTitle,DeleteItem,RestoreButton } from './styled';
 
-export const DeletedItem = ({title}) => {
+export const DeletedItem = ({title, id, restoreItem}) => {
 
   return (
     <DeleteItem>
@@ -10,8 +10,8 @@ export const DeletedItem = ({title}) => {
       <li>
           <Fragment>
             
-              <DeleteTitle>{title}</DeleteTitle>
-              <RestoreButton>Restore</RestoreButton>
+              <DeleteTitle>{title} {id}</DeleteTitle>
+              <RestoreButton onClick = {() => restoreItem(id)}>Restore</RestoreButton>
           </Fragment>
           </li>
     </DeleteItem>

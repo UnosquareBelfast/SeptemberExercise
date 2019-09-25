@@ -6,8 +6,6 @@ import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Service
@@ -24,7 +22,7 @@ public class DeletedTodosService {
         }
 
         Todos todos = optionalTodos.get();
-        DeletedTodos deletedTodos = new DeletedTodos(todos.getId(), todos.getTitle());
+        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
         DeletedTodos response = deletedTodoRepository.save(deletedTodos);
         if (response != null) {
             todoRepository.deleteById(todos.getId());
@@ -34,6 +32,7 @@ public class DeletedTodosService {
     }
 
     public Optional<DeletedTodos> findById(Integer id) {
+
         return deletedTodoRepository.findById(id);
     }
 
@@ -43,7 +42,7 @@ public class DeletedTodosService {
             return Optional.empty();
         }
         DeletedTodos RecoverTodos = optionalDeletedTodos.get();
-        Todos recoveredTodos = new Todos(RecoverTodos.getId(), RecoverTodos.getTitle());
+        Todos recoveredTodos = new Todos(RecoverTodos.getTodoId(), RecoverTodos.getTitle());
         Todos response = todoRepository.save(recoveredTodos);
 
         if(response!=null){

@@ -18,6 +18,8 @@ public class DeletedTodos {
     @SequenceGenerator(name="seq",sequenceName="deletedtodos_id_seq", allocationSize = 1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     private Integer id;
+    @Column(name = "todoid")
+    private Integer todoId;
     private String title;
 
 }

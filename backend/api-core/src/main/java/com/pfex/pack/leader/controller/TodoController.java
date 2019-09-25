@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import com.pfex.pack.leader.service.DeletedTodosService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,11 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("todos")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
 
+    @Autowired
     private final TodoRepository repository;
+    @Autowired
     private final DeletedTodosService deletedTodosService;
 
 

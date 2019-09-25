@@ -6,6 +6,7 @@ import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.service.DeletedTodosService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,11 +16,11 @@ import java.util.Optional;
 @RestController
 @RequestMapping("deletedtodos")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
 public class DeletedTodoController {
 
     private final DeletedTodosService service;
 
+    @Autowired
     private final DeletedTodoRepository deleteRepo;
 
 //    @GetMapping("{id}")
