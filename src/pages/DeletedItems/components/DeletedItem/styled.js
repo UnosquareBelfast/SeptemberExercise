@@ -16,13 +16,17 @@ export const DeleteItem=styled.div`
   background:khaki;
   padding:10px;
   margin:10px 10px 10px 10px;
+
 `;
 
 
 export const RestoreButton=styled.button`
-
+  
 `;
 
+export const RestoreButtonPadding=styled.div`
+  text-align:center;
+`;
 
 
 
