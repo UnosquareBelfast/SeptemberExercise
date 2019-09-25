@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoList, deleteTodoListItem, createTodoListItem } from '../../services/todoService';
+import { retrieveTodoList, deleteTodoListItem, createTodoListItem,searchForTodoListItem } from '../../services/todoService';
 
 const TodoList = (Wrapped) =>
   class extends React.Component {
@@ -22,6 +22,12 @@ const TodoList = (Wrapped) =>
       });
     };
 
+    searchForTodoList = (title) => {
+      searchForTodoListItem(title).then(() => {
+        this.retrieveTodosForDisplay()
+      })
+
+    }
     deleteItemFromList = (id) => {
     deleteTodoListItem(id).then(() => {
        const { todoListItems } = this.state;
@@ -47,6 +53,7 @@ const TodoList = (Wrapped) =>
       deleteItemFromList={this.deleteItemFromList}
       UpdateItemFromList={this.UpdateItemFromList}
       createItemOnList={this.createItemOnList}
+      searchForTodoList={this.createItemOnList}
       {...this.state} 
       />;
     }

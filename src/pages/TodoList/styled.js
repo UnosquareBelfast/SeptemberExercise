@@ -66,7 +66,10 @@ export const ItemButton=styled.button`
   padding-right: 10px;
 `;
 
-export const CheckoutButton=styled.button`
-  display:flex;
-  text-align: center;
+export const SearchButton=styled.button`
+
+background: white;
+height: 50px;
+width: 5%;
 `;
+

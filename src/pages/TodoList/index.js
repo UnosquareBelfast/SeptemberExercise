@@ -4,10 +4,10 @@ import { TodoListItem } from './components';
 import { Link } from "react-router-dom";
 import container from './container';
 import { 
-  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton,TodoNavBar
+  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton,TodoNavBar,SearchButton
  } from './styled';
 
- export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList }) => {
+ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,searchForTodoList }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
@@ -23,6 +23,10 @@ import {
       <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>
     </TodoAdd>
     {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
+    <TodoAdd>
+      <textarea id='searchbar'></textarea>
+      <TodoAddButton variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</TodoAddButton>
+      </TodoAdd>
     
   </Fragment>
     

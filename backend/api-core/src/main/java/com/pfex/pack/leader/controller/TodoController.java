@@ -56,15 +56,15 @@ public class TodoController {
 
     }
 
-//    @GetMapping
-//    public ResponseEntity searchTodos(@RequestParam String title) {
-//        List<Todos> response = repository.findAllByTitle(title);
-//        if (response.isEmpty()) {
-//            return ResponseEntity.notFound().build();
-//        } else {
-//            return ResponseEntity.ok(response);
-//        }
-//    }
+    @GetMapping("/search/{id}")
+    public ResponseEntity searchTodos(@RequestParam String title) {
+        List<Todos> response = repository.findAllByTitle(title);
+        if (response.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(response);
+        }
+    }
 
     @DeleteMapping("{id}")
     public ResponseEntity deleteTodos(@PathVariable Integer id) {

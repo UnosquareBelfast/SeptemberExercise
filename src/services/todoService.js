@@ -8,7 +8,9 @@ export const retrieveTodoListItem = (id) => {
     return instance.get(`todos/${id}`).then((response) => response.data);
 };
 
-
+export const searchForTodoListItem = (id) => {
+    return instance.get(`todos/search/${id}`).then((response) => response.data);
+};
 
 export const updateTodoListItem = (id, title) => {
     const todoItem = { title: title };
