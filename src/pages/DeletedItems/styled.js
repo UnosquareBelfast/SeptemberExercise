@@ -19,6 +19,23 @@ export const TodoListTitle = styled.h1`
   margin-bottom: 0px;
 `;
 
+export const MyNavBar = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  background-color: #e4e4e4;
+  border-left: 2px grey solid;
+  border-right: 2px grey solid;
+  border-bottom: 2px grey solid;
+  font: bold 20px arial, sans-serif;
+  `;
+  
+  export const MyNavButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-right: 2px grey solid;
+  padding: 10px;
+`;
+
 export const MyDeletedTodoList = styled.div`
   display: flex;
   justify-content: center;
@@ -44,19 +61,13 @@ export const MyDeletedTodos = styled.div`
   padding: 10px 0px;
 `;
 
-export const MyNavBar = styled.div`
+export const MyDeleteActions = styled.div`
   display: flex;
-  justify-content: flex-start;
-  background-color: #e4e4e4;
-  border-left: 2px grey solid;
-  border-right: 2px grey solid;
-  border-bottom: 2px grey solid;
-  font: bold 20px arial, sans-serif;
-  `;
-  
-  export const MyNavButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-right: 2px grey solid;
-  padding: 10px;
+  justify-content: center;
+  height: 20%;
+  padding-bottom: 10px;
+`;
+
+export const MyDeleteButton = styled.button`
+  font: bold 15px arial, sans-serif;
 `;

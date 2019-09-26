@@ -14,7 +14,7 @@ export const AboutUs = () => {
           <MyNavButtons><Link to='/deleted/'>Deleted</Link></MyNavButtons>
         </MyNavBar>
         <aboutUsText>
-          {Ah you think React is your ally? You merely adopted JavaScript. I was born in it, molded by it. I didnt see a good JS Framework until I was already a man, by then it was nothing to me but Error 404s!}
+          Ah you think React is your ally? You merely adopted JavaScript. I was born in it, molded by it. I didnt see a good JS Framework until I was already a man, by then it was nothing to me but Error 404s!
         </aboutUsText>
         <aboutUsText>
           "You could not live with your own failure. And where did that bring you? Back to me. I thought by eliminating half of life, the other half would thrive, but you've shown me... that's impossible. As long as there are those that remember what was, there will always be those that are unable to accept what can be. They will resist."

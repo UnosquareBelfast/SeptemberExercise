@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveDeletedTodoList } from '../../services/deleteTodoService'
+import { retrieveDeletedTodoList, recoverTodoListItem } from '../../services/deleteTodoService'
 
 const DeletedItems = (Wrapped) =>
   class extends React.Component {
@@ -24,8 +24,15 @@ const DeletedItems = (Wrapped) =>
       });
     };
 
+    removeDeletedTodoListItem = (id) => {
+      recoverTodoListItem(id).then(() => {
+        this.retrieveDeletedTodosForDisplay()
+      });
+    };
+
     render() {
-      return <Wrapped 
+      return <Wrapped
+        removeDeletedTodoListItem = {this.removeDeletedTodoListItem} 
         {...this.state} 
       />;
     }

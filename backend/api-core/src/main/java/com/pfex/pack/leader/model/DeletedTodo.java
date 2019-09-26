@@ -15,9 +15,8 @@ import java.io.Serializable;
 @Table(name = "deletedtodos")
 public class DeletedTodo implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "seq", sequenceName = "deletedtodos_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
     private Integer id;
     private String title;
 }
-
-

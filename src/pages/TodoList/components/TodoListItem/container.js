@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveTodoListItem, updateTodoListItem } from '../../../../services/todoService'
+import { updateTodoListItem } from '../../../../services/todoService'
 
 const TodoListItem = (Wrapped) =>
   class extends React.Component {

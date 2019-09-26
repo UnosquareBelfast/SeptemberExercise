@@ -6,25 +6,36 @@ const AddListItem = (Wrapped) =>
     constructor(props) {
       super(props);
       this.state = {
-        title:'',
       };
     }
     
-    addItemToList = (title) => {
+    // addItemToList = (title) => {
+    //   createTodoListItem(title).then(() => {
+    //     const { retrieveTodosForDisplay } = this.props;
+    //     this.setState({
+    //       title:''
+    //     }, () => { retrieveTodosForDisplay() } );
+    //   });
+    // };
+
+    handleSubmit = (event) => {
+      const { retrieveTodosForDisplay } = this.props;
+      let title = this.state.taskValue;
       createTodoListItem(title).then(() => {
-        const { retrieveTodosForDisplay } = this.props;
-        this.setState({
-          title:''
-        }, () => { retrieveTodosForDisplay() } );
+        retrieveTodosForDisplay();
       });
-    };
+      event.preventDefault();
+    }
+
+    handleChange = (event) => {
+      this.setState({taskValue: event.target.value});
+    }
 
     render() {
-      const { title } = this.state;
       return <Wrapped 
-      title = {title}
-      addItemToList={this.addItemToList}
-      {...this.state}
+        handleChange={() => this.handleChange}
+        handleSubmit={() => this.handleSubmit}
+        {...this.state}
       />;
     }
   };

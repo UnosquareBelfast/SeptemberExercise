@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import container from './container';
 import { AddTodoArea, AddTodo, AddTaskText, TextArea, AddTaskButton, MyAddButton } from './styled';
 

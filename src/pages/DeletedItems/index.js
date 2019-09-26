@@ -1,16 +1,19 @@
 import React, { Fragment } from 'react';
 import container from './container';
 import { Link } from 'react-router-dom';
-import { MyTodoBoard, TodoListTitle, MyDeletedTodoList, MyDeletedTodoNotes, MyDeletedTodos, MyNavBar, MyNavButtons } from './styled';
+import { MyTodoBoard, TodoListTitle, MyNavBar, MyNavButtons, MyDeletedTodoList, MyDeletedTodoNotes, MyDeletedTodos, MyDeleteActions, MyDeleteButton } from './styled';
 
-export const DeletedItems = ({ deletedTodoListItems, isLoading }) => {
+export const DeletedItems = ({ deletedTodoListItems, removeDeletedTodoListItem, isLoading }) => {
 
   const buildDeletedTodoListItems = (items) => {
     return items && items.length>0 ? (
       <MyDeletedTodoList>
         {items.map( x => (
-          <MyDeletedTodoNotes>
-            <MyDeletedTodos key={x.id}>{x.title}</MyDeletedTodos>
+          <MyDeletedTodoNotes key={x.id}>
+            <MyDeleteActions>
+              <MyDeleteButton onClick={() => removeDeletedTodoListItem(x.id)}>Recover</MyDeleteButton>
+            </MyDeleteActions>
+            <MyDeletedTodos>{x.title}</MyDeletedTodos>
           </MyDeletedTodoNotes>
           ))}
       </MyDeletedTodoList>

@@ -8,6 +8,8 @@ import { MyTodoBoard, TodoListTitle, MyTodoList, MyNavBar, MyNavButtons } from '
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
+    if(items.length === 0)
+    return 
     return (
       <MyTodoList>
         {items.map(x => (
@@ -40,10 +42,9 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
 
 TodoList.propTypes = {
   deleteItemFromList: PT.func.isRequired,
-  createItemOnList: PT.func.isRequired,
   retrieveTodosForDisplay: PT.func.isRequired,
-  isLoading: PT.bool.isRequired,
   todoListItems: PT.array.isRequired,
+  isLoading: PT.bool.isRequired,
 };
 
 export default container(TodoList);

@@ -4,9 +4,9 @@ import com.pfex.pack.leader.model.DeletedTodo;
 import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.TodoRepository;
 import com.pfex.pack.leader.service.DeleteTodosService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +14,6 @@ import java.util.Optional;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("todos")
-@CrossOrigin(origins = "http://localhost:3000")
 public class TodoController {
 
     private final TodoRepository repository;
@@ -59,18 +58,25 @@ public class TodoController {
     }
 
     @GetMapping
-    public List<Todos> getCallTodos() {
-        return repository.findAll();
+    public ResponseEntity getCallTodos() {
+        List<Todos> response = repository.findAll();
+        if (response.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(response);
+        }
     }
 
-//    @DeleteMapping
-//    public ResponseEntity deleteTodos(@PathVariable Integer id) {
-//        Optional<DeletedTodo> response = deleteTodosService.createDeletedTodo(id);
-//        if(response.isPresent())
-//            return ResponseEntity.ok(response.get());
-//
-//        return ResponseEntity.notFound().build();
-//    }
+    @GetMapping("/recover/{id}")
+    public ResponseEntity recoverTodo(@PathVariable Integer id) {
+        Optional<Todos> response = deleteTodosService.RecoverDeletedTodos(id);
+
+        if(response.isPresent()){
+            return ResponseEntity.ok(response.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 //    @GetMapping("search")
 //    public ResponseEntity searchTodos(@RequestParam String title) {

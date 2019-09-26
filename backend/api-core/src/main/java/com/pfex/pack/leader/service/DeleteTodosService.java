@@ -12,6 +12,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class DeleteTodosService{
+
     private final DeleteTodoRepository deleteTodoRepository;
     private final TodoRepository todoRepository;
 
@@ -26,6 +27,22 @@ public class DeleteTodosService{
 
         if(response != null)
             todoRepository.deleteById(todos.getId());
+
+        return Optional.ofNullable(response);
+    }
+
+    public Optional<Todos> RecoverDeletedTodos(Integer id) {
+        Optional<DeletedTodo> optionalDeleteTodo = deleteTodoRepository.findById(id);
+
+        if(!optionalDeleteTodo.isPresent())
+            return Optional.empty();
+
+        DeletedTodo RecoverTodos = optionalDeleteTodo.get();
+        Todos recoveredTodos = new Todos(RecoverTodos.getId(), RecoverTodos.getTitle());
+        Todos response = todoRepository.save(recoveredTodos);
+
+        if(response != null)
+            deleteTodoRepository.deleteById(RecoverTodos.getId());
 
         return Optional.ofNullable(response);
     }
