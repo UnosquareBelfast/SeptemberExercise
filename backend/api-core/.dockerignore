@@ -1,8 +1,7 @@
-.dockerignore
-DockerFile
 .idea
 .gradle
 build
+.dockerignore
 .gitignore
 *.md
-.git
+Dockerfile

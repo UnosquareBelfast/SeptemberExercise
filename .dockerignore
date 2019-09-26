@@ -1,0 +1,10 @@
+.git
+backend
+Migrations
+node_modules
+.dockerignore
+.gitignore
+docker-compose.yaml
+Dockerfile
+*.md
+npm-debug.log
