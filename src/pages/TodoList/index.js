@@ -7,7 +7,7 @@ import {
   TodoListTitle, TodoAdd,TaskContainer,TodoAddButton,TodoNavBar,SearchButton
  } from './styled';
 
- export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,searchForTodoList }) => {
+ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,searchForTodoList,retrieveTodosForDisplay }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
@@ -27,7 +27,7 @@ import {
       <textarea id='searchbar'></textarea>
       <button variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</button>
       </TodoAdd>
-    
+      <button variant="outline-primary" onClick={() => retrieveTodosForDisplay()}> Refresh</button>
   </Fragment>
     
       

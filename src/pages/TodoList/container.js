@@ -60,6 +60,7 @@ const TodoList = (Wrapped) =>
       UpdateItemFromList={this.UpdateItemFromList}
       createItemOnList={this.createItemOnList}
       searchForTodoList={this.searchForTodoList}
+      retrieveTodosForDisplay={this.retrieveTodosForDisplay}
       {...this.state} 
       />;
     }
