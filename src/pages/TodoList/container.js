@@ -29,14 +29,12 @@ const TodoList = (Wrapped) =>
       });
     };
 
-    handleChange(event){
-      this.setState({value: event.target.value});
-    }
-
-    handleTaskSubmission(event){
-      alert('New Task Added' + this.state.value);
-      event.preventDefault();
-    }
+    deleteAllItemsFromList = (id) => {
+      deleteTodoListItem(id).then(() => {
+         const { todoListItems } = this.state;
+          this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
+        });
+      };
     
     createItemOnList = (title) => {
       alert(title);
@@ -48,10 +46,8 @@ const TodoList = (Wrapped) =>
     render() {
       return <Wrapped 
         deleteItemFromList={this.deleteItemFromList}
-        updateItemOnList={this.updateItemOnList}
+        updateItemOnList={this.UpdateItemFromList}
         createItemOnList={this.createItemOnList}
-        handleChange={() => this.handleChange}
-        handleTaskSubmission={this.handleTaskSubmission}
         {...this.state} 
       />;
     }

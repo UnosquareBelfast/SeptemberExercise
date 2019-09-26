@@ -21,8 +21,9 @@ padding-right: 10px;
 
 export const ToDoItem = styled.div`
 position: static;
-background: Purple;
+background: Deepskyblue;
 padding: 10px;
 margin: 10px 10px 10px 10px
 border: 1px solid white;
+text-align: center;
 `;

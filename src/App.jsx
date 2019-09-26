@@ -5,6 +5,7 @@ import { GlobalStyle, theme } from './theme';
 import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { AboutUs, TodoList } from './pages'
 
+
 class App extends React.Component {
   static propTypes = {
     theme: PT.object,
