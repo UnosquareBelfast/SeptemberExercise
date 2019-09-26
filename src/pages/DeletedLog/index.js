@@ -3,8 +3,8 @@ import container from './container';
 import { Link } from "react-router-dom";
 import { 
   TodoListTitle,
-  TodoNavBar,
-  TodoAdd,
+  LinkButton,
+  RecoverButton,
   DeleteToDo,
   NumberOfTodo
  } from './styled';
@@ -17,7 +17,7 @@ import {
         {items.map(x=>
           (
             <DeleteToDo key={x.id}>
-              {x.title} <button onClick= {() => removeDeletedTodoListItem(x.id)} >Recover</button>
+              {x.title} <RecoverButton onClick= {() => removeDeletedTodoListItem(x.id)} >Recover</RecoverButton>
             </DeleteToDo>
           ))}
       </ul>): 'No Dice';
@@ -31,9 +31,7 @@ import {
   return (
     <Fragment>
       <TodoListTitle>DeleteLog</TodoListTitle>
-      <TodoAdd>
-        <TodoNavBar ><Link to='/'>home</Link></TodoNavBar>
-      </TodoAdd>
+        <LinkButton ><Link to='/'>home</Link></LinkButton>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}
       <NumberOfTodo>Number of deleted Todos: {numberOfDeletedObjects(DeletedListItems)}</NumberOfTodo>
   </Fragment>
