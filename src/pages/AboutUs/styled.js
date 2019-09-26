@@ -4,7 +4,8 @@ export const TodoListTitle = styled.h1`
   color: white;
   font-size: 45px;
   text-transform: uppercase;
-  text-align: center;
+  text-align: flex-start;
+  background: #3B8CF3;
   text-decoration: underline;
 `;
 export const TodoNavBar = styled.button`
@@ -19,6 +20,7 @@ export const TodoTextBox = styled.h2`
 color: white;
 font-size: 25px;
 text-align: center;
+background: #3B8CF3;
 text-decoration: underline;
 `;
 
@@ -30,18 +32,8 @@ border-radius: 50%
 height: 250px;
 width: 250px;
 `;
-
-export const TodoAddButton = styled.button`
-  color: white;
-  background: black;
-  font-size: 30px;
-  text-transform: uppercase;
-  text-align: center;
-`;
-
-export const TodoAdd = styled.div`
-  color: white;
-  font-size: 45px;
-  text-transform: uppercase;
-  text-align: center;
+export const LinkButton = styled.div`
+font-size: 30px;
+border-bottom: 6px solid #3B8CF3;
+background-color: lightgrey;
 `;

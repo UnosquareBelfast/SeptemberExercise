@@ -3,10 +3,9 @@ import container from './container';
 import { Link } from "react-router-dom";
 import { 
   TodoListTitle,
-  TodoNavBar,
   TodoTextBox,
   TodoImage,
-  TodoAdd
+  LinkButton
 
  } from './styled';
 
@@ -16,9 +15,7 @@ import {
   return (
     <Fragment>
     <TodoListTitle>About us</TodoListTitle>
-    <TodoAdd>
-    <TodoNavBar ><Link to='/'>home</Link></TodoNavBar>
-    </TodoAdd>
+    <LinkButton><Link to='/'>home</Link></LinkButton>
     <TodoTextBox> Hello! My name is Toby and i made this lovely website. Please do not sue Alison, i have no money... </TodoTextBox>
     <TodoImage src={require('./Toby.jpg')} />
   
