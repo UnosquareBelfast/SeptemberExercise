@@ -24,8 +24,7 @@ const SearchBar = (Wrapped) =>
 
     
   searchForToDoListItem = (searchTerm) => {
-
-    (searchTerm<2) ?
+    (searchTerm.length<2) ?
     alert("Please enter a search term ") :
     searchToDoListItems(searchTerm).then((results) => { 
       if(results.length===0){
@@ -34,9 +33,9 @@ const SearchBar = (Wrapped) =>
         this.props.setDisplayItems(results);
         this.clearButtonVisible();
       }
-      
       console.log(searchTerm+": searched for");
       console.log(results);
+      
     });
   };
 
