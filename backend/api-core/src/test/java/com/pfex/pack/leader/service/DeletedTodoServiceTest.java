@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
-public class DeletedTodoService {
+public class DeletedTodoServiceTest {
 
     @Mock
     private TodoRepository todoRepository;
