@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro';
 
 export const TodoListTitle = styled.h1`
-margin-top: 1em;
   color: ${({ theme }) => theme.colours.title};
   font-size: 30px;
   text-transform: uppercase;

@@ -38,12 +38,13 @@ const TodoListItem = (Wrapped) =>
 
     render() {
       const { isUpdating, title, displayText } = this.state;
-      const { deleteItem, item: { id }} = this.props;
+      const { deleteItem, item: { id,date_added }} = this.props;
 
       return <Wrapped 
         id={id}
         deleteItem={deleteItem}
         title={title}
+        date_added={date_added}
         displayText={displayText}
         isUpdating={isUpdating}
         saveItem={this.saveItem}

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import { ToDoAddTaskBox } from './styled';
+import { ToDoAddTaskBox,AddTextArea } from './styled';
 
 export const AddToDo = ({ handleSubmit,taskValue,handleChange }) => {
   return (
@@ -8,7 +8,7 @@ export const AddToDo = ({ handleSubmit,taskValue,handleChange }) => {
         <Fragment>
           <ToDoAddTaskBox>
       <h1>Add New Task</h1>
-        <textarea value={taskValue} onChange={handleChange(taskValue)}></textarea>
+        <AddTextArea value={taskValue} onChange={handleChange(taskValue)} ></AddTextArea>
       { <button onClick={handleSubmit()}>Add</button>}
       </ToDoAddTaskBox>
         </Fragment>)

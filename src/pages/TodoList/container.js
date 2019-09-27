@@ -17,18 +17,21 @@ const TodoList = (Wrapped) =>
     }
 
     retrieveTodosForDisplay = () => {
+      
       retrieveTodoList().then((todoListItems) => {
         todoListItems.sort(function (a, b) {
-          return a.id - b.id;
+          console.log(a.date_added)
+          return a.date_added - b.date_added;
         });
         this.setState({ todoListItems, isLoading: false });
       })
     };
 
     setDisplayItems = (todoListItems) => {
+      
       if(todoListItems){
       this.setState({
-        todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
+        todoListItems: todoListItems.sort(function(a,b) {return (a.date_added-b.date_added)}),
         isLoading: false
       });  
       }

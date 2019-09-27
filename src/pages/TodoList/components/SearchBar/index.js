@@ -5,8 +5,7 @@ export const SearchBar = ({ searchText,handleChange }) => {
   return (
     
         <Fragment>
-        <span>Search: </span>
-        <input onChange={handleChange(searchText)} type='text'></input>
+        <input placeholder=' Search...' onChange={handleChange(searchText)} type='text'></input>
         </Fragment>)
       
 };

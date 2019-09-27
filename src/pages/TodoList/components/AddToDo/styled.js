@@ -22,8 +22,8 @@ export const ToDoAddTaskBox = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 border-radius: 5px;
 padding: 20px 20px 20px 20px;
-min-width: 250px;
-max-width: 300px;
+min-width: 400px;
+max-width: 500px;
 text-align: center;
 display:block;
 margin: 0 auto;
@@ -48,3 +48,13 @@ float:right;
 export const EditButton = styled.button`
 float: right;
      `;
+
+     export const AddTextArea = styled.textarea`
+    display: block;
+    margin: 0 auto;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+    min-height: 100px;
+    min-width: 300px;
+    margin-bottom: 1em;
+`;

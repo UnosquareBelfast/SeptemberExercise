@@ -3,8 +3,8 @@ import container from './container';
 import { 
   TodoListTitle, StyledDiv, CenterDiv
  } from './styled';
- import { Link } from 'react-router-dom';
 import { ToDoCard } from '../TodoList/components/ToDoListItem/styled';
+import { GenNavBar } from '../Components/GenNavBar'
 
   export const Archive = ({isLoading,DeletedListItems,removeDeletedTodoListItem}) => {
 
@@ -24,7 +24,7 @@ import { ToDoCard } from '../TodoList/components/ToDoListItem/styled';
 
   return (
     <Fragment>
-      <Link to='/'><button >Back</button></Link>
+      <GenNavBar></GenNavBar>
       <TodoListTitle>Deleted Tasks</TodoListTitle>
       <CenterDiv>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}

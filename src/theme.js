@@ -37,18 +37,9 @@ export const GlobalStyle = createGlobalStyle`
     background-color: palevioletred;
     color: white;
   }
-  textarea{
-    display: block;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
-    min-height: 100px;
-    min-width: 300px;
-    margin-bottom: 1em;
-  }
   input{
     border: 2px solid palevioletred;
     border-radius: 3px;
-    margin-bottom: 1em;
     min-height:1.5em;
   }
   div{

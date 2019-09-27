@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import container from './container';
 import { DeleteButton, EditButton, ToDoCard, CardRight,CardLeft } from './styled';
+import Moment from 'react-moment';
+import 'moment-timezone';
 
-export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
+export const TodoListItem = ({ id, title, date_added, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, onTitleChanged }) => {
   return (
     <li key={id}>
       {isUpdating ? (
@@ -19,6 +21,7 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
             
             <CardLeft>
           {title}
+          <p><Moment format="DD/MM/YYYY">{date_added}</Moment></p>
           </CardLeft>
 
 

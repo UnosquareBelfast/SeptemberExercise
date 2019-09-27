@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
 import { TodoListItem, AddToDo, SearchBar } from './components';
+import { GenNavBar } from '../Components/GenNavBar'
 import container from './container';
 import {
   TodoListTitle, ToDoCard, CenterDiv, Modal, StyledDiv
 } from './styled';
-import { Link } from 'react-router-dom';
 
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems, setDisplayItems }) => {
 
@@ -22,25 +22,23 @@ export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoadin
     }
   };
 
+  const buildNavBar = () => {
+    return (<GenNavBar setDisplayItems={setDisplayItems} showSearch={true}></GenNavBar>)
+  };
+
   const AddTodoListItems = () => {
     return (
       <AddToDo retrieveTodosForDisplay={retrieveTodosForDisplay}></AddToDo>
     )
   };
 
-  const SearchTodoItems = () => {
-    return (
-      <SearchBar setDisplayItems={setDisplayItems}></SearchBar>
-    )
-  };
+
 
   return (
     <Fragment>
       <CenterDiv>
-        <Link to='/about/'><button >About Us</button></Link>
-        <Link to='/archive/'><button >Archive</button></Link>
+        {buildNavBar()}
         <TodoListTitle>Todo List</TodoListTitle>
-        {SearchTodoItems()}
         {AddTodoListItems()}
         <ToDoCard>{isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}</ToDoCard>
         
