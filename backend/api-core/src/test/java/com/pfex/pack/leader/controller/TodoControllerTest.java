@@ -148,6 +148,29 @@ public class TodoControllerTest {
         assertEquals(newTodo,listOfTodos.get(3));
     }
 
+//    @Test
+//    public void searchingForTodoAndFound() {
+//        // Arrange
+//        when(repository.findAllByTitle("test 1")).thenReturn(listOfTodos.get(1).getTitle());
+//        // Act
+//        ResponseEntity response = controller.searchTodos("test 1");
+//
+//        //Assert
+//        assertEquals(listOfTodos.get(1),response.getBody());
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//
+//    }
+//
+//    @Test
+//    public void searchingForTodoAndNotFound() {
+//        // Arrange
+//
+//        // Act
+//
+//        //Assert
+//
+//    }
+
 
 
 
