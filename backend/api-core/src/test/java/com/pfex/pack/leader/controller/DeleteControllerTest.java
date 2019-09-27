@@ -42,7 +42,7 @@ public class DeleteControllerTest {
         }
     }
     @Test
-    public void whenGetAllTodosIsCalledAndIsValid() {
+    public void whenGetAllDeletedTodosIsCalledAndIsValid() {
         // Arrange
         when(repository.findAll()).thenReturn(listOfDeletedTodos);
 
@@ -54,6 +54,22 @@ public class DeleteControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         System.out.println(response);
         System.out.println(listOfDeletedTodos);
+    }
+
+    @Test
+    public void whenGetAllDeletedTodosIsCalledAndIsEmpty() {
+        // Arrange
+        listOfDeletedTodos.clear();
+        when(repository.findAll()).thenReturn(listOfDeletedTodos);
+
+        // Act
+        ResponseEntity response = controller.allDeletedTodos();
+
+        //Assert
+        assertEquals(null,response.getBody());
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+
+
     }
 
 
