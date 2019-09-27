@@ -134,34 +134,19 @@ public class TodoControllerTest {
 
     }
 
-//    @Test
-//    public void whenDeletingAToDo() {
-//        // Arrange
-//        Integer ToDoID = 1;
-//        Todos newToDo = new Todos(ToDoID, "Title Be Here");
-//        when(repository.delete(ToDoID)).thenReturn(ToDosSize);
-//        // Act
-//
-//        //Assert
-//
-//    }
-//
-//    @Test
-//    public void whenDeletingAEmptyToDo() {
-//        // Arrange
-//
-//        // Act
-//
-//        //Assert
-//    }
+    @Test
+    public void SavingNewTodo() {
 
-//    @Test
-//    public void creatingANewToDo() {
-//        int ToDoID = 1;
-//        Todos newToDo = new Todos(ToDoID, "Title Be Here");
-//        when(controller.createTools(newToDo)).thenReturn(listOfTodos.add(newToDo));
-//
-//    }
+        // Arrange
+        Todos newTodo = new Todos(8,"I'm new here");
+        when(repository.save(newTodo)).thenReturn(newTodo);
+
+        // Act
+        listOfTodos.add(controller.createTodos(newTodo));
+
+        //Assert
+        assertEquals(newTodo,listOfTodos.get(3));
+    }
 
 
 

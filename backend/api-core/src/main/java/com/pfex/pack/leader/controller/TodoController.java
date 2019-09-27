@@ -23,7 +23,7 @@ public class TodoController {
     private  DeletedTodosService deletedTodosService;
 
     @PostMapping
-    public Todos createTools(@RequestBody Todos todoModel) {
+    public Todos createTodos(@RequestBody Todos todoModel) {
         return repository.save(todoModel);
     }
 
