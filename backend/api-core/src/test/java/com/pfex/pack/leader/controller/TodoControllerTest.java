@@ -3,15 +3,11 @@ package com.pfex.pack.leader.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
-
 import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.TodoRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +18,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.junit.Assert.*;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
