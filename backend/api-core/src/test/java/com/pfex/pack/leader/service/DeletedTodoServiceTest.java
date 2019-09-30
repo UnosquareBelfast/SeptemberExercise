@@ -5,6 +5,7 @@ import com.pfex.pack.leader.model.DeletedTodos;
 import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.repository.TodoRepository;
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -59,6 +61,25 @@ public class DeletedTodoServiceTest {
         verify(todoRepository).deleteById(todos.getId());
     }
 
+    @Test
+    public void givenInvalidIdWhenCreatedDeletedTodo(){
+
+        DeletedTodos deletedTodos = new DeletedTodos(null, null, null);
+        //arrange
+        when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
+        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
+
+        //Act
+        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(null);
+
+        //Assert
+        assertThat(response.isPresent());
+        assertEquals(response, Optional.empty());
+
+    }
+
+
+
 
     @Test
     public void givenValidDeletedTodoThenExpectRecoveredDeletedTodo(){
@@ -74,7 +95,6 @@ public class DeletedTodoServiceTest {
 
 
         //ACT
-
         Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(createdDeletedTodos.getId());
 
         //Assert
@@ -82,6 +102,25 @@ public class DeletedTodoServiceTest {
         assertThat(response.get()).isEqualTo(todos);
 
         verify(deletedTodoRepository).deleteById(recoveredTodos.getId());
+    }
+
+    @Test
+    public void givenInvalidDeletedTodoThenNoRecovery(){
+
+        Todos recoveredTodos = new Todos(null, null);
+        DeletedTodos createdDeletedTodos = new DeletedTodos(null, null, null);
+
+        //Arrange
+        when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.empty());
+        when(todoRepository.save(recoveredTodos)).thenReturn(null);
+
+        //ACT
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(createdDeletedTodos.getId());
+        System.out.println(response);
+
+        //Assert
+        assertThat(response.isPresent());
+        assertEquals(response, Optional.empty());
     }
 
 }
