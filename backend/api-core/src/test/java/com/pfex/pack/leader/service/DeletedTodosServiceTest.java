@@ -104,7 +104,18 @@ public class DeletedTodosServiceTest {
         verify(deletedTodoRepository).deleteById(deletedTodos.getId());
     }
 
+    @Test
+    public void UnableToRecoverTodoFromDeleteDatabaseNotAbleToFindDeleteToDoTestReturnEmpty() {
+        // Arrange
+        DeletedTodos todos = new DeletedTodos(1, null,"title");
+        when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.empty());
 
+        // Act
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(todos.getId());
+        // Assert
+        assertThat(response).isNotPresent();
+        System.out.print(response);
+    }
 
 
 
