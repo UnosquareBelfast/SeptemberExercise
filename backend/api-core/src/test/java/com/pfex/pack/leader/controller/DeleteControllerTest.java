@@ -50,10 +50,9 @@ public class DeleteControllerTest {
         ResponseEntity response = controller.allDeletedTodos();
 
         //Assert
+        System.out.println(response);
         assertEquals(listOfDeletedTodos,response.getBody());
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        System.out.println(response);
-        System.out.println(listOfDeletedTodos);
     }
 
     @Test
@@ -66,6 +65,7 @@ public class DeleteControllerTest {
         ResponseEntity response = controller.allDeletedTodos();
 
         //Assert
+        System.out.println(response);
         assertEquals(null,response.getBody());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 
