@@ -32,38 +32,34 @@ public class DeletedTodosServiceTest {
     }
     @Test
     public void givenValidIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturned() {
-        // ARRANGE
+        // Arrange
         Todos todos = new Todos(1, "title");
         DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
         DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
         when(todoRepository.findById(anyInt())).thenReturn(Optional.of(todos));
         when(deletedTodoRepository.save(deletedTodos)).thenReturn(createdDeletedTodos);
-        // ACT
+        // Act
         Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
-        // ASSERT
+        // Assert
         assertThat(response).isPresent();
         assertThat(response.get()).isEqualTo(createdDeletedTodos);
         verify(todoRepository).deleteById(todos.getId());
     }
 
-//    @Test
-//    public void givenEmptyIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturned() {
-//        // ARRANGE
-//        Todos todos = null;
-//
-//        DeletedTodos deletedTodos = new DeletedTodos(null, null, null);
-//
-//        DeletedTodos createdDeletedTodos = new DeletedTodos(null, null, null);
-//
-//        when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
-//
-//        when(deletedTodoRepository.save(deletedTodos)).thenReturn(createdDeletedTodos);
-//        // ACT
-//        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
-//        // ASSERT
-//        assertThat(response).isEmpty();
-//        assertThat(response.get()).isEqualTo(createdDeletedTodos);
-//        verify(todoRepository).deleteById(todos.getId());
-//    }
+    @Test
+    public void givenNOTValidIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturnNotFound() {
+        // Arrange
+        Todos todos = new Todos(1, "title");
+        when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
+
+        // Act
+        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
+        // Assert
+        assertThat(response).isNotPresent();
+        System.out.print(response);
+
+    }
+
+
 
 }

@@ -27,11 +27,12 @@ public class DeletedTodosService {
         }
         return Optional.ofNullable(response);
     }
+
     public Optional<DeletedTodos> findById(Integer id) {
         return deletedTodoRepository.findById(id);
     }
 
-    public Optional<Todos> RecoverDeletedTodos(Integer id){
+    public Optional<Todos> RecoverDeletedTodos(Integer id) {
         Optional<DeletedTodos> optionalDeletedTodos = deletedTodoRepository.findById(id);
         if(!optionalDeletedTodos.isPresent()) {
             return Optional.empty();
