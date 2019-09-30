@@ -12,9 +12,7 @@ import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.repository.TodoRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import com.pfex.pack.leader.service.DeletedTodosService;
 import com.sun.tools.javac.comp.Todo;
@@ -29,6 +27,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
@@ -47,6 +46,7 @@ public class TodoControllerTest {
 
     @Before
     public void setUp() {
+
         MockitoAnnotations.initMocks(controller);
     }
 
@@ -83,18 +83,34 @@ public class TodoControllerTest {
     }
 
     @Test
-    public void whenGetAllTodosIsCalledAndIsValid(){
+    public void whenGetAllTodosIsCalledAndIsEmpty(){
         //arrange
         when(repository.findAll()).thenReturn(listOfTodos);
 
         //act
-        ResponseEntity response = controller.allTodos();
+        ResponseEntity<List<Todos>> response = controller.allTodos();
+        System.out.println(response);
 
         //assert
-        assertEquals(listOfTodos, response.getBody());
-        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         System.out.println(response);
         System.out.println(listOfTodos);
+
+    }
+
+    @Test
+    public void whenGetAllTodosIsCalledAndIsValid(){
+
+        //arrange
+        Todos todo1 = new Todos(1, "hello");
+        when(repository.findAll()).thenReturn(Collections.singletonList(todo1));
+
+        //act
+        ResponseEntity<List<Todos>> response = controller.allTodos();
+
+        //assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertThat(response.getBody()).contains(todo1);
 
     }
 
@@ -144,54 +160,6 @@ public class TodoControllerTest {
         assertEquals(todoItem.getTitle(), "updateThat");
     }
 
-//    @Test
-//    public void deleteToDoSuccessful(){
-//
-//
-//        //not working at all
-//
-//        Integer id =102;
-//        Todos todoItem = new Todos(id, "deleting");
-//
-//        //arrange
-//        when(repository.save(todoItem)).thenReturn(todoItem);
-//        //when(controller.deleteTodos(todoItem.getId())).thenReturn(null);
-//
-//        Todos theTodo = controller.createTodo(todoItem);
-//        System.out.println(theTodo);
-//
-//        //when(deletedTodosService.createDeletedTodo(theTodo.getId())).thenReturn(Optional.empty());
-//
-//        //when(deletedTodosService.createDeletedTodo(todoItem.getId())).thenReturn(null);
-//
-//        when(repository.findById(theTodo.getId())).thenReturn(Optional.of(theTodo));
-//
-//        DeletedTodos deletedItem = new DeletedTodos(null, theTodo.getId(), theTodo.getTitle());
-//        when(deletedTodoRepository.save(deletedItem)).thenReturn(deletedItem);
-//
-//
-//        System.out.println(deletedItem);
-//
-//
-//
-//        //act
-//       Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(theTodo.getId());
-//       System.out.println(response);
-//
-//
-//
-//
-//        ResponseEntity response2 = controller.deleteTodos(theTodo.getId());
-//        System.out.println(response2.getStatusCode());
-//
-//
-//
-//        //assert
-//        //assertEquals(HttpStatus.OK, response.getStatusCode());
-//
-//
-//    }
-
     @Test
     public void deleteToDoSuccessful(){
         // ARRANGE
@@ -224,6 +192,32 @@ public class TodoControllerTest {
         //Assert
         assertThat(response.getBody()).containsAll(listOfTodos);
         assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    public void checkNewTodoTitleCannotBeLeftEmpty(){
+
+        //arrange
+        Todos todo = new Todos(1, "");
+
+//        Set<ConstraintViolation<Todos>> violation = validator.validate(todo);
+//
+//        assertThat(violation.size()).isEqualTo(0);
+
+        when(repository.save(todo)).thenReturn(null);
+
+        //act
+        Todos response = controller.createTodo(todo);
+
+        //assert
+        assertEquals(response,null);
+
+        System.out.println(repository.findById(1));
+
+        assertEquals(repository.findById(todo.getId()), Optional.empty());
+
+
+
     }
 
 

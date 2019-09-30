@@ -59,6 +59,31 @@ public class DeletedTodoServiceTest {
         verify(todoRepository).deleteById(todos.getId());
     }
 
+
+    @Test
+    public void givenValidDeletedTodoThenExpectRecoveredDeletedTodo(){
+
+        //Arrange
+        Todos todos = new Todos(1, "title");
+        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
+        DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
+        Todos recoveredTodos = new Todos(createdDeletedTodos.getTodoId(), createdDeletedTodos.getTitle());
+
+        when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.of(createdDeletedTodos));
+        when(todoRepository.save(recoveredTodos)).thenReturn(todos);
+
+
+        //ACT
+
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(createdDeletedTodos.getId());
+
+        //Assert
+        assertThat(response).isPresent();
+        assertThat(response.get()).isEqualTo(todos);
+
+        verify(deletedTodoRepository).deleteById(recoveredTodos.getId());
+    }
+
 }
 
 

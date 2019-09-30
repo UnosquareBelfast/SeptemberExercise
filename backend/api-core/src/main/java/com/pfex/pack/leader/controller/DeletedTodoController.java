@@ -18,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DeletedTodoController {
 
+    @Autowired
     private final DeletedTodosService service;
 
     @Autowired
