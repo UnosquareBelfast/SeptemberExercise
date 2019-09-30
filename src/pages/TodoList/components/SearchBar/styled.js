@@ -1,15 +1,13 @@
 import styled from 'styled-components';
 
-
-
 export const SearchBox=styled.input`
 width: 400px;
 height: 29px;
 `;
 
 export const SearchTitle=styled.div`
-color: white;
-font-size: x-large;
+color: pink;
+font-size: 30px;
 text-decoration: underline;
 padding-bottom: 5px;
 `;

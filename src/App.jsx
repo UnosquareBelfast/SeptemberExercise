@@ -2,8 +2,8 @@ import React, { Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { PropTypes as PT } from 'prop-types';
 import { GlobalStyle, theme } from './theme';
-import { BrowserRouter as Router, Route, NavBar,} from "react-router-dom";
-import { AboutUs, TodoList } from './pages'
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import { AboutUs, TodoList, NavBar} from './pages'
 import { SearchBar } from './pages/TodoList/components/SearchBar';
 
 

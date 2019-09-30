@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const BtnStyle=styled.button`
-padding: 20px;
+export const BtnStyle = styled.button`
+padding: 10px;
 background: pink;
-border-color: lightgrey;
+border-color: white;
 font-size: 20px;
 margin-left: 20px;
 

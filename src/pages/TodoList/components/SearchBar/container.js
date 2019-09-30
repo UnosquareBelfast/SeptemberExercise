@@ -33,7 +33,7 @@ const SearchBar = (Wrapped) =>
                     this.clearButtonVisible();                
                 }
 
-                console.log(searchTerms + ": search for");
+                console.log(searchTerm + ": search for");
                 console.log(results);
             });
         };
@@ -76,3 +76,5 @@ const SearchBar = (Wrapped) =>
         };
     
     };
+
+    export default SearchBar;

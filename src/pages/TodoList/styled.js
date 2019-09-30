@@ -1,44 +1,44 @@
 import styled from 'styled-components';
 
-
 export const TodoListTitle = styled.h1`
-  color: ${({theme}) =>  theme.colours.title};
-  font-size: 30px;
+  color: pink;
+  font-size: 80px;
   text-transform: uppercase;
   background-color: lightgrey;
-  text-align: center;
+  text-align: left;
   text-decoration: underline;
+  padding-top: 5px;
+  padding-left: 20px;
 `;
 
 export const TodoListSubTitle = styled.h2`
-  color: pink;
-  font-size: 30px;
+  color: white;
+  font-size: 60px;
   text-transform: uppercase;
   background-color: lightgrey;
-  text-align: center;
+  text-align: left;
   text-decoration: underline;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  padding-left: 20px;
 `;
 
-export const TodoNavBar = styled.button`
-  color: pink;
-  border-color: black; 
-  background: lightgrey;
-  display:flex;
-  font-size: 20px;
-`;
 
 export const TodoAdd = styled.div`
-  color: black;
+  color: pink;
   font-size: 45px;
   text-align: center;
   display: flex;
-`;
+  padding-left: 20px;
 
+`;
 
 export const AddToDoButtonContainer = styled.a`
 padding: 20px;
 color: white;
 text-align: center;
+padding-left: 20px;
+
 `;
 
 export const TitleContainer = styled.div`
@@ -49,6 +49,7 @@ width: 200px;
 height: 150px;
 font-size: xx-large;
 padding-top: 10px;
+padding-left: 20px;
 justify-content: space-between;
 `;
 
@@ -59,12 +60,16 @@ padding: 50px;
 display: center;
 flex-direction: row;
 flex-wrap: wrap;
+padding-left: 20px;
+
 `;
 
 export const ToDoItem = styled.div`
 background: lightgrey;
 padding: 100px;
 margin: 10px 10px 10px 10px;
+padding-left: 20px;
+
 `;
 
 export const ItemButtons = styled.div`
@@ -79,13 +84,11 @@ export const NewTask = styled.div`
 justify-content: space-between;
 background: lightgrey;
 border: 1px solid white;
-display: inline-block;
-padding: 100px;
-margin-right: 100px;
-margin-left: 50px;
 width: 220px;
 height: 100px;
 text-align: center;
+padding-left: 20px;
+padding-right: 20px
 `;
 
 export const AddTaskButton = styled.button`
@@ -97,5 +100,7 @@ margin-left: 80px;
 text-align: center;
 padding-right: 10px;
 padding-bottom: 7px;
+padding-left: 20px;
+
 `;
 

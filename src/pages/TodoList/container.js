@@ -31,32 +31,32 @@ const TodoList = (Wrapped) =>
 
     deleteAllItemsFromList = (id) => {
       deleteTodoListItem(id).then(() => {
-         const { todoListItems } = this.state;
-          this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
-        });
-      };
-    
+        const { todoListItems } = this.state;
+        this.setState({ todoListItems: todoListItems.filter(x => x.id !== id) });
+      });
+    };
+
     createItemOnList = (title) => {
       alert(title);
       createTodoListItem(title).then(() => {
         this.retrieveTodosForDisplay();
-    })
-  }
-  
-  setDisplayItems = (todoListItems) => {
-    this.setState({ 
-      todoListItems: todoListItems.sort(function(a,b) {return a.id-b.id}),
-      isLoading: false 
-    });
-  };
+      })
+    }
+
+    setDisplayItems = (todoListItems) => {
+      this.setState({
+        todoListItems: todoListItems.sort(function (a, b) { return a.id - b.id }),
+        isLoading: false
+      });
+    };
 
     render() {
-      return <Wrapped 
+      return <Wrapped
         retrieveTodosForDisplay={this.retrieveTodosForDisplay}
         deleteItemFromList={this.deleteItemFromList}
         updateItemOnList={this.UpdateItemFromList}
         createItemOnList={this.createItemOnList}
-        {...this.state} 
+        {...this.state}
       />;
     }
   };

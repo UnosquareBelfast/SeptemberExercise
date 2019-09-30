@@ -4,11 +4,11 @@ const AboutUs = (Wrapped) =>
   class extends React.Component {
 
     mouseEvent = () => {
-      
+
     }
 
     render() {
-      return<Wrapped />;
+      return <Wrapped />;
     }
   };
 

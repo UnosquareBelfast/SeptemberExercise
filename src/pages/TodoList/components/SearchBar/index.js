@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import container from './container';
+import {SearchBox, SearchTitle, SearchSection, SearchButton, ClearButton, ClearButtonPadding} from './styled';
 
 export const SearchBar = ({searchTerm, searchTermProvided, searchForToDoListItem, clearSearchResults, buttonHidden, clearButtonInvisible}) => {
     return (
