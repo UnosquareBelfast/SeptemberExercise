@@ -30,15 +30,9 @@ public class DeletedTodosServiceTest {
     @InjectMocks
     private DeletedTodosService deletedTodosService;
 
-    List<Todos> listOfTodos = new ArrayList<>();
-
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(deletedTodosService);
-        for (int i = 0; i < 3; i++) {
-            Todos todos = new Todos(i, "test " + i);
-            listOfTodos.add(todos);
-        }
     }
     @Test
     public void givenValidIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturned() {
@@ -70,22 +64,22 @@ public class DeletedTodosServiceTest {
 
     }
 
-    //    @Test
-//    public void givenNOTValidResponseWhenCreatedDeletedTodoThenExpectDeletedTodosReturnNullable() {
-//        // Arrange
-//        Todos todos = new Todos(1, "title");
-//        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
-//        DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
-//        when(todoRepository.findById(anyInt())).thenReturn(Optional.of(todos));
-//        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
-//
-//        // Act
-//        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
-//
-//        // Assert
-//        assertThat(response).isPresent();
-//        assertThat(Optional.ofNullable(response).equals(null));
-//    }
+    @Test
+    public void givenNOTValidResponseWhenCreatedDeletedTodoThenExpectDeletedTodosReturnNullable() {
+        // Arrange
+        Todos todos = new Todos(1, "title");
+        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
+        DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
+        when(todoRepository.findById(anyInt())).thenReturn(Optional.of(todos));
+        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
+
+        // Act
+        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
+
+        // Assert
+        assertThat(response).isPresent();
+        assertThat(Optional.ofNullable(response).equals(null));
+    }
 
     @Test
     public void recoverTodoFromDeleteDatabaseSuccessfully() {

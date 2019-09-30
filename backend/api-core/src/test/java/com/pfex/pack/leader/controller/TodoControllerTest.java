@@ -64,6 +64,7 @@ public class TodoControllerTest {
         ResponseEntity response = controller.getTodosById(id);
 
         // Assert
+        System.out.print(response.getBody());
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -79,6 +80,7 @@ public class TodoControllerTest {
         ResponseEntity response = controller.getTodosById(id);
 
         // Assert
+        System.out.print(response.getBody());
         assertThat(response.getBody()).isNull();
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
@@ -92,10 +94,10 @@ public class TodoControllerTest {
         ResponseEntity response = controller.allTodos();
 
         //Assert
-        assertEquals(listOfTodos,response.getBody());
-        assertEquals(HttpStatus.OK, response.getStatusCode());
         System.out.println(response);
         System.out.println(listOfTodos);
+        assertEquals(listOfTodos,response.getBody());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
@@ -108,6 +110,8 @@ public class TodoControllerTest {
         ResponseEntity response = controller.allTodos();
 
         //Assert
+        System.out.println(response);
+        System.out.println(listOfTodos);
         assertEquals(null,response.getBody());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 
@@ -123,6 +127,8 @@ public class TodoControllerTest {
         ResponseEntity response = controller.countTodos();
 
         //Assert
+
+        System.out.println(response);
         assertEquals(ToDosSize,response.getBody());
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
@@ -139,6 +145,7 @@ public class TodoControllerTest {
         ResponseEntity response = controller.countTodos();
 
         //Assert
+        System.out.println(response);
         assertEquals(null,response.getBody());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 
@@ -153,6 +160,8 @@ public class TodoControllerTest {
         ResponseEntity<List<Todos>> response = controller.searchTodos("test 1");
 
         //Assert
+        System.out.println(response);
+        System.out.println(listOfTodos);
         assertThat(response.getBody()).containsAll(listOfTodos);
         assertEquals(HttpStatus.OK, response.getStatusCode());
 
@@ -176,22 +185,24 @@ public class TodoControllerTest {
 
     @Test
     public void deleteToDoSuccessful(){
-        // ARRANGE
+        // Arrange
         DeletedTodos deletedTodos = new DeletedTodos(1, 1,"test1");
         when(deletedTodosService.createDeletedTodo(deletedTodos.getId())).thenReturn(Optional.of(deletedTodos));
-        // ACT
+        // Act
         ResponseEntity responseEntity = controller.deleteTodos(deletedTodos.getId());
-        // ASSERT
+        // Assert
+        System.out.print(responseEntity);
         assertThat(responseEntity).isNotNull();
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
     @Test
     public void deleteToDoFailure(){
-        // ARRANGE
+        // Arrange
         when(deletedTodosService.createDeletedTodo(null)).thenReturn(Optional.empty());
-        // ACT
+        // Act
         ResponseEntity responseEntity = controller.deleteTodos(null);
-        // ASSERT
+        // Assert
+        System.out.print(responseEntity);
         assertThat(responseEntity).isNotNull();
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
@@ -209,6 +220,8 @@ public class TodoControllerTest {
         ResponseEntity responseEntity = controller.updateTest(1,updatedTodo);
 
         //Assert
+        System.out.print(found);
+        System.out.print(listOfTodos);
         assertThat(found).isTrue();
         assertThat(listOfTodos.get(1)).isEqualTo(updatedTodo);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -227,6 +240,8 @@ public class TodoControllerTest {
         ResponseEntity responseEntity = controller.updateTest(1,updatedTodo);
 
         //Assert
+        System.out.print(found);
+        System.out.print(listOfTodos);
         assertThat(found).isFalse();
         assertThat(listOfTodos).doesNotContain(updatedTodo);
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
@@ -244,6 +259,7 @@ public class TodoControllerTest {
         listOfTodos.add(controller.createTodos(newTodo));
 
         //Assert
+        System.out.print(listOfTodos);
         assertEquals(newTodo,listOfTodos.get(3));
     }
 
