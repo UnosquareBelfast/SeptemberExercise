@@ -1,6 +1,7 @@
 package com.pfex.pack.leader.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -18,4 +19,5 @@ public class Todos implements Serializable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     private Integer id;
     private String title;
+    private LocalDateTime date_added;
 }

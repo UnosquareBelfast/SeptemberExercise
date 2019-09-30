@@ -1,0 +1,1 @@
+alter table public.deletedtodos add COLUMN date_added TIMESTAMP;

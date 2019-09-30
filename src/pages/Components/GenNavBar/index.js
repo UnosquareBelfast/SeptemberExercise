@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { SearchBar } from '../../TodoList/components';
-import { Navbar, Nav, NavItem, NavDropdown, Glyphicon } from "react-bootstrap";
+import { Navbar, Nav} from "react-bootstrap";
 import container from './container';
 import { LinkContainer } from "react-router-bootstrap";
 

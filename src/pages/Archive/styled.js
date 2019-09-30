@@ -54,6 +54,7 @@ min-width: 250px;
 max-width: 300px;
 margin-top: 2em;
 display:block;
+margin: 0 auto;
      `;
 
 export const StyledDiv = styled.div`

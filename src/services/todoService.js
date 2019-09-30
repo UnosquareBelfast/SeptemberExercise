@@ -2,7 +2,7 @@ import instance from '../utilities/Axios';
 
 //get item list
 export const retrieveTodoList = () => {
-    return instance.get(`/todos/`).then((response) => response.data);
+    return instance.get(`/todos/`).then((response) => response.data).catch(()=> []);
 };
 
 //edit item

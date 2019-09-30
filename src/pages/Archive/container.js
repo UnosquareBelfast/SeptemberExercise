@@ -17,7 +17,7 @@ const Archive = (Wrapped) =>
 
     retrieveDeletedTodosForDisplay = () => {
       recieveDeletedTodoList().then((DeletedListItems) => {
-        this.setState({ DeletedListItems: DeletedListItems.sort(function(a,b){return a.id, b.id}), isLoading: false});
+        this.setState({ DeletedListItems: DeletedListItems.sort(function(a,b){return a.id- b.id}), isLoading: false});
       });
     };
 

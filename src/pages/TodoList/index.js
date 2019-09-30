@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
-import { TodoListItem, AddToDo, SearchBar } from './components';
+import { TodoListItem, AddToDo } from './components';
 import { GenNavBar } from '../Components/GenNavBar'
 import container from './container';
 import {
@@ -10,6 +10,9 @@ import {
 export const TodoList = ({ retrieveTodosForDisplay, deleteItemFromList, isLoading, todoListItems, setDisplayItems }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
+    if(!items){
+      return <Modal>No New Tasks</Modal>
+    }
     if (items.length === 0) {
       return <Modal>No New Tasks</Modal>
     } else {

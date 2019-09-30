@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -19,5 +20,5 @@ public class DeletedTodos {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     private Integer id;
     private String title;
-
+    private LocalDateTime date_added;
 }

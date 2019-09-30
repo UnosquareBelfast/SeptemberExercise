@@ -3,7 +3,7 @@ import container from './container';
 import { 
   TodoListTitle, StyledDiv, CenterDiv
  } from './styled';
-import { ToDoCard } from '../TodoList/components/ToDoListItem/styled';
+import { ToDoCard, Modal } from './styled';
 import { GenNavBar } from '../Components/GenNavBar'
 
   export const Archive = ({isLoading,DeletedListItems,removeDeletedTodoListItem}) => {
@@ -19,7 +19,7 @@ import { GenNavBar } from '../Components/GenNavBar'
                 <button onClick= {() => removeDeletedTodoListItem(x.id)} >Recover</button>
               </ToDoCard>
             ))}
-        </ul>): 'No Dice';
+        </ul>): (<Modal>No Deleted Tasks</Modal>);
     }
 
   return (

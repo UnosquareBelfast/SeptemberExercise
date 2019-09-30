@@ -3,6 +3,8 @@ package com.pfex.pack.leader.controller;
 import com.pfex.pack.leader.model.DeletedTodos;
 import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.TodoRepository;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +24,7 @@ public class TodoController {
 
     @PostMapping
     public Todos createTodo(@RequestBody Todos todosModel) {
+        todosModel.setDate_added(LocalDateTime.now());
         return repository.save(todosModel);
     }
 

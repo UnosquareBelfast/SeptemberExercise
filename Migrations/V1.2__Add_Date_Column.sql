@@ -1,0 +1,1 @@
+alter table public.todos add COLUMN date_added TIMESTAMP;
