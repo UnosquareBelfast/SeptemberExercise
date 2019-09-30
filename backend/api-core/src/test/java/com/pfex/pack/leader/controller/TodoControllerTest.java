@@ -210,17 +210,25 @@ public class TodoControllerTest {
 
     }
 
-//    @Test
-//    public void searchingForTodoAndNotFound() {
-//        // Arrange
-//        listOfTodos.clear();
-//        when(repository.findAllByTitle(any())).thenReturn(listOfTodos);
-//        // Act
-//        ResponseEntity<List<Todos>> response = controller.searchTodos("test 1");
-//        //Assert
-//        assertThat(response.getBody()).containsOnly(null);
-//        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
-//    }
+    @Test
+    public void successfullyUpdateATodo() {
+        // Arrange
+        Todos updatedTodo = new Todos(2,"Updated Todo");
+        Boolean found = false;
+
+        when(repository.existsById(listOfTodos.get(1).getId())).thenReturn(found = true);
+        when(repository.save(updatedTodo)).thenReturn(listOfTodos.set(1,updatedTodo));
+
+        // Act
+        ResponseEntity responseEntity = controller.updateTest(1,updatedTodo);
+
+        //Assert
+        assertThat(found).isTrue();
+        assertThat(listOfTodos.get(1)).isEqualTo(updatedTodo);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+
+    }
+
 
 
 
