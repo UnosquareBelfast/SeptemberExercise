@@ -45,4 +45,25 @@ public class DeletedTodosServiceTest {
         assertThat(response.get()).isEqualTo(createdDeletedTodos);
         verify(todoRepository).deleteById(todos.getId());
     }
+
+//    @Test
+//    public void givenEmptyIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturned() {
+//        // ARRANGE
+//        Todos todos = null;
+//
+//        DeletedTodos deletedTodos = new DeletedTodos(null, null, null);
+//
+//        DeletedTodos createdDeletedTodos = new DeletedTodos(null, null, null);
+//
+//        when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
+//
+//        when(deletedTodoRepository.save(deletedTodos)).thenReturn(createdDeletedTodos);
+//        // ACT
+//        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
+//        // ASSERT
+//        assertThat(response).isEmpty();
+//        assertThat(response.get()).isEqualTo(createdDeletedTodos);
+//        verify(todoRepository).deleteById(todos.getId());
+//    }
+
 }

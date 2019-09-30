@@ -194,6 +194,22 @@ public class TodoControllerTest {
 
     }
 
+    @Test
+    public void searchingForTodoAndNOTFound() {
+        // Arrange
+        listOfTodos.clear();
+        when(repository.findAllByTitle(any())).thenReturn(listOfTodos);
+
+        // Act
+        ResponseEntity<List<Todos>> response = controller.searchTodos("test 1");
+
+        //Assert
+        System.out.print(response);
+        assertThat(response).isNotNull();
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+
+    }
+
 //    @Test
 //    public void searchingForTodoAndNotFound() {
 //        // Arrange
