@@ -99,7 +99,7 @@ public class TodoControllerTest {
     }
 
     @Test
-    public void whenGetAllTodosIsCalledAndIsEmpty() {
+    public void whenGetAllTodosIsCalledAndIsInValid() {
         // Arrange
         listOfTodos.clear();
         when(repository.findAll()).thenReturn(listOfTodos);
@@ -145,42 +145,6 @@ public class TodoControllerTest {
     }
 
     @Test
-    public void SavingNewTodo() {
-
-        // Arrange
-        Todos newTodo = new Todos(8,"I'm new here");
-        when(repository.save(newTodo)).thenReturn(newTodo);
-
-        // Act
-        listOfTodos.add(controller.createTodos(newTodo));
-
-        //Assert
-        assertEquals(newTodo,listOfTodos.get(3));
-    }
-
-    @Test
-    public void deleteToDoSuccessful(){
-        // ARRANGE
-        DeletedTodos deletedTodos = new DeletedTodos(1, 1,"test1");
-        when(deletedTodosService.createDeletedTodo(deletedTodos.getId())).thenReturn(Optional.of(deletedTodos));
-        // ACT
-        ResponseEntity responseEntity = controller.deleteTodos(deletedTodos.getId());
-        // ASSERT
-        assertThat(responseEntity).isNotNull();
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-    }
-    @Test
-    public void deleteToDoFailure(){
-        // ARRANGE
-        when(deletedTodosService.createDeletedTodo(null)).thenReturn(Optional.empty());
-        // ACT
-        ResponseEntity responseEntity = controller.deleteTodos(null);
-        // ASSERT
-        assertThat(responseEntity).isNotNull();
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
-    }
-
-    @Test
     public void searchingForTodoAndFound() {
         // Arrange
         when(repository.findAllByTitle(any())).thenReturn(listOfTodos);
@@ -208,6 +172,28 @@ public class TodoControllerTest {
         assertThat(response).isNotNull();
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 
+    }
+
+    @Test
+    public void deleteToDoSuccessful(){
+        // ARRANGE
+        DeletedTodos deletedTodos = new DeletedTodos(1, 1,"test1");
+        when(deletedTodosService.createDeletedTodo(deletedTodos.getId())).thenReturn(Optional.of(deletedTodos));
+        // ACT
+        ResponseEntity responseEntity = controller.deleteTodos(deletedTodos.getId());
+        // ASSERT
+        assertThat(responseEntity).isNotNull();
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
+    @Test
+    public void deleteToDoFailure(){
+        // ARRANGE
+        when(deletedTodosService.createDeletedTodo(null)).thenReturn(Optional.empty());
+        // ACT
+        ResponseEntity responseEntity = controller.deleteTodos(null);
+        // ASSERT
+        assertThat(responseEntity).isNotNull();
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
 
     @Test
@@ -247,9 +233,19 @@ public class TodoControllerTest {
 
     }
 
+    @Test
+    public void SavingNewTodo() {
 
+        // Arrange
+        Todos newTodo = new Todos(8,"I'm new here");
+        when(repository.save(newTodo)).thenReturn(newTodo);
 
+        // Act
+        listOfTodos.add(controller.createTodos(newTodo));
 
+        //Assert
+        assertEquals(newTodo,listOfTodos.get(3));
+    }
 
 
 
