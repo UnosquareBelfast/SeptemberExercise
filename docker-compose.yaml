@@ -32,12 +32,12 @@ services:
       SPRING_DATASOURCE_PASSWORD: password
     depends_on:
       - flyway
-  exercise-front:
-    build: .
-    restart: always
-    ports:
-      - 3000:3000
-    depends_on:
-      - exercise-backend
+  # exercise-front:
+  #   build: .
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+  #   depends_on:
+  #     - exercise-backend
 volumes:
    db:

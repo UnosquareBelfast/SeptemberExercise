@@ -8,15 +8,6 @@ const AddListItem = (Wrapped) =>
       this.state = {
       };
     }
-    
-    // addItemToList = (title) => {
-    //   createTodoListItem(title).then(() => {
-    //     const { retrieveTodosForDisplay } = this.props;
-    //     this.setState({
-    //       title:''
-    //     }, () => { retrieveTodosForDisplay() } );
-    //   });
-    // };
 
     handleSubmit = (event) => {
       const { retrieveTodosForDisplay } = this.props;

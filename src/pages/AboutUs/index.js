@@ -8,7 +8,7 @@ export const AboutUs = () => {
   return (
     <Fragment>
       <MyTodoBoard>
-        <TodoListTitle>Todo List</TodoListTitle>
+        <TodoListTitle>About Us</TodoListTitle>
         <MyNavBar>
           <MyNavButtons><Link to='/'>Home</Link></MyNavButtons>
           <MyNavButtons><Link to='/deleted/'>Deleted</Link></MyNavButtons>

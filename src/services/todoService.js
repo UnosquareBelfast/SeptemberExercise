@@ -4,10 +4,6 @@ export const retrieveTodoList = () => {
     return instance.get('todos/').then((response) => response.data);
 };
 
-// export const retrieveTodoListItem = (id) => {
-//     return instance.get(`todos/${id}`).then((response) => response.data);
-// };
-
 export const updateTodoListItem = (id, title) => {
     const todoItem = { title: title };
     return instance.put(`todos/${id}`, todoItem).then((response) => response.data);

@@ -23,7 +23,7 @@ export const DeletedItems = ({ deletedTodoListItems, removeDeletedTodoListItem, 
   return (
     <Fragment>
       <MyTodoBoard>
-        <TodoListTitle>Deleted Todo List</TodoListTitle>
+        <TodoListTitle>Bin</TodoListTitle>
         <MyNavBar>
           <MyNavButtons><Link to='/'>Home</Link></MyNavButtons>
           <MyNavButtons><Link to='/about/'>About Us</Link></MyNavButtons>
