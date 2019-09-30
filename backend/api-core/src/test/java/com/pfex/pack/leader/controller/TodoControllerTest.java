@@ -229,6 +229,24 @@ public class TodoControllerTest {
 
     }
 
+    @Test
+    public void FailedToUpdateATodo() {
+        // Arrange
+        Todos updatedTodo = new Todos(2,"Updated Todo");
+        Boolean found = false;
+
+        when(repository.existsById(listOfTodos.get(1).getId())).thenReturn(found = false);
+
+        // Act
+        ResponseEntity responseEntity = controller.updateTest(1,updatedTodo);
+
+        //Assert
+        assertThat(found).isFalse();
+        assertThat(listOfTodos).doesNotContain(updatedTodo);
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+
+    }
+
 
 
 
