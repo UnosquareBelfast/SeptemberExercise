@@ -1,6 +1,6 @@
 import React from 'react';
 import { updateTodoListItem} from '../../../../services/todoService';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+//import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
 const TodoListItem = (Wrapped) =>
@@ -17,38 +17,51 @@ const TodoListItem = (Wrapped) =>
       };
     }
 
-    toggle(){
-      this.setState({
-        dropdownOpen: !this.state.dropdownOpen
-      });
+    // toggle(){
+    //   this.setState({
+    //     dropdownOpen: !this.state.dropdownOpen
+    //   });
+    // }
+
+    // render() {
+    //   return (
+    //     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+    //       <DropdownToggle caret>
+    //         Button Dropdown
+    //       </DropdownToggle>
+    //     <DropdownMenu>
+    //       <DropdownItem header>Header</DropdownItem>
+    //       <DropdownItem disabled>Action</DropdownItem>
+    //       <DropdownItem>Another Action</DropdownItem>
+    //       <DropdownItem divider />
+    //       <DropdownItem Another Action > </DropdownItem>
+    //     </DropdownMenu>
+    //     </ButtonDropdown>
+    //   )
+    // };
+
+    saveItem = (id, title) => {
+      console.log('Update clicked' + id);
+      (title.length < 2 || title.length > 30) ?
+        alert("To do item must be between 2 and 30 characters in length")
+      : updateTodoListItem(id, title).then(() =>{
+          const { isUpdating, title } = this.state;
+          this.setState({
+            isUpdating: !isUpdating,
+            displayText:title
+          })
+        } 
+        )
     }
 
-    render() {
-      return (
-        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            Button Dropdown
-          </DropdownToggle>
-        <DropdownMenu>
-          <DropdownItem header>Header</DropdownItem>
-          <DropdownItem disabled>Action</DropdownItem>
-          <DropdownItem>Another Action</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem Another Action > </DropdownItem>
-        </DropdownMenu>
-        </ButtonDropdown>
-      )
-    };
-
-
-    saveItem = (id, changedText) => {
-      updateTodoListItem(id, changedText).then(() => {
-        console.log(changedText);
-        this.setState({
-         displayText: changedText,
-      }, () => { this.toggleUpdateMode()})
-    });
-  };
+  //   saveItem = (id, title) => {
+  //     updateTodoListItem(id, title).then(() => {
+  //       console.log(title);
+  //       this.setState({
+  //        displayText: changedText,
+  //     }, () => { this.toggleUpdateMode()})
+  //   });
+  // };
 
     toggleUpdateMode = () => {
       const {displayText, isUpdating, title} = this.state;

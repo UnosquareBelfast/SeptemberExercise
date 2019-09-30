@@ -40,13 +40,13 @@ public class TodoController {
     @GetMapping("{id}")
     public ResponseEntity getTodosById(@PathVariable Integer id) {
         Optional<Todos> response = repository.findById(id);
-        return response.isPresent() ? ResponseEntity.ok(response.get()): ResponseEntity.notFound().build();
+        return response.isPresent() ? ResponseEntity.ok(response.get()) : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Object> deleteTodos(@PathVariable Integer id){
+    public ResponseEntity<Object> deleteTodos(@PathVariable Integer id) {
         Optional<DeletedTodos> response = deleteToDoService.createDeletedTodo(id);
-        if (response.isPresent()){
+        if (response.isPresent()) {
             return ResponseEntity.ok(response.get());
         }
         repository.deleteById(id);
@@ -62,12 +62,12 @@ public class TodoController {
 
         // TODO database call to update test
         //Validate if todos exists
-       boolean exists = repository.existsById(id); // Mock response
-        if(!exists){
+        boolean exists = repository.existsById(id); // Mock response
+        if (!exists) {
             return ResponseEntity.notFound().build();
         }
         //Update the todos
-       Todos response = repository.save(todos);
+        Todos response = repository.save(todos);
         return ResponseEntity.ok(response);
     }
 
@@ -81,15 +81,13 @@ public class TodoController {
         }
     }
 
-//    @GetMapping
-//    public ResponseEntity searchTodos(@RequestParam String title){
-//        List<Todos> response = repository.findAllByTitle(title);
-//        if(response.isEmpty()){
-//            return ResponseEntity.notFound().build();
-//        } else {
-//            return ResponseEntity.ok(response);
-//        }
+    @GetMapping ("search")
+    public ResponseEntity searchTodos(@Valid @RequestParam String title) {
+        List<Todos> response = repository.findAllByTitleContainsIgnoreCase(title);
+            return ResponseEntity.ok(response);
     }
+
+}
 
 
 

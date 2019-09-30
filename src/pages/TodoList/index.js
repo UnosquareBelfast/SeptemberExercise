@@ -3,21 +3,27 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
 import { Link } from "react-router-dom";
 import container from './container';
-import { 
+import {
   TodoListTitle, TaskContainer, TodoListSubTitle, TodoNavBar
   } from './styled';
+import { retrieveTodoList } from '../../services/todoService';
 
-export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, TodoAdd}) => {
+export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, TodoAdd, retrieveTodosForDisplay, setDisplayItems}) => {
 
   const buildTodoListItems = (items, deleteItem) => {
       return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem}/>))}</TaskContainer>
-      </ul>) 
+      </ul>)
   };
-  
+
+  const searchBox = () => {
+  return (<SearchBar setDisplayItems={setDisplayItems} retrieveTodosForDisplay = {retrieveTodosForDisplay}/>)
+  };
+
   return (
       <Fragment>
         <TodoListTitle>To Do List</TodoListTitle>
         <TodoListSubTitle>Emer's To Do List</TodoListSubTitle>
+        { searchBox() }
         <textarea id='newtask'></textarea>
         <button variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtask').value)}> Add Task </button>
         {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList, TodoAdd)}
@@ -25,6 +31,7 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createI
       </Fragment>
   );
 };
+
 
 TodoList.propTypes = {
   deleteItemFromList: PT.func.isRequired,

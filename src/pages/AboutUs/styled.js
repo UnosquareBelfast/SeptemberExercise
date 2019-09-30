@@ -4,20 +4,20 @@ export const AboutUsTitle = styled.h1`
   color: ${({theme}) =>  theme.colours.title};
   font-size: 30px;
   text-transform: uppercase;
-  background-color: white;
+  background-color: lightgrey;
   text-align: center;
   text-decoration: underline;
 `;
 
 export const Paragraph = styled.p`
-color: black;
+color: pink;
 font-size: 20px;
 text-align: left;
 `
 export const AboutNavBar = styled.button`
-  color: white;
+  color: pink;
   border-color: black; 
-  background: white;
+  background: lightgrey;
   display: flex;
   font-size: 20px;
 `;

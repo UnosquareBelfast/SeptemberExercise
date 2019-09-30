@@ -6,7 +6,7 @@ const fonts = {
 
 export const theme = {
   colours: {
-    background: 'white',
+    background: 'lightgrey',
     title: 'black',
     subtitle: '#00BFFF',
     body: 'white'

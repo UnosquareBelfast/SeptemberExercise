@@ -3,7 +3,13 @@ import container from './container';
 import { 
   TitleContainer,
   ItemButtons,
-  ToDoItem
+  Cancelbutton,
+  ToDoItem,
+  UpdateTaskTextArea,
+  Deletebutton,
+  Updatebutton,
+  Savebutton,
+  UpdateButtonPadding
  } from './styled';
 
 export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, toggleUpdateMode, isUpdating, OnTitleChanged }) => {
@@ -13,16 +19,20 @@ export const TodoListItem = ({ id, title, displayText, deleteItem, saveItem, tog
         <li>
         { isUpdating ? ( 
         <Fragment>
-          <input type= 'text' onChange={(event) => OnTitleChanged(event)} value={title}></input>
-          <button onClick={() => saveItem(id, title)}>Save</button>
-          <button onClick={() => toggleUpdateMode()}>Cancel</button> 
+          <UpdateTaskTextArea>
+          <textarea onChange={(event) => OnTitleChanged(event)} value={title}></textarea>
+          </UpdateTaskTextArea>
+          <UpdateButtonPadding>
+          <Savebutton onClick={() => saveItem(id, title)}>Save</Savebutton>
+          <Cancelbutton onClick={() => toggleUpdateMode()}>Cancel</Cancelbutton> 
+          </UpdateButtonPadding>
         </Fragment>) :
         (
           <Fragment>
             <TitleContainer>{displayText}</TitleContainer>
             <ItemButtons>
-              <button onClick={() => deleteItem(id)}>Delete</button>
-              <button onCLick={() => toggleUpdateMode()}>Update</button>
+              <Deletebutton onClick={() => deleteItem(id)}>Delete</Deletebutton>
+              <Updatebutton onCLick={() => toggleUpdateMode()}>Update</Updatebutton>
             </ItemButtons>
           </Fragment>)     
         }

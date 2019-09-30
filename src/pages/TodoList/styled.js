@@ -5,24 +5,24 @@ export const TodoListTitle = styled.h1`
   color: ${({theme}) =>  theme.colours.title};
   font-size: 30px;
   text-transform: uppercase;
-  background-color: white;
+  background-color: lightgrey;
   text-align: center;
   text-decoration: underline;
 `;
 
 export const TodoListSubTitle = styled.h2`
-  color: deepskyblue;
+  color: pink;
   font-size: 30px;
   text-transform: uppercase;
-  background-color: white;
+  background-color: lightgrey;
   text-align: center;
   text-decoration: underline;
 `;
 
 export const TodoNavBar = styled.button`
-  color: deepskyblue;
+  color: pink;
   border-color: black; 
-  background: white;
+  background: lightgrey;
   display:flex;
   font-size: 20px;
 `;
@@ -42,7 +42,7 @@ text-align: center;
 `;
 
 export const TitleContainer = styled.div`
-background: white;
+background: lightgrey;
 text-align: center;
 margin: 10px 10px 10p 10px;
 width: 200px;
@@ -53,7 +53,7 @@ justify-content: space-between;
 `;
 
 export const TaskContainer = styled.div`
-background: white;
+background: lightgrey;
 text-align: center;
 padding: 50px;
 display: center;
@@ -62,7 +62,7 @@ flex-wrap: wrap;
 `;
 
 export const ToDoItem = styled.div`
-background: white;
+background: lightgrey;
 padding: 100px;
 margin: 10px 10px 10px 10px;
 `;
@@ -77,7 +77,7 @@ padding-right: 10px;
 
 export const NewTask = styled.div`
 justify-content: space-between;
-background: white;
+background: lightgrey;
 border: 1px solid white;
 display: inline-block;
 padding: 100px;
