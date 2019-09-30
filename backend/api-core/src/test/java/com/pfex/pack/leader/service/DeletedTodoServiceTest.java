@@ -20,8 +20,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)
@@ -66,8 +65,8 @@ public class DeletedTodoServiceTest {
 
         DeletedTodos deletedTodos = new DeletedTodos(null, null, null);
         //arrange
-        when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
-        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
+        lenient().when(todoRepository.findById(anyInt())).thenReturn(Optional.empty());
+        lenient().when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
 
         //Act
         Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(null);
@@ -111,8 +110,8 @@ public class DeletedTodoServiceTest {
         DeletedTodos createdDeletedTodos = new DeletedTodos(null, null, null);
 
         //Arrange
-        when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.empty());
-        when(todoRepository.save(recoveredTodos)).thenReturn(null);
+        lenient().when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.empty());
+        lenient().when(todoRepository.save(recoveredTodos)).thenReturn(null);
 
         //ACT
         Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(createdDeletedTodos.getId());
