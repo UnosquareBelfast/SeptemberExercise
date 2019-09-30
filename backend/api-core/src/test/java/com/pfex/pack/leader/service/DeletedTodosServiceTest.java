@@ -12,6 +12,9 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -26,9 +29,16 @@ public class DeletedTodosServiceTest {
     private DeletedTodoRepository deletedTodoRepository;
     @InjectMocks
     private DeletedTodosService deletedTodosService;
+
+    List<Todos> listOfTodos = new ArrayList<>();
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(deletedTodosService);
+        for (int i = 0; i < 3; i++) {
+            Todos todos = new Todos(i, "test " + i);
+            listOfTodos.add(todos);
+        }
     }
     @Test
     public void givenValidIdWhenCreatedDeletedTodoThenExpectDeletedTodosReturned() {
@@ -59,6 +69,42 @@ public class DeletedTodosServiceTest {
         System.out.print(response);
 
     }
+
+    //    @Test
+//    public void givenNOTValidResponseWhenCreatedDeletedTodoThenExpectDeletedTodosReturnNullable() {
+//        // Arrange
+//        Todos todos = new Todos(1, "title");
+//        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
+//        DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
+//        when(todoRepository.findById(anyInt())).thenReturn(Optional.of(todos));
+//        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
+//
+//        // Act
+//        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
+//
+//        // Assert
+//        assertThat(response).isPresent();
+//        assertThat(Optional.ofNullable(response).equals(null));
+//    }
+
+    @Test
+    public void recoverTodoFromDeleteDatabaseSuccessfully() {
+        // Arrange
+        DeletedTodos deletedTodos = new DeletedTodos(1, null, "hello world!");
+        Todos recoverTodo = new Todos(null, deletedTodos.getTitle());
+        Todos createdTodo = new Todos(1, deletedTodos.getTitle());
+        when(deletedTodoRepository.findById(anyInt())).thenReturn(Optional.of(deletedTodos));
+        when(todoRepository.save(recoverTodo)).thenReturn(createdTodo);
+
+        // Act
+        Optional<Todos> response = deletedTodosService.RecoverDeletedTodos(deletedTodos.getId());
+        // Assert
+        assertThat(response).isPresent();
+        assertThat(response.get()).isEqualTo(createdTodo);
+        verify(deletedTodoRepository).deleteById(deletedTodos.getId());
+    }
+
+
 
 
 
