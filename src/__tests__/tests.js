@@ -1,7 +1,8 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
 
-import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem } from "../services/todoService";
+import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem ,updateTodoListItem} from "../services/todoService";
+import { recieveDeletedTodoList} from "../services/deletedTodoService";
 
 var mock = new MockAdapter(instance);
 
@@ -64,9 +65,44 @@ describe("Todos", () => {
       done();
     })
   });
+
+  //This doesnt work
+  it("updateTodoListItem by id and title", done => {
+    const todoListItem = [
+      {
+        title: "My first note"
+      },
+    ];
+
+    mock.onPut('todos/1', {title: "My first note"}).reply(204);
+    updateTodoListItem(1, "My first note").then(res => {
+      expect(res);
+      done();
+    })
+  });
 });
 
 describe("DeletedTodos", () => {
 
+  it("recieveDeletedTodoList gets all todo items", done => {
+    const deleteTodoList = [
+      {
+        id: 1,
+        title: "My first Delete note"
+      },
+      {
+        id: 2,
+        title: "My second Delete note"
+      }
+    ];
+
+    mock.onGet("deletedtodos/").reply(200, deleteTodoList);
+
+    recieveDeletedTodoList().then(res => {
+      expect(res).toBe(deleteTodoList);
+      done();
+    });
+  });
+  
 
 });
