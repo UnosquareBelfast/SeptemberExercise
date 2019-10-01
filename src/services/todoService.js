@@ -14,7 +14,7 @@ export const searchForTodoListItem = (title) => {
 
 export const updateTodoListItem = (id, title) => {
     const todoItem = { title: title };
-    return instance.put(`todos/${id}`, todoItem).then((response) => response.data);
+    return instance.put(`todos/${id}`, todoItem).then((response) => response);
 };
 
 export const createTodoListItem = (title) => {

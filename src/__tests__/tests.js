@@ -2,7 +2,7 @@ import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
 
 import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem ,updateTodoListItem} from "../services/todoService";
-import { recieveDeletedTodoList} from "../services/deletedTodoService";
+import { recieveDeletedTodoList , recoverTodoListItem} from "../services/deletedTodoService";
 
 var mock = new MockAdapter(instance);
 
@@ -66,17 +66,11 @@ describe("Todos", () => {
     })
   });
 
-  //This doesnt work
   it("updateTodoListItem by id and title", done => {
-    const todoListItem = [
-      {
-        title: "My first note"
-      },
-    ];
 
     mock.onPut('todos/1', {title: "My first note"}).reply(204);
     updateTodoListItem(1, "My first note").then(res => {
-      expect(res);
+      expect(res.status).toStrictEqual(204);
       done();
     })
   });
@@ -104,5 +98,19 @@ describe("DeletedTodos", () => {
     });
   });
   
+  it("retrieveTodoList gets item by id", done => {
+    const todoListItem =
+      {
+        id: 1,
+        title: "My first note"
+      };
+
+    mock.onGet("todos/1").reply(200, todoListItem);
+
+      retrieveTodoListItem(1).then(res => {
+      expect(res).toStrictEqual(todoListItem);
+      done();
+    });
+  });
 
 });
