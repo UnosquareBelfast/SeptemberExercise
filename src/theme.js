@@ -14,7 +14,8 @@ export const theme = {
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${theme.colours.background} !important;
+    /* background-color: ${theme.colours.background} !important; */
+    background-image: url('https://media3.giphy.com/media/3Y6srg50VeDRK/source.gif'), url('https://i.ytimg.com/vi/cJwkPjhLFF0/maxresdefault.jpg');
     text-align: center;
     font-family: sans-serif;
   }

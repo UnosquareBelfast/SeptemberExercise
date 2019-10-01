@@ -1,5 +1,5 @@
 import React from 'react';
-import {recieveDeletedTodoList,recoverTodoListItem} from '../../services/deletedTodoService';
+import {recieveDeletedTodoList,recoverTodoListItem,DeleteAllTodoList} from '../../services/deletedTodoService';
 
 const Archive = (Wrapped) =>
   class extends React.Component {
@@ -26,10 +26,15 @@ const Archive = (Wrapped) =>
         this.retrieveDeletedTodosForDisplay()
       });
     };
+
+    deleteAll = () => {
+      DeleteAllTodoList().then().catch((err) => {console.log(err)})
+    };
  
   render() {
     return <Wrapped 
     removeDeletedTodoListItem = {this.removeDeletedTodoListItem} 
+    deleteAll = {this.deleteAll}
     {...this.state}/>;
     
   }

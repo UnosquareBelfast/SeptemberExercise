@@ -5,8 +5,6 @@ import container from './container';
 import { LinkContainer } from "react-router-bootstrap";
 
 export const GenNavBar = ({ setDisplayItems, showSearch }) => {
-
-
   const checkSearch = (showSearch) => {
     if (showSearch) {
       return <SearchBar setDisplayItems={setDisplayItems} ></SearchBar>
@@ -17,8 +15,9 @@ export const GenNavBar = ({ setDisplayItems, showSearch }) => {
     <Fragment>
      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
        <LinkContainer to='/'>
-  <Navbar.Brand>Todos</Navbar.Brand></LinkContainer>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand>Todos</Navbar.Brand>
+       </LinkContainer>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
     <LinkContainer to="/about">

@@ -31,4 +31,10 @@ public class DeletedTodoController {
             return ResponseEntity.ok(response);
         }
     }
-}
+
+    @DeleteMapping("deleteAll")
+    public void deleteTodos() {
+        deleteRepo.deleteAll();
+        ResponseEntity.ok("Deleted");
+    }
+    }

@@ -20,7 +20,6 @@ const TodoList = (Wrapped) =>
       
       retrieveTodoList().then((todoListItems) => {
         todoListItems.sort(function (a, b) {
-          console.log(a.date_added)
           return a.date_added - b.date_added;
         });
         this.setState({ todoListItems, isLoading: false });

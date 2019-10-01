@@ -6,7 +6,7 @@ import {
 import { ToDoCard, Modal } from './styled';
 import { GenNavBar } from '../Components/GenNavBar'
 
-  export const Archive = ({isLoading,DeletedListItems,removeDeletedTodoListItem}) => {
+  export const Archive = ({isLoading,DeletedListItems,deleteAll,removeDeletedTodoListItem}) => {
 
     const buildDeletedListItems = (items) => {
       return items && items.length>0 ? (
@@ -22,10 +22,20 @@ import { GenNavBar } from '../Components/GenNavBar'
         </ul>): (<Modal>No Deleted Tasks</Modal>);
     }
 
+    const showDeleteButton = (items) => {
+      if (items.length>0){
+        return (<button onClick={deleteAll}>Delete All</button>
+        )
+      }
+    }
+
   return (
     <Fragment>
       <GenNavBar></GenNavBar>
       <TodoListTitle>Deleted Tasks</TodoListTitle>
+      {showDeleteButton(DeletedListItems)}
+      <br></br>
+      <br></br>
       <CenterDiv>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}
       </CenterDiv>

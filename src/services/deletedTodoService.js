@@ -4,6 +4,10 @@ export const recieveDeletedTodoList = () => {
     return instance.get('deletedtodos/').then((Response) => Response.data).catch(()=> []);
 };
 
+export const DeleteAllTodoList = () => {
+    return instance.delete('deletedtodos/deleteAll').then((Response) => Response.data).catch(()=> []);
+};
+
 export const recoverTodoListItem = (id) => {
-    return instance.get(`todos/recover/${id}`).then((response) => response.data.catch(()=> []));
+    return instance.get(`todos/recover/${id}`).then((response) => response.data).catch(()=> []);
 };

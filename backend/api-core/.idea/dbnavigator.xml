@@ -25,7 +25,9 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="7738ce56-2e79-4bae-a702-59988bd48c48">
-        <schema name="public" object-types="column, table, index, constraint, dataset trigger" />
+        <schema name="information_schema" object-types="table, view, function" />
+        <schema name="pg_catalog" object-types="table, view, function" />
+        <schema name="public" object-types="column, table, index, view, function, sequence, constraint, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -41,12 +43,16 @@ delete from &quot;public&quot;.deletedtodos</console>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
       <object connection-id="7738ce56-2e79-4bae-a702-59988bd48c48" object-ref="schemas/public/tables/todos" />
+      <object connection-id="7738ce56-2e79-4bae-a702-59988bd48c48" object-ref="schemas/public/tables/deletedtodos" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="7738ce56-2e79-4bae-a702-59988bd48c48" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="7738ce56-2e79-4bae-a702-59988bd48c48" dataset="public.deletedtodos" active-filter-id="49fb0761-c386-45f1-99b8-9717757f6840">
+      <filter id="49fb0761-c386-45f1-99b8-9717757f6840" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND" />
+    </filter-actions>
     <filter-actions connection-id="7738ce56-2e79-4bae-a702-59988bd48c48" dataset="public.todos" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
