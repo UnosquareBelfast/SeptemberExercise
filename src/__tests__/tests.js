@@ -98,16 +98,16 @@ describe("DeletedTodos", () => {
     });
   });
   
-  it("retrieveTodoList gets item by id", done => {
+  it("recoverTodoListItem gets item by id", done => {
     const todoListItem =
       {
         id: 1,
         title: "My first note"
       };
 
-    mock.onGet("todos/1").reply(200, todoListItem);
+    mock.onGet("todos/recover/1").reply(200, todoListItem);
 
-      retrieveTodoListItem(1).then(res => {
+      recoverTodoListItem(1).then(res => {
       expect(res).toStrictEqual(todoListItem);
       done();
     });
