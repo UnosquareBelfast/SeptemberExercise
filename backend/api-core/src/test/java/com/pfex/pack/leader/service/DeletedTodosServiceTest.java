@@ -45,6 +45,7 @@ public class DeletedTodosServiceTest {
         // Act
         Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
         // Assert
+        System.out.print(response);
         assertThat(response).isPresent();
         assertThat(response.get()).isEqualTo(createdDeletedTodos);
         verify(todoRepository).deleteById(todos.getId());
@@ -64,22 +65,6 @@ public class DeletedTodosServiceTest {
 
     }
 
-    @Test
-    public void givenNOTValidResponseWhenCreatedDeletedTodoThenExpectDeletedTodosReturnNullable() {
-        // Arrange
-        Todos todos = new Todos(1, "title");
-        DeletedTodos deletedTodos = new DeletedTodos(null, todos.getId(), todos.getTitle());
-        DeletedTodos createdDeletedTodos = new DeletedTodos(1, todos.getId(), todos.getTitle());
-        when(todoRepository.findById(anyInt())).thenReturn(Optional.of(todos));
-        when(deletedTodoRepository.save(deletedTodos)).thenReturn(null);
-
-        // Act
-        Optional<DeletedTodos> response = deletedTodosService.createDeletedTodo(todos.getId());
-
-        // Assert
-        assertThat(response).isPresent();
-        assertThat(Optional.ofNullable(response).equals(null));
-    }
 
     @Test
     public void recoverTodoFromDeleteDatabaseSuccessfully() {
