@@ -1,7 +1,7 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
 
-import { retrieveTodoList } from "../services/todoService";
+import { retrieveTodoList, retrieveTodoListItem } from "../services/todoService";
 
 var mock = new MockAdapter(instance);
 
@@ -25,8 +25,24 @@ describe("Todos", () => {
     mock.onGet("todos").reply(200, todoList);
 
     retrieveTodoList().then(res => {
-      // console.log(`res ${JSON.stringify([res])}`);
-      expect(res).toBe([]);
+      // console.log(`res ${JSON.stringify(res)}`);
+      expect(res).toBe(todoList);
+      done();
+    });
+  });
+
+  it("retrieveTodoList gets item by id", done => {
+    const todoListItem =
+      {
+        id: 1,
+        title: "My first note"
+      };
+
+    mock.onGet("todos/1").reply(200, todoListItem);
+
+    retrieveTodoListItem(1).then(res => {
+      // console.log(`res ${JSON.stringify(res)}`);
+      expect(res).toStrictEqual(todoListItem);
       done();
     });
   });
