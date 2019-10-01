@@ -1,7 +1,7 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
 
-import { retrieveTodoList, retrieveTodoListItem } from "../services/todoService";
+import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem } from "../services/todoService";
 
 var mock = new MockAdapter(instance);
 
@@ -45,6 +45,24 @@ describe("Todos", () => {
       expect(res).toStrictEqual(todoListItem);
       done();
     });
+  });
+
+  it("searchForTodoTitle gets items by title", done => {
+    const todoList = [
+      {
+        id: 1,
+        title: "My first note"
+      },
+      {
+        id: 2,
+        title: "My second note"
+      }
+    ];
+    mock.onGet("todos/search?title=My second note").reply(200, todoList);
+    searchForTodoListItem("My second note").then(res => {
+      expect(res).toStrictEqual(todoList);
+      done();
+    })
   });
 });
 
