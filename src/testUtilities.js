@@ -5,3 +5,6 @@ import { theme } from './theme';
 
 export const mountWithTheme = (children) =>
   mount(<ThemeProvider theme={theme}>{children}</ThemeProvider>);
+
+export const shallowWithTheme = (children) => 
+  shallow(<ThemeProvider theme={theme}>{children}</ThemeProvider>);

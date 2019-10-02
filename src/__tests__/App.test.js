@@ -12,7 +12,7 @@ import {DeleteButton, UpdateButton, CancelButton, SaveButton} from '../pages/Tod
 import {RestoreButton} from '../pages/DeletedItems/components/DeletedItem/styled';
 import {SearchButton, ClearButton} from '../pages/TodoList/components/SearchBar/styled';
 import { TodoListTitle } from '../pages/TodoList/styled';
-import { mountWithTheme } from '../testUtilities';
+import { mountWithTheme, shallowWithTheme } from '../testUtilities';
 import { theme } from '../theme';
 import {MemoryRouter} from 'react-router-dom';
 import 'jest-styled-components';
@@ -82,6 +82,12 @@ describe('TodoListTitle', () => {
     })
 })
 
+describe('Delete Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<DeleteButton />);
+    })
+})
+
 describe('Delete Button check click function', () => {
     it('Delete function called when button clicked', () => {
     const DeleteTask = jest.fn();
@@ -92,6 +98,12 @@ describe('Delete Button check click function', () => {
     })
 })
 
+describe('Update Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<UpdateButton />);
+    })
+})
+
 describe('Update button check click function', () => {
     it('Update function called when button clicked', () => {
         const UpdateTask = jest.fn();
@@ -99,6 +111,12 @@ describe('Update button check click function', () => {
 
         updateTaskButton.find(UpdateButton).simulate('click');
         expect(UpdateTask).toHaveBeenCalled();
+    })
+})
+
+describe('Save Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<SaveButton />);
     })
 })
 
@@ -114,6 +132,12 @@ describe('Save button check click', () => {
     })
 })
 
+describe('Cancel Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<CancelButton />);
+    })
+})
+
 describe('Cancel Button check click function', () => {
     it('Cancel function called when button clicked', () => {
         const CancelTask = jest.fn();
@@ -121,6 +145,12 @@ describe('Cancel Button check click function', () => {
 
         cancelTaskButton.find(CancelButton).simulate('click');
         expect(CancelTask).toHaveBeenCalled();
+    })
+})
+
+describe('Search Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<SearchButton />);
     })
 })
 
@@ -136,6 +166,12 @@ describe('Search Button check click function', () => {
     
 })
 
+describe('Clear Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<ClearButton />);
+    })
+})
+
 
 describe('Clear Button check click function', () => {
     it('Clear function called when button clicked', () => {
@@ -146,6 +182,12 @@ describe('Clear Button check click function', () => {
     expect(ClearFunction).toHaveBeenCalled();
     })
     
+})
+
+describe('Restore Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<RestoreButton />);
+    })
 })
 
 describe('Restore Button check click function', () => {
