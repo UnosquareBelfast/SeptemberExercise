@@ -1,6 +1,21 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from './App';
+import NavBar from './pages/NavBar';
+//import {TodoList, SearchBar} from './pages/TodoList'; doesn't work
+import SearchBar from './pages/TodoList';
+import TodoList from './pages/TodoList';
+import AddNewToDoListItem from './pages/TodoList';
+import DeletedItem from './pages/DeletedItems';
+import AboutUs from './pages/AboutUs';
+import AddTaskButton from './pages/TodoList';
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
+import 'jest-styled-components';
+import toJson from 'enzyme-to-json'
+
+
+
 
 
 
@@ -9,3 +24,64 @@ describe('First React component test with Enzyme', () => {
         shallow(<App />);
      });
 });
+
+describe('Navbar component check', () => {
+    it('renders without crashing', () => {
+        shallow(<NavBar />);
+    })
+})
+
+describe('To do list item check', () => {
+    it('renders without crashing', () =>{
+        shallow(<TodoList />);
+    })
+})
+
+describe('Search bar check', () => {
+    it('renders without crashing', () =>{
+        shallow(<SearchBar />);
+    })
+})
+
+describe('Add New To Do List Item check', () => {
+    it('renders without crashing', () => {
+        shallow(<AddNewToDoListItem />);
+    })
+})
+
+describe('Deleted Item check', () => {
+    it('renders without crashing', () => {
+        shallow(<DeletedItem />);
+    })
+})
+
+describe('About Us check', () => {
+    it('renders without crashing', () => {
+        shallow(<AboutUs />);
+    })
+})
+
+describe('Add Task Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<AddTaskButton />);
+    })
+})
+
+describe('Add Task Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+
+    const addNewTask = jest.fn();
+    //const context = shallow(<ThemeProvider theme={theme} />).children;
+    const addTaskButton = shallow(<AddTaskButton theme={theme} onClick={addNewTask}> Add Task </AddTaskButton>);
+    addTaskButton.find(AddTaskButton).simulate('click');
+    expect(addNewTask(title)).toHaveBeenCalled();
+    //expect(addTaskButton).toMatchSnapshot();
+
+    // const wrapper = shallow((<App />));
+    // wrapper.find(AddTaskButton).props().onPress({} as any);
+    // expect(props..toHaveBeenCalled();
+    })
+})
+
+
+

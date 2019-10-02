@@ -10,16 +10,16 @@ export const retrieveTodoListItem = (id) => {
 
 export const updateTodoListItem = (id, title) => {
     const todoItem = { title: title };
-    return instance.put(`todos/${id}`, todoItem).then((response) => response.data);
+    return instance.put(`todos/${id}`, todoItem).then((response) => response);
 };
 
 export const createTodoListItem = (title) => {
     const todoItem = { title: title };
-    return instance.post('todos/', todoItem).then((response) => response.data);
+    return instance.post('todos/', todoItem).then((response) => response);
 };
 
 export const deleteTodoListItem = (id) => {
-    return instance.delete(`todos/${id}`).then((response) => response.data);
+    return instance.delete(`todos/${id}`).then((response) => response);
 };
 
 export const searchToDoListItems = (searchTerm) =>{

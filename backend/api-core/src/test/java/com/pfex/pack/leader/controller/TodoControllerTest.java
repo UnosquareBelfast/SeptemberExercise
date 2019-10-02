@@ -136,10 +136,6 @@ public class TodoControllerTest {
         //arrange
         Todos todo = new Todos(1, "");
 
-//        Set<ConstraintViolation<Todos>> violation = validator.validate(todo);
-//
-//        assertThat(violation.size()).isEqualTo(0);
-
         when(repository.save(todo)).thenReturn(null);
 
         //act

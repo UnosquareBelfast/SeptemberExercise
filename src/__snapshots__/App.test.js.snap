@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Task Button check click function clicks recorded when user clicks 1`] = `ShallowWrapper {}`;
