@@ -7,9 +7,11 @@ import TodoList from '../pages/TodoList';
 import AddNewToDoListItem from '../pages/TodoList';
 import DeletedItem from '../pages/DeletedItems';
 import AboutUs from '../pages/AboutUs';
-import {AddTaskButton } from '../pages/TodoList/components/AddNewToDoListItem/styled';
+import { AddTaskButton } from '../pages/TodoList/components/AddNewToDoListItem/styled';
+import { TodoListTitle } from '../pages/TodoList/styled';
 import 'jest-styled-components';
 import { mountWithTheme } from '../testUtilities';
+import { theme } from '../theme';
 
 describe('First React component test with Enzyme', () => {
     it('renders without crashing', () => {
@@ -66,5 +68,12 @@ describe('Add Task Button check click function', () => {
 
     addTaskButton.find(AddTaskButton).simulate('click');
     expect(addNewTask).toHaveBeenCalled();
+    })
+})
+
+describe('TodoListTitle', () => {
+    it('Colour is driven from theme', () => {
+        const btnStyle = mountWithTheme(<TodoListTitle>Test</TodoListTitle>);
+        expect(btnStyle).toHaveStyleRule('color', theme.colours.title);
     })
 })

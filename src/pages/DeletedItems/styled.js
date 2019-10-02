@@ -23,17 +23,10 @@ export const OneDeletedTask=styled.div`
 `;
 
 export const DeletedContainer=styled.div`
-  padding:10px
+  padding:10px;
   display:flex;
   flex-direction:row;
   flex-wrap:wrap;
   justify-content:space-between;
   align-content: flex-start;
 `;
-
-
-
-
-
-
-
