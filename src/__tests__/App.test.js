@@ -60,3 +60,13 @@ describe('Refresh Button check click function', () => {
         expect(retrieveTodosForDisplay).toHaveBeenCalled();
     })
 })
+
+describe('Search Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+        const searchForTodoList = jest.fn();
+        const searchButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={searchForTodoList}> Add Task</TodoAddButton>);
+
+        searchButton.find(TodoAddButton).simulate('click');
+        expect(searchForTodoList).toHaveBeenCalled();
+    })
+})
