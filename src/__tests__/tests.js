@@ -1,8 +1,13 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
+import { shallow, mount } from 'enzyme';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import setupTests from "../setupTests";
 
 import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem ,updateTodoListItem,createTodoListItem,deleteTodoListItem} from "../services/todoService";
 import { recieveDeletedTodoList , recoverTodoListItem} from "../services/deletedTodoService";
+import {AboutUs} from "../pages/AboutUs";
 
 var mock = new MockAdapter(instance);
 
