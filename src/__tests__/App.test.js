@@ -5,6 +5,7 @@ import TodoList from '../pages/TodoList';
 import AboutUs from '../pages/AboutUs';
 import DeletedLog from '../pages/DeletedLog';
 import { TodoAddButton } from '../pages/TodoList/styled';
+import { ItemButton } from '../pages/TodoList/components/TodoListItem/styled';
 import { mountWithTheme ,shallowWithTheme} from '../testUtilities';
 import 'jest-styled-components';
 import {theme} from '../theme';
@@ -54,7 +55,7 @@ describe('Add Task Button check click function', () => {
 describe('Refresh Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const retrieveTodosForDisplay = jest.fn();
-        const refreshButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={retrieveTodosForDisplay}> Add Task</TodoAddButton>);
+        const refreshButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={retrieveTodosForDisplay}> Refresh</TodoAddButton>);
 
         refreshButton.find(TodoAddButton).simulate('click');
         expect(retrieveTodosForDisplay).toHaveBeenCalled();
@@ -64,9 +65,19 @@ describe('Refresh Button check click function', () => {
 describe('Search Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const searchForTodoList = jest.fn();
-        const searchButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={searchForTodoList}> Add Task</TodoAddButton>);
+        const searchButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={searchForTodoList}> Search</TodoAddButton>);
 
         searchButton.find(TodoAddButton).simulate('click');
         expect(searchForTodoList).toHaveBeenCalled();
+    })
+})
+
+describe('save Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+        const saveItem = jest.fn();
+        const saveButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={saveItem}> savek</ItemButton>);
+
+        saveButton.find(ItemButton).simulate('click');
+        expect(saveItem).toHaveBeenCalled();
     })
 })
