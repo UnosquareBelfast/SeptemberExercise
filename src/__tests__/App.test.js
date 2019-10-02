@@ -6,6 +6,7 @@ import AboutUs from '../pages/AboutUs';
 import DeletedLog from '../pages/DeletedLog';
 import { TodoAddButton } from '../pages/TodoList/styled';
 import { ItemButton } from '../pages/TodoList/components/TodoListItem/styled';
+import {RecoverButton } from '../pages/DeletedLog/styled'
 import { mountWithTheme ,shallowWithTheme} from '../testUtilities';
 import 'jest-styled-components';
 import {theme} from '../theme';
@@ -99,5 +100,15 @@ describe('Delete Button check click function', () => {
 
         deleteItemButton.find(ItemButton).simulate('click');
         expect(deleteItem).toHaveBeenCalled();
+    })
+})
+
+describe('Recover Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+        const removeDeletedTodoListItem = jest.fn();
+        const removeItemButton = mountWithTheme(<RecoverButton variant="outline-primary" onClick={removeDeletedTodoListItem}> delete </RecoverButton>);
+
+        removeItemButton.find(RecoverButton).simulate('click');
+        expect(removeDeletedTodoListItem).toHaveBeenCalled();
     })
 })
