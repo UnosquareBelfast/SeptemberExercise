@@ -19,10 +19,10 @@ export const updateTodoListItem = (id, title) => {
 
 export const createTodoListItem = (title) => {
     const todoItem = { title: title };
-    return instance.post('todos/', todoItem).then((response) => response.data);
+    return instance.post('todos/', todoItem).then((response) => response);
 };
 
 export const deleteTodoListItem = (id) => {
-    return instance.delete(`todos/${id}`).then((response) => response.data);
+    return instance.delete(`todos/${id}`).then((response) => response);
 };
 

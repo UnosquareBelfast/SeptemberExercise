@@ -1,7 +1,7 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
 
-import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem ,updateTodoListItem} from "../services/todoService";
+import { retrieveTodoList, retrieveTodoListItem,searchForTodoListItem ,updateTodoListItem,createTodoListItem,deleteTodoListItem} from "../services/todoService";
 import { recieveDeletedTodoList , recoverTodoListItem} from "../services/deletedTodoService";
 
 var mock = new MockAdapter(instance);
@@ -74,6 +74,33 @@ describe("Todos", () => {
       done();
     })
   });
+
+  // it("createTodoListItem with title", done => {
+
+  //   const todoItem = { title: "Hello world! Its a me" };
+
+  //   mock.onPost('todos/',todoItem).reply(204);
+  //   createTodoListItem(todoItem).then(res => {
+  //     expect(res.status).toStrictEqual(204);
+  //     done();
+  //   })
+  // });
+
+  it("deleteTodoListItem by id", done => {
+
+    const todoListItem =
+      {
+        id: 1,
+        title: "My first note"
+      };
+
+    mock.onDelete('todos/1',todoListItem).reply(204);
+    deleteTodoListItem(1).then(res => {
+      expect(res.status).toStrictEqual(204);
+      done();
+    })
+  });
+
 });
 
 describe("DeletedTodos", () => {
