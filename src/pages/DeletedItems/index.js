@@ -23,7 +23,6 @@ export const DeletedItems = ({isLoading, deletedTodoListItems, restoreDeletedTod
   return (
     <Fragment>
 
-    <div>Deleted Items</div>
     {isLoading ? 'Loading....' : buildDeletedTodoListItems(deletedTodoListItems, restoreDeletedTodoListItem) }
 
     </Fragment>
