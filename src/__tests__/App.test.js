@@ -1,23 +1,15 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import App from './App';
-import NavBar from './pages/NavBar';
-//import {TodoList, SearchBar} from './pages/TodoList'; doesn't work
-import SearchBar from './pages/TodoList';
-import TodoList from './pages/TodoList';
-import AddNewToDoListItem from './pages/TodoList';
-import DeletedItem from './pages/DeletedItems';
-import AboutUs from './pages/AboutUs';
-import AddTaskButton from './pages/TodoList';
-import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+import { shallow } from 'enzyme';
+import App from '../App';
+import NavBar from '../pages/NavBar';
+import SearchBar from '../pages/TodoList';
+import TodoList from '../pages/TodoList';
+import AddNewToDoListItem from '../pages/TodoList';
+import DeletedItem from '../pages/DeletedItems';
+import AboutUs from '../pages/AboutUs';
+import {AddTaskButton } from '../pages/TodoList/components/AddNewToDoListItem/styled';
 import 'jest-styled-components';
-import toJson from 'enzyme-to-json'
-
-
-
-
-
+import { mountWithTheme } from '../testUtilities';
 
 describe('First React component test with Enzyme', () => {
     it('renders without crashing', () => {
@@ -69,19 +61,10 @@ describe('Add Task Button check', () => {
 
 describe('Add Task Button check click function', () => {
     it('clicks recorded when user clicks', () => {
-
     const addNewTask = jest.fn();
-    //const context = shallow(<ThemeProvider theme={theme} />).children;
-    const addTaskButton = shallow(<AddTaskButton theme={theme} onClick={addNewTask}> Add Task </AddTaskButton>);
-    addTaskButton.find(AddTaskButton).simulate('click');
-    expect(addNewTask(title)).toHaveBeenCalled();
-    //expect(addTaskButton).toMatchSnapshot();
+    const addTaskButton = mountWithTheme(<AddTaskButton onClick={addNewTask}> Add Task </AddTaskButton>);
 
-    // const wrapper = shallow((<App />));
-    // wrapper.find(AddTaskButton).props().onPress({} as any);
-    // expect(props..toHaveBeenCalled();
+    addTaskButton.find(AddTaskButton).simulate('click');
+    expect(addNewTask).toHaveBeenCalled();
     })
 })
-
-
-
