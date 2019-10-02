@@ -37,6 +37,8 @@ TodoList.propTypes = {
   isLoading: PT.bool.isRequired,
   todoListItems: PT.array.isRequired,
   ToDoItem: PT.func.isRequired,
+  retrieveTodosForDisplay: PT.func.isRequired,
+  setDisplayItems: PT.func.isRequired,
 };
 
 export default container(TodoList);

@@ -1,11 +1,11 @@
 import instance from '../utilities/Axios';
 
 export const retrieveTodoList = () => {
-    return instance.get().then((response) => response.data);
+    return instance.get(`todos`).then((response) => response.data);
 };
 
 export const retrieveTodoListItem = (id) => {
-    return instance.get(`/${id}`).then((response) => response.data);
+    return instance.get(`todos/1`).then((response) => response.data);
 };
 
 export const updateTodoListItem = (id, title) => {
@@ -19,7 +19,7 @@ export const createTodoListItem = (title) => {
 };
 
 export const deleteTodoListItem = (id) => {
-    return instance.delete(`${id}`).then((response) => response.data);
+    return instance.delete(`todos/${id}`).then((response) => response.data);
 };
 
 export const searchToDoListItems = (searchTerm) =>{

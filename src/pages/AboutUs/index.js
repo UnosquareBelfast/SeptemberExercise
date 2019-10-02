@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {
-  AboutUsTitle, Paragraph
-} from './styled';
+import { AboutUsTitle, Paragraph } from './styled';
 
 export const AboutUs = () => {
   return (

@@ -11,6 +11,14 @@ const DeletedItem = (Wrapped) =>
         };
 
         render(){
-            const
-        }
-    }
+            const {title} = this.state;
+            const {restoreItem, item: {id}}=this.props;
+            return <Wrapped
+            title={title}
+            id={id}
+            restoreItem={restoreItem}
+            />;
+        };
+    };
+
+    export default DeletedItem;

@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { PropTypes as PT } from 'prop-types';
 import { GlobalStyle, theme } from './theme';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-import { AboutUs, TodoList, NavBar} from './pages'
+import { AboutUs, TodoList, NavBar, DeletedItems} from './pages'
 import { SearchBar } from './pages/TodoList/components/SearchBar';
 
 
@@ -20,6 +20,7 @@ class App extends React.Component {
             <NavBar></NavBar>
             <Route path="/" exact component={TodoList}/>
             <Route path="/about/" component={AboutUs}/>
+            <Route path='/deleted' exact component={DeletedItems}/>
             <Route path='/search?title=' exact component={SearchBar}/>
             {/* <Redirect to="/"/> */}
           </Router>
