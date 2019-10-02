@@ -75,16 +75,16 @@ describe("Todos", () => {
     })
   });
 
-  // it("createTodoListItem with title", done => {
+  it("createTodoListItem with title", done => {
 
-  //   const todoItem = { title: "Hello world! Its a me" };
+    const todoItem = { title: "Hello world! Its a me" };
 
-  //   mock.onPost('todos/',todoItem).reply(204);
-  //   createTodoListItem(todoItem).then(res => {
-  //     expect(res.status).toStrictEqual(204);
-  //     done();
-  //   })
-  // });
+    mock.onPost('todos/').reply(204);
+    createTodoListItem(todoItem).then(res => {
+      expect(res.status).toStrictEqual(204);
+      done();
+    })
+  });
 
   it("deleteTodoListItem by id", done => {
 
