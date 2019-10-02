@@ -91,3 +91,13 @@ describe('toggleUpdateMode Button check click function', () => {
         expect(toggleUpdateMode).toHaveBeenCalled();
     })
 })
+
+describe('Delete Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+        const deleteItem = jest.fn();
+        const deleteItemButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={deleteItem}> delete </ItemButton>);
+
+        deleteItemButton.find(ItemButton).simulate('click');
+        expect(deleteItem).toHaveBeenCalled();
+    })
+})
