@@ -82,12 +82,12 @@ describe('Save Button check click function', () => {
     })
 })
 
-describe('Cancel Update Button check click function', () => {
+describe('toggleUpdateMode Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const toggleUpdateMode = jest.fn();
-        const CancelButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={toggleUpdateMode}> update</ItemButton>);
+        const toggleUpdateModelButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={toggleUpdateMode}> toggleUpdateMode</ItemButton>);
 
-        CancelButton.find(ItemButton).simulate('click');
+        toggleUpdateModelButton.find(ItemButton).simulate('click');
         expect(toggleUpdateMode).toHaveBeenCalled();
     })
 })
