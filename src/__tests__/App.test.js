@@ -72,12 +72,22 @@ describe('Search Button check click function', () => {
     })
 })
 
-describe('save Button check click function', () => {
+describe('Save Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const saveItem = jest.fn();
-        const saveButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={saveItem}> savek</ItemButton>);
+        const saveButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={saveItem}> save</ItemButton>);
 
         saveButton.find(ItemButton).simulate('click');
         expect(saveItem).toHaveBeenCalled();
+    })
+})
+
+describe('Cancel Update Button check click function', () => {
+    it('clicks recorded when user clicks', () => {
+        const toggleUpdateMode = jest.fn();
+        const CancelButton = mountWithTheme(<ItemButton variant="outline-primary" onClick={toggleUpdateMode}> update</ItemButton>);
+
+        CancelButton.find(ItemButton).simulate('click');
+        expect(toggleUpdateMode).toHaveBeenCalled();
     })
 })
