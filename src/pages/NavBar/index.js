@@ -14,7 +14,7 @@ export const NavBar = () => {
     <Fragment>
   
       <BtnStyle><Link to="/" onMouseOver={() =>console.log('mouse over')} >Home</Link></BtnStyle>
-      <BtnStyle> <Link to="/about">About</Link> </BtnStyle>
+      <BtnStyle><Link to="/about">About</Link> </BtnStyle>
       <BtnStyle><Link to="/deleted">Deleted</Link></BtnStyle>
     </Fragment>
     
