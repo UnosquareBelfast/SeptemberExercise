@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import {SearchBox, SearchTitle, SearchSection, SearchButton, ClearButton, ClearButtonPadding} from './styled';
+import {SearchBox, SearchTitle, SearchSection, DeleteSearchButton, DeleteClearButton, ClearButtonPadding} from './styled';
 
 export const DeletedSearchBar = ({deletedSearchTerm, deletedSearchTermProvided, searchForDeletedToDoListItem, clearDeletedSearchResults, ButtonHiddenForDeleted, clearButtonInvisibleForDeleted}) => {
   return (
@@ -10,11 +10,11 @@ export const DeletedSearchBar = ({deletedSearchTerm, deletedSearchTermProvided, 
       <SearchSection>
       <SearchTitle>Search Deleted To Do List</SearchTitle>
       <SearchBox value={deletedSearchTerm} placeholder="Search...." onChange={(event)=> deletedSearchTermProvided(event)}  ></SearchBox>
-      <SearchButton onClick={() => {searchForDeletedToDoListItem(deletedSearchTerm)}}>Search</SearchButton>
+      <DeleteSearchButton onClick={() => {searchForDeletedToDoListItem(deletedSearchTerm)}}>Search</DeleteSearchButton>
 
       {!ButtonHiddenForDeleted ? 
       <ClearButtonPadding> 
-        <ClearButton onClick={() => {clearDeletedSearchResults(); clearButtonInvisibleForDeleted()}}>Clear Search Results</ClearButton>
+        <DeleteClearButton onClick={() => {clearDeletedSearchResults(); clearButtonInvisibleForDeleted()}}>Clear Search Results</DeleteClearButton>
       </ClearButtonPadding> :<div>Button failure</div>}
       
       </SearchSection>

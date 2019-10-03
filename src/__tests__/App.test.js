@@ -11,6 +11,8 @@ import { AddTaskButton } from '../pages/TodoList/components/AddNewToDoListItem/s
 import {DeleteButton, UpdateButton, CancelButton, SaveButton} from '../pages/TodoList/components/TodoListItem/styled';
 import {RestoreButton} from '../pages/DeletedItems/components/DeletedItem/styled';
 import {SearchButton, ClearButton} from '../pages/TodoList/components/SearchBar/styled';
+import {DeleteSearchButton, DeleteClearButton} from '../pages/DeletedItems/components/DeletedSearchBar/styled';
+import DeletedSearchBar from '../pages/DeletedItems';
 import { TodoListTitle } from '../pages/TodoList/styled';
 import { mountWithTheme, shallowWithTheme } from '../testUtilities';
 import { theme } from '../theme';
@@ -40,6 +42,12 @@ describe('To do list item check', () => {
 describe('Search bar check', () => {
     it('renders without crashing', () =>{
         shallow(<SearchBar />);
+    })
+})
+
+describe('Deleted Search bar check', () => {
+    it('renders without crashing', () =>{
+        shallow(<DeletedSearchBar />);
     })
 })
 
@@ -182,6 +190,42 @@ describe('Clear Button check click function', () => {
     
     clearResultsButton.find(ClearButton).simulate('click');
     expect(ClearFunction).toHaveBeenCalled();
+    })
+    
+})
+
+describe('Delete Search Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<DeleteSearchButton />);
+    })
+})
+
+describe('Delete Search Button check click function', () => {
+    it('Delete Search function called when button clicked', () => {
+    const DeleteSearchFunction = jest.fn();
+    const deleteSearchButton = mountWithTheme(<DeleteSearchButton onClick={DeleteSearchFunction}>Search</DeleteSearchButton>);
+
+    deleteSearchButton.find(DeleteSearchButton).simulate('click');
+    expect(DeleteSearchFunction).toHaveBeenCalled();
+
+    })
+    
+})
+
+describe('Delete Clear Button check', () => {
+    it('renders without crashing', () => {
+        shallow(<DeleteClearButton />);
+    })
+})
+
+
+describe('Delete Clear Button check click function', () => {
+    it('Delete Clear function called when button clicked', () => {
+    const DeleteClearFunction = jest.fn();
+    const deleteClearResultsButton = mountWithTheme(<DeleteClearButton onClick={DeleteClearFunction}>Clear Search Results</DeleteClearButton>);
+    
+    deleteClearResultsButton.find(DeleteClearButton).simulate('click');
+    expect(DeleteClearFunction).toHaveBeenCalled();
     })
     
 })

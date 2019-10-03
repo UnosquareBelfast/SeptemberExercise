@@ -22,13 +22,13 @@ export const SearchSection=styled.div`
   
   `;
 
-export const SearchButton=styled.button`
+export const DeleteSearchButton=styled.button`
 
 
 `;
 
 
-export const ClearButton = styled.button`
+export const DeleteClearButton = styled.button`
    
 `;
 
