@@ -1,8 +1,10 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
-import * as AddNewTask from '../pages/TodoList/components/AddNewToDoListItem';
+
 
 import { retrieveTodoList, retrieveTodoListItem, updateTodoListItem, createTodoListItem, deleteTodoListItem, searchToDoListItems } from "../services/todoService";
+
+import { retrieveDeletedTodoList, restoreDeletedTodo } from '../services/deletedTodoService';
 
 var mock = new MockAdapter(instance);
 
@@ -162,3 +164,46 @@ describe("Todos testing", () => {
 //     done();
 //   });
 // });
+
+
+describe("Deleted Todos testing", () => {
+  it("retrieveDeletedTodoList gets all deleted todo items", done => {
+    const deletedTodoList = [
+      {
+        id: 1,
+        title: "My first note"
+      },
+      {
+        id: 2,
+        title: "My second note"
+      }
+    ];
+
+    mock.onGet("deletedtodos/").reply(200, deletedTodoList);
+
+    retrieveDeletedTodoList().then(res => {
+      // console.log(`res ${JSON.stringify(res)}`);
+      expect(res).toBe(deletedTodoList);
+      done();
+    });
+
+  });
+
+  it('restoreDeletedTodo recovers todo', done => {
+
+    const recoverTodo =
+      {
+        id:2,
+        title: 'hello'
+      };
+
+    mock.onGet("todos/recover/2").reply(200, recoverTodo);
+
+    restoreDeletedTodo(2).then(res => {
+      //console.log(res);
+      expect(res).toStrictEqual(recoverTodo);
+      done();
+    })
+  })
+
+});
