@@ -2,6 +2,8 @@ package com.pfex.pack.leader.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
 import com.pfex.pack.leader.model.DeletedTodos;
@@ -70,6 +72,30 @@ public class DeletedControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertThat(response.getBody()).contains(deletedTodo1);
 
+    }
+
+    @Test
+    public void searchingForDeletedTodoAndFound() {
+
+        // Arrange
+        lenient().when(deletedTodoRepository.findAllByTitleContainsIgnoreCase(any())).thenReturn(listOfDeletedTodos);
+        // Act
+        ResponseEntity<List<DeletedTodos>> response = deletedTodoController.searchDeletedTodos("test 1");
+        //Assert
+        assertThat(response.getBody()).containsAll(listOfDeletedTodos);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    public void searchingForDeletedTodoAndNotFound() {
+
+        // Arrange
+        lenient().when(deletedTodoRepository.findAllByTitleContainsIgnoreCase(null)).thenReturn(listOfDeletedTodos);
+        // Act
+        ResponseEntity<List<Todos>> response = deletedTodoController.searchDeletedTodos(null);
+        //Assert
+        assertEquals(response.getBody().isEmpty(), listOfDeletedTodos.isEmpty());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
 
