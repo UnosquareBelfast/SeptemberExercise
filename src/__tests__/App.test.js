@@ -113,7 +113,7 @@ describe('Recover Button check click function', () => {
     })
 })
 
-describe('Link Button check click function to homepage pagr from deletelog', () => {
+describe('Link Button check click function to homepage page', () => {
     it('clicks recorded when user clicks', () => {
         const Link = jest.fn();
         const LinkToHomePage = mountWithTheme(<LinkButton variant="outline-primary" onClick={Link}> Home </LinkButton>);

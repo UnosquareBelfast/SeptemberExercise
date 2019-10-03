@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
-import { Link } from "react-router-dom";
 import container from './container';
 import { 
-  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton,LinkButton
+  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton
  } from './styled';
 
  export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,searchForTodoList,retrieveTodosForDisplay }) => {
@@ -16,12 +15,6 @@ import {
   return (
     <Fragment>
       <TodoListTitle>To do's</TodoListTitle>
-      <LinkButton>
-      <Link to='/about/'>About us</Link>
-      </LinkButton>
-      <LinkButton>
-      <Link to='/DeletedLog/'>DeletedLog</Link>
-      </LinkButton>
     <TodoAdd>
       <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
       <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>

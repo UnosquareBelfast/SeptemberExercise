@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { PropTypes as PT } from 'prop-types';
-import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import { GlobalStyle, theme } from './theme';
-import { AboutUs, TodoList ,DeletedLog} from './pages';
+import { AboutUs, TodoList ,DeletedLog, NavBar} from './pages';
 
 class App extends React.Component {
   static propTypes = {
@@ -15,6 +15,8 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <Fragment>
           <Router>
+            <label>Todos! We care about your to dos!</label>
+          <NavBar></NavBar>
             <Route path="/" exact component={TodoList} />
             <Route path="/about/" component={AboutUs} />
             <Route path="/DeletedLog/" component={DeletedLog} />
