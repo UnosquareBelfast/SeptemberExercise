@@ -15,8 +15,7 @@ class App extends React.Component {
       <ThemeProvider theme={theme}>
         <Fragment>
           <Router>
-            <label>Todos! We care about your to dos!</label>
-          <NavBar></NavBar>
+            <NavBar></NavBar>
             <Route path="/" exact component={TodoList} />
             <Route path="/about/" component={AboutUs} />
             <Route path="/DeletedLog/" component={DeletedLog} />

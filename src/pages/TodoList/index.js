@@ -14,7 +14,9 @@ import {
 
   return (
     <Fragment>
-      <TodoListTitle>To do's</TodoListTitle>
+      <TaskContainer>
+      {/* <TodoListTitle>To do's</TodoListTitle> */}
+      </TaskContainer>
     <TodoAdd>
       <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
       <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>

@@ -31,7 +31,6 @@ export const TodoAddButton = styled.button`
 
 export const TaskContainer=styled.div`
 
-//background:yellow;
 padding:10px
 display:flex;
 flex-direction:row;

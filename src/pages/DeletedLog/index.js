@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import container from './container';
-import { Link } from "react-router-dom";
 import { 
   TodoListTitle,
-  LinkButton,
   RecoverButton,
   DeleteToDo,
   NumberOfTodo
@@ -31,7 +29,6 @@ import {
   return (
     <Fragment>
       <TodoListTitle>DeleteLog</TodoListTitle>
-        <LinkButton ><Link to='/'>home</Link></LinkButton>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}
       <NumberOfTodo>Number of deleted Todos: {numberOfDeletedObjects(DeletedListItems)}</NumberOfTodo>
   </Fragment>
