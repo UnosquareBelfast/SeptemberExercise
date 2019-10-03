@@ -29,15 +29,14 @@ export const TodoAddButton = styled.button`
   text-align: center;
 `;
 
-export const TaskContainer=styled.div`
-
+export const TaskContainer = styled.div`
 padding:10px
-display:flex;
+display: flex;
 flex-direction:row;
 flex-wrap:wrap;
 justify-content:space-between;
-`;
 
+`;
 
 
 export const SearchButton=styled.button`
