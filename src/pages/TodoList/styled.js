@@ -55,7 +55,7 @@ justify-content: space-between;
 `;
 
 export const TaskContainer = styled.div`
-background: lightgrey;
+background: pink;
 text-align: center;
 padding: 50px;
 display: center;
