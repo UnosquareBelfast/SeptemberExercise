@@ -6,7 +6,7 @@ import AboutUs from '../pages/AboutUs';
 import DeletedLog from '../pages/DeletedLog';
 import { TodoAddButton } from '../pages/TodoList/styled';
 import { ItemButton } from '../pages/TodoList/components/TodoListItem/styled';
-import {RecoverButton } from '../pages/DeletedLog/styled'
+import {RecoverButton,LinkButton } from '../pages/DeletedLog/styled'
 import { mountWithTheme ,shallowWithTheme} from '../testUtilities';
 import 'jest-styled-components';
 import {theme} from '../theme';
@@ -110,5 +110,15 @@ describe('Recover Button check click function', () => {
 
         removeItemButton.find(RecoverButton).simulate('click');
         expect(removeDeletedTodoListItem).toHaveBeenCalled();
+    })
+})
+
+describe('Link Button check click function to homepage pagr from deletelog', () => {
+    it('clicks recorded when user clicks', () => {
+        const Link = jest.fn();
+        const LinkToHomePage = mountWithTheme(<LinkButton variant="outline-primary" onClick={Link}> Home </LinkButton>);
+
+        LinkToHomePage.find(LinkButton).simulate('click');
+        expect(Link).toHaveBeenCalled();
     })
 })
