@@ -29,9 +29,15 @@ const SearchBar = (Wrapped) =>
     searchToDoListItems(searchTerm).then((results) => { 
       if(results.length===0){
         alert("No to do tasks match this search");
+        this.setState({
+          searchTerm:'',
+        })
       }else{
         this.props.setDisplayItems(results);
         this.clearButtonVisible();
+        this.setState({
+          searchTerm:'',
+        })
       }
       console.log(searchTerm+": searched for");
       console.log(results);
@@ -62,10 +68,6 @@ const SearchBar = (Wrapped) =>
       buttonHidden: true
     })
   }
-
-
-
-
 
        
     render() {

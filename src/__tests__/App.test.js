@@ -17,6 +17,8 @@ import { theme } from '../theme';
 import {MemoryRouter} from 'react-router-dom';
 import 'jest-styled-components';
 
+
+
 describe('First React component test with Enzyme', () => {
     it('renders without crashing', () => {
         shallow(<App />);
@@ -215,13 +217,14 @@ describe('Testing NavBar routes', () => {
         const wrapper = mountWithTheme(<MemoryRouter><NavBar/></MemoryRouter>);
         expect(wrapper.find('Link').at(2).simulate('click'));
     })
-//
-    //test fails as link doesn't exist
-    // it('Non existent link test', () => {
-    //     const wrapper = mountWithTheme(<MemoryRouter><NavBar/></MemoryRouter>);
-    //     expect(wrapper.find('Link').at(3).simulate('click'));
-    // })
+
+    it('Non existent link test', () => {
+        const wrapper = mountWithTheme(<MemoryRouter><NavBar/></MemoryRouter>);
+        expect(wrapper.find('Link').at(3).exists()).toBeFalsy();
+    })
 })
+
+
 
 
 

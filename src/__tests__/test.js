@@ -1,5 +1,6 @@
 import instance from "../utilities/Axios";
 import MockAdapter from "axios-mock-adapter";
+import * as AddNewTask from '../pages/TodoList/components/AddNewToDoListItem';
 
 import { retrieveTodoList, retrieveTodoListItem, updateTodoListItem, createTodoListItem, deleteTodoListItem, searchToDoListItems } from "../services/todoService";
 
@@ -91,16 +92,18 @@ describe("Todos testing", () => {
       })
   });
 
+  //won't let me import the method >:(
   // it('createTodoListItem does not create a item when title left empty', done => {
   //     const toDotoCreate = {
-  //         id: 3,
-  //         title: ""
+  //         id:3,
+  //         title:''
   //     };
-  //     mock.onPost("todos/").reply(200, null);
+  //     //mock.onPost("todos/3").reply(200, toDotoCreate);
 
-  //     createTodoListItem(toDotoCreate.title).then(res => {
+  //     AddNewTask.addNewTask(toDotoCreate.title).then(res => {
           
-  //         expect(res).toStrictEqual(null);
+  //       console.log(res);
+  //         //expect(res.data).toStrictEqual(200, null);
           
   //         done();
   //     })
@@ -143,3 +146,19 @@ describe("Todos testing", () => {
   })
 
 });
+
+// describe('Attempting to test AddTask Method', () => {
+//   const todoListItem =
+//     {
+//       id: 1,
+//       title: "My first note"
+//     };
+
+//   mock.onGet("todos/1").reply(200, todoListItem);
+
+//   retrieveTodoListItem(1).then(res => {
+//     // console.log(`res ${JSON.stringify(res)}`);
+//     expect(res.data).toStrictEqual(todoListItem);
+//     done();
+//   });
+// });
