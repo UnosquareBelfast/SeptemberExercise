@@ -33,6 +33,7 @@ export const TaskContainer=styled.div`
 display:flex;
 padding: 5px;
 background: #3B8CF3;
+
 `;
 
 export const TodoListTitle = styled.h1`
@@ -49,6 +50,7 @@ export const LeftDiv=styled.div`
 float:left;
 background: #3B8CF3;
 color:white;
+
 `;
 
 export const LeftSpan=styled.div`

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import container from './container';
 import { 
-  TodoListTitle,
   RecoverButton,
   DeleteToDo,
   NumberOfTodo
@@ -28,7 +27,6 @@ import {
 
   return (
     <Fragment>
-      <TodoListTitle>DeleteLog</TodoListTitle>
       {isLoading ? 'loading.......' : buildDeletedListItems(DeletedListItems)}
       <NumberOfTodo>Number of deleted Todos: {numberOfDeletedObjects(DeletedListItems)}</NumberOfTodo>
   </Fragment>

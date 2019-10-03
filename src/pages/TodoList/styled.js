@@ -1,32 +1,18 @@
 import styled from 'styled-components';
 
-export const TodoListTitle = styled.h1`
-  color: white;
-  font-size: 45px;
-  text-transform: uppercase;
-  text-align: flex-start;
-  background: #3B8CF3;
-  text-decoration: underline;
-`;
-export const LinkButton = styled.div`
-font-size: 30px;
-border-bottom: 6px solid #3B8CF3;
-background-color: lightgrey;
-`;
+export const BtnStyle=styled.button`
+    padding: 20px;
+    background:#3B8CF3;
+    border-color: black;
+    font-size:20px;
+    height: 50px;
+    margin-left: 30px;
 
-export const TodoAdd = styled.div`
-  color: white;
-  font-size: 45px;
-  text-transform: uppercase;
-  text-align: center;
-`;
-
-export const TodoAddButton = styled.button`
-  color: white;
-  background: #3B8CF3;
-  font-size: 30px;
-  text-transform: uppercase;
-  text-align: center;
+    &:hover {
+        background: white;
+        border-color: #3B8CF3;
+      }
+    
 `;
 
 export const TaskContainer = styled.div`
@@ -38,11 +24,29 @@ justify-content:space-between;
 
 `;
 
+export const BottomBarContainer = styled.div`
+padding:10px
+display: flex;
+flex-direction:row;
+flex-wrap:wrap;
+justify-content:space-between;
+background:#3B8CF3;
 
-export const SearchButton=styled.button`
-
-background: white;
-height: 50px;
-width: 5%;
 `;
 
+export const containerTextBox = styled.textarea`
+padding:10px
+width: 100px
+
+`;
+
+export const LeftSpan=styled.div`
+`;
+
+
+export const LeftDiv=styled.div`
+float:left;
+background: #3B8CF3;
+color:white;
+
+`;

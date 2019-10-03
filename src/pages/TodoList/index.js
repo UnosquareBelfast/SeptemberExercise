@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
 import container from './container';
-import { 
-  TodoListTitle, TodoAdd,TaskContainer,TodoAddButton
- } from './styled';
+import {
+  TaskContainer, BtnStyle,BottomBarContainer,LeftDiv,LeftSpan
+} from './styled';
 
- export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList,searchForTodoList,retrieveTodosForDisplay }) => {
+export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, searchForTodoList, retrieveTodosForDisplay }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
     return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
@@ -14,20 +14,22 @@ import {
 
   return (
     <Fragment>
-      <TaskContainer>
-      {/* <TodoListTitle>To do's</TodoListTitle> */}
-      </TaskContainer>
-    <TodoAdd>
-      <TodoAdd><textarea id='newtasktitle'></textarea></TodoAdd>
-      <TodoAddButton variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</TodoAddButton>
-    </TodoAdd>
-    {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}
+      <TaskContainer>{isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList)}</TaskContainer>
+
+      <BottomBarContainer>
+      <textarea id='newtasktitle'></textarea>
+      <LeftSpan>
+      <BtnStyle variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</BtnStyle>
+      </LeftSpan>
       <textarea id='searchbar'></textarea>
-      <TodoAddButton variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</TodoAddButton>
-      <TodoAddButton variant="outline-primary" onClick={() => retrieveTodosForDisplay()}> Refresh?</TodoAddButton>
-  </Fragment>
-    
+      <BtnStyle variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</BtnStyle>
       
+      <BtnStyle variant="outline-primary" onClick={() => retrieveTodosForDisplay()}>Clear Search</BtnStyle>
+      </BottomBarContainer>
+
+    </Fragment>
+
+
   );
 };
 

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import container from './container';
 
 
-import { BtnStyle, TodoNavTheme, TaskContainer, TodoListTitle, LeftSpan, ButtonsRight } from './styled';
+import { BtnStyle, TodoNavTheme, TaskContainer, LeftSpan, ButtonsRight } from './styled';
 
 
 import { Link } from "react-router-dom";
