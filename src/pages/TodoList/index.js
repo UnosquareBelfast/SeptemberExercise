@@ -3,7 +3,7 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem, SearchBar } from './components';
 import container from './container';
 import {
-  TodoListTitle, TaskContainer, TodoListSubTitle,
+  TodoListTitle, TaskContainer, TodoListSubTitle, NewTask, AddToDoButtonContainer
 } from './styled';
 
 export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, TodoAdd, retrieveTodosForDisplay, setDisplayItems }) => {
@@ -21,10 +21,14 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createI
     <Fragment>
       <TodoListTitle>To Do List</TodoListTitle>
       <TodoListSubTitle>Emer's To Do List</TodoListSubTitle>
-      {searchBox()}
+      <NewTask>
       <textarea id='newtask'></textarea>
-      <button variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtask').value)}> Add Task </button>
+      <AddToDoButtonContainer>
+      <button onClick={() => createItemOnList(document.getElementById('newtask').value)}> Add Task </button>
+      </AddToDoButtonContainer>
       {isLoading ? 'Loading...' : buildTodoListItems(todoListItems, deleteItemFromList, TodoAdd)}
+      </NewTask>
+      {searchBox()}
     </Fragment>
   );
 };

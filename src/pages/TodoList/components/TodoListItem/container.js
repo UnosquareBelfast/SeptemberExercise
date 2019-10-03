@@ -1,6 +1,6 @@
 import React from 'react';
 import { updateTodoListItem} from '../../../../services/todoService';
-//import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+
 
 
 const TodoListItem = (Wrapped) =>
@@ -17,29 +17,6 @@ const TodoListItem = (Wrapped) =>
       };
     }
 
-    // toggle(){
-    //   this.setState({
-    //     dropdownOpen: !this.state.dropdownOpen
-    //   });
-    // }
-
-    // render() {
-    //   return (
-    //     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-    //       <DropdownToggle caret>
-    //         Button Dropdown
-    //       </DropdownToggle>
-    //     <DropdownMenu>
-    //       <DropdownItem header>Header</DropdownItem>
-    //       <DropdownItem disabled>Action</DropdownItem>
-    //       <DropdownItem>Another Action</DropdownItem>
-    //       <DropdownItem divider />
-    //       <DropdownItem Another Action > </DropdownItem>
-    //     </DropdownMenu>
-    //     </ButtonDropdown>
-    //   )
-    // };
-
     saveItem = (id, title) => {
       console.log('Update clicked' + id);
       (title.length < 2 || title.length > 30) ?
@@ -53,15 +30,6 @@ const TodoListItem = (Wrapped) =>
         } 
         )
     }
-
-  //   saveItem = (id, title) => {
-  //     updateTodoListItem(id, title).then(() => {
-  //       console.log(title);
-  //       this.setState({
-  //        displayText: changedText,
-  //     }, () => { this.toggleUpdateMode()})
-  //   });
-  // };
 
     toggleUpdateMode = () => {
       const {displayText, isUpdating, title} = this.state;

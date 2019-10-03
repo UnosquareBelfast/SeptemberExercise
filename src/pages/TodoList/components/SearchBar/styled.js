@@ -8,13 +8,13 @@ height: 29px;
 export const SearchTitle=styled.div`
 color: pink;
 font-size: 30px;
-text-decoration: underline;
+text-decoration: underline white;
 padding-bottom: 5px;
 `;
 
 export const SearchSection=styled.div`
-padding: 20px;
-text-align: center;
+padding: 30px;
+text-align: left;
 `;
 
 export const SearchButton=styled.button`

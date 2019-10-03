@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TitleContainer = styled.div`
-text-align:center;
+text-align: center;
 margin: 10px 10px 10px 10px;
 width: 200px;
 height: 150px;
@@ -12,15 +12,15 @@ justify-content: space-around;
 `;
 
 export const ItemButtons = styled.div`
-display:flex;
-flex-direction:row;
-justify-content:space-between;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `;
 
 export const UpdateButtonPadding = styled.div`
-display:flex;
-flex-direction:row;
-justify-content:space-between;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 `;
 
 export const ToDoItem = styled.div`

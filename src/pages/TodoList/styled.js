@@ -30,6 +30,7 @@ export const TodoAdd = styled.div`
   text-align: center;
   display: flex;
   padding-left: 20px;
+  justify-content: center;
 
 `;
 
@@ -83,12 +84,9 @@ padding-right: 10px;
 export const NewTask = styled.div`
 justify-content: space-between;
 background: lightgrey;
-border: 1px solid white;
-width: 220px;
-height: 100px;
 text-align: center;
-padding-left: 20px;
-padding-right: 20px
+padding
+
 `;
 
 export const AddTaskButton = styled.button`
@@ -101,6 +99,6 @@ text-align: center;
 padding-right: 10px;
 padding-bottom: 7px;
 padding-left: 20px;
-
+justify-content: space-between;
 `;
 
