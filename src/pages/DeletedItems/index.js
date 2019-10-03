@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react';
 import container from './container';
 import {DeletedContainer} from './styled';
-import {DeletedItem} from './components';
+import {DeletedItem, DeletedSearchBar} from './components';
 
 
 
 
-export const DeletedItems = ({isLoading, deletedTodoListItems, restoreDeletedTodoListItem}) => {
+
+export const DeletedItems = ({isLoading, deletedTodoListItems, restoreDeletedTodoListItem, setDeletedDisplayItems, retrieveDeletedTodosForDisplay}) => {
+
+  const deletedSearchBox = () => {
+    return (<DeletedSearchBar setDeletedDisplayItems={setDeletedDisplayItems} retrieveDeletedTodosForDisplay={retrieveDeletedTodosForDisplay} />)
+  };
 
   const buildDeletedTodoListItems = (allDeletedItems, restoreItem) => {
     return allDeletedItems && allDeletedItems.length>0 ? (
@@ -23,6 +28,7 @@ export const DeletedItems = ({isLoading, deletedTodoListItems, restoreDeletedTod
   return (
     <Fragment>
 
+    {deletedSearchBox()}
     {isLoading ? 'Loading....' : buildDeletedTodoListItems(deletedTodoListItems, restoreDeletedTodoListItem) }
 
     </Fragment>

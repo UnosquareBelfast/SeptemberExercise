@@ -2,7 +2,6 @@ package com.pfex.pack.leader.controller;
 
 
 import com.pfex.pack.leader.model.DeletedTodos;
-import com.pfex.pack.leader.model.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.service.DeletedTodosService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("deletedtodos")
@@ -42,6 +41,13 @@ public class DeletedTodoController {
         } else {
             return ResponseEntity.ok(response);
         }
+    }
+
+    @GetMapping("search")
+    public ResponseEntity searchDeletedTodos(@Valid @RequestParam String title) {
+        List<DeletedTodos> response = deleteRepo.findAllByTitleContainsIgnoreCase(title);
+
+        return ResponseEntity.ok(response);
     }
 
 

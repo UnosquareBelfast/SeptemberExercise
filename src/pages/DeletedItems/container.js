@@ -34,6 +34,13 @@ const DeletedItems = (Wrapped) =>
       })
     }
 
+    setDeletedDisplayItems = (deletedTodoListItems) => {
+      this.setState({ 
+        deletedTodoListItems: deletedTodoListItems.sort(function(a,b) {return a.id-b.id}),
+        isLoading: false 
+      });
+    };
+
   
 
     render() {
@@ -41,6 +48,7 @@ const DeletedItems = (Wrapped) =>
       return <Wrapped 
       retrieveDeletedTodosForDisplay={this.retrieveDeletedTodosForDisplay}
       restoreDeletedTodoListItem={this.restoreDeletedTodoListItem}
+      setDeletedDisplayItems={this.setDeletedDisplayItems}
       {...this.state} 
       />;
     }
