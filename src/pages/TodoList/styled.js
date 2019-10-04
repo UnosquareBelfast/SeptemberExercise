@@ -50,3 +50,16 @@ background: #3B8CF3;
 color:white;
 
 `;
+
+export const NothingMessage = styled.div`
+  color:green;
+  border:solid white 2px;
+  margin: auto;
+  font-size: xx-large;
+  width:60%;
+  text-align:center;
+  margin-top: 200px;
+  
+  
+
+`;

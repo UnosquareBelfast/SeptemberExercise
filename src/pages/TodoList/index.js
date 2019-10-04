@@ -3,13 +3,13 @@ import { PropTypes as PT } from 'prop-types';
 import { TodoListItem } from './components';
 import container from './container';
 import {
-  TaskContainer, BtnStyle,BottomBarContainer,LeftDiv,LeftSpan
+  TaskContainer, BtnStyle,BottomBarContainer,LeftSpan,NothingMessage
 } from './styled';
 
 export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, searchForTodoList, retrieveTodosForDisplay }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
-    return (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>)
+    return items && items.length>0 ? (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>) : <NothingMessage>Please a value</NothingMessage>;
   };
 
   return (
@@ -20,7 +20,7 @@ export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createI
       <textarea id='newtasktitle'></textarea>
       <LeftSpan>
       <BtnStyle variant="outline-primary" onClick={() => createItemOnList(document.getElementById('newtasktitle').value)}> Add Task</BtnStyle>
-      </LeftSpan>
+      </LeftSpan                                >
       <textarea id='searchbar'></textarea>
       <BtnStyle variant="outline-primary" onClick={() => searchForTodoList(document.getElementById('searchbar').value)}> Search</BtnStyle>
       
