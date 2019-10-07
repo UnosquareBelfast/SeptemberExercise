@@ -1,4 +1,4 @@
-package com.pfex.pack.leader.model;
+package com.pfex.pack.leader.model.todos;
 
 import java.io.Serializable;
 import javax.persistence.*;

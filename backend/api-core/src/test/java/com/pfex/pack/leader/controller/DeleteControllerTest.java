@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
-import com.pfex.pack.leader.model.DeletedTodos;
+import com.pfex.pack.leader.model.todos.DeletedTodos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 
 import java.util.ArrayList;

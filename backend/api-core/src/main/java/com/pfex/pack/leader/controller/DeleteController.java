@@ -1,6 +1,6 @@
 package com.pfex.pack.leader.controller;
 
-import com.pfex.pack.leader.model.DeletedTodos;
+import com.pfex.pack.leader.model.todos.DeletedTodos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.service.DeletedTodosService;
 import lombok.RequiredArgsConstructor;

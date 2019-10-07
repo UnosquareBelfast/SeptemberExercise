@@ -5,11 +5,10 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import com.pfex.pack.leader.model.DeletedTodos;
-import com.pfex.pack.leader.model.Todos;
+import com.pfex.pack.leader.model.todos.DeletedTodos;
+import com.pfex.pack.leader.model.todos.Todos;
 import com.pfex.pack.leader.repository.TodoRepository;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +18,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;

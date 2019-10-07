@@ -1,7 +1,6 @@
 package com.pfex.pack.leader.service;
-import com.pfex.pack.leader.controller.TodoController;
-import com.pfex.pack.leader.model.DeletedTodos;
-import com.pfex.pack.leader.model.Todos;
+import com.pfex.pack.leader.model.todos.DeletedTodos;
+import com.pfex.pack.leader.model.todos.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.repository.TodoRepository;
 import org.junit.Before;
@@ -13,8 +12,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyInt;
