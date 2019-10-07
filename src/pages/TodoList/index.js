@@ -9,7 +9,7 @@ import {
 export const TodoList = ({ deleteItemFromList, isLoading, todoListItems, createItemOnList, searchForTodoList, retrieveTodosForDisplay }) => {
 
   const buildTodoListItems = (items, deleteItem) => {
-    return items && items.length>0 ? (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>) : <NothingMessage>Please a value</NothingMessage>;
+    return items && items.length>0 ? (<ul><TaskContainer>{items.map(x => (<TodoListItem key={x.id} item={x} deleteItem={deleteItem} />))}</TaskContainer></ul>) : <NothingMessage>Nothing to do</NothingMessage>;
   };
 
   return (

@@ -4,12 +4,12 @@ import App from '../App';
 import TodoList from '../pages/TodoList';
 import AboutUs from '../pages/AboutUs';
 import DeletedLog from '../pages/DeletedLog';
-import { TodoAddButton } from '../pages/TodoList/styled';
+import NavBar from '../pages/NavBar';
+import { BtnStyle } from '../pages/TodoList/styled';
 import { ItemButton } from '../pages/TodoList/components/TodoListItem/styled';
 import {RecoverButton,LinkButton } from '../pages/DeletedLog/styled'
 import { mountWithTheme ,shallowWithTheme} from '../testUtilities';
 import 'jest-styled-components';
-import {theme} from '../theme';
 
 
 describe('First React component test with Enzyme', () => {
@@ -31,6 +31,12 @@ describe('About us check', () => {
     })
 })
 
+describe('NavBar check', () => {
+    it('renders without crashing', () =>{
+        shallow(<NavBar />);
+    })
+})
+
 describe('DeletedLog check', () => {
     it('renders without crashing', () =>{
         shallow(<DeletedLog />);
@@ -39,16 +45,16 @@ describe('DeletedLog check', () => {
 
 describe('TodoAddButton style check', () => {
     it('renders without crashing', () =>{
-        shallowWithTheme(<TodoAddButton>Test</TodoAddButton>);
+        shallowWithTheme(<BtnStyle>Test</BtnStyle>);
     })
 })
 
 describe('Add Task Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const createItemOnList = jest.fn();
-        const addTaskButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={createItemOnList}> Add Task</TodoAddButton>);
+        const addTaskButton = mountWithTheme(<BtnStyle variant="outline-primary" onClick={createItemOnList}> Add Task</BtnStyle>);
 
-        addTaskButton.find(TodoAddButton).simulate('click');
+        addTaskButton.find(BtnStyle).simulate('click');
         expect(createItemOnList).toHaveBeenCalled();
     })
 })
@@ -56,9 +62,9 @@ describe('Add Task Button check click function', () => {
 describe('Refresh Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const retrieveTodosForDisplay = jest.fn();
-        const refreshButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={retrieveTodosForDisplay}> Refresh</TodoAddButton>);
+        const refreshButton = mountWithTheme(<BtnStyle variant="outline-primary" onClick={retrieveTodosForDisplay}> Refresh</BtnStyle>);
 
-        refreshButton.find(TodoAddButton).simulate('click');
+        refreshButton.find(BtnStyle).simulate('click');
         expect(retrieveTodosForDisplay).toHaveBeenCalled();
     })
 })
@@ -66,9 +72,9 @@ describe('Refresh Button check click function', () => {
 describe('Search Button check click function', () => {
     it('clicks recorded when user clicks', () => {
         const searchForTodoList = jest.fn();
-        const searchButton = mountWithTheme(<TodoAddButton variant="outline-primary" onClick={searchForTodoList}> Search</TodoAddButton>);
+        const searchButton = mountWithTheme(<BtnStyle variant="outline-primary" onClick={searchForTodoList}> Search</BtnStyle>);
 
-        searchButton.find(TodoAddButton).simulate('click');
+        searchButton.find(BtnStyle).simulate('click');
         expect(searchForTodoList).toHaveBeenCalled();
     })
 })
