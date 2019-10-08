@@ -1,4 +1,4 @@
-package com.pfex.pack.leader.exceptions;
+package com.pfex.pack.leader.config.exceptions.ExceptionObjects;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

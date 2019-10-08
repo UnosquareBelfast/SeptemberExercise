@@ -1,5 +1,4 @@
 package com.pfex.pack.leader.service;
-import com.pfex.pack.leader.exceptions.TodoException;
 import com.pfex.pack.leader.model.todos.DeletedTodos;
 import com.pfex.pack.leader.model.todos.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
@@ -7,7 +6,6 @@ import com.pfex.pack.leader.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.Optional;
 
 @Service
