@@ -1,27 +1,11 @@
 package com.pfex.pack.leader.model.response;
 
-import lombok.AllArgsConstructor;
+import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
-@AllArgsConstructor
+@Data
 public class ErrorMessage {
-public Date timestamp;
-    public String message;
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    public final LocalDateTime timestamp;
+    public final String message;
 }

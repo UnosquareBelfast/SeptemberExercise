@@ -1,10 +1,13 @@
 package com.pfex.pack.leader.service;
+import com.pfex.pack.leader.exceptions.TodoException;
 import com.pfex.pack.leader.model.todos.DeletedTodos;
 import com.pfex.pack.leader.model.todos.Todos;
 import com.pfex.pack.leader.repository.DeletedTodoRepository;
 import com.pfex.pack.leader.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 import java.util.Optional;
 
 @Service
@@ -33,6 +36,9 @@ public class DeletedTodosService {
     }
 
     public Optional<Todos> RecoverDeletedTodos(Integer id) {
+        if (id == 1) {
+            throw new IllegalArgumentException("Id is invalid");
+        }
         Optional<DeletedTodos> optionalDeletedTodos = deletedTodoRepository.findById(id);
         if(!optionalDeletedTodos.isPresent()) {
             return Optional.empty();

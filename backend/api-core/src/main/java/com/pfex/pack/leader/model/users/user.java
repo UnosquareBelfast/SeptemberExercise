@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
-@Entity
+//@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class user {
