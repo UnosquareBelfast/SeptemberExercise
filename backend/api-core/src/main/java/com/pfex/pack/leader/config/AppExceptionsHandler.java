@@ -1,6 +1,6 @@
-package com.pfex.pack.leader.config.exceptions;
+package com.pfex.pack.leader.config;
 
-        import com.pfex.pack.leader.config.exceptions.ExceptionObjects.TodoException;
+        import com.pfex.pack.leader.config.ExceptionObjects.TodoException;
         import com.pfex.pack.leader.model.response.ErrorMessage;
         import org.springframework.http.HttpHeaders;
         import org.springframework.http.HttpStatus;
@@ -37,4 +37,5 @@ public class AppExceptionsHandler extends ResponseEntityExceptionHandler {
         ErrorMessage errorMessage = new ErrorMessage(LocalDateTime.now(), errorMessageDescription);
         return ResponseEntity.badRequest().body(errorMessage);
     }
+
 }
