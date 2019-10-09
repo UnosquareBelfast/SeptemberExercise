@@ -19,6 +19,7 @@ export const NavBar = () => {
           <BtnStyle><Link to="/" onMouseOver={() => console.log('mouse over')} >Home</Link></BtnStyle>
           <BtnStyle> <Link to="/about/">About</Link> </BtnStyle>
           <BtnStyle><Link to="/DeletedLog/">DeletedLog</Link></BtnStyle>
+          <BtnStyle><Link to="/Users/">Users</Link></BtnStyle>
           </ButtonsRight>
         </TodoNavTheme>
       </TaskContainer>
