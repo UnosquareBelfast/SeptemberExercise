@@ -4,14 +4,13 @@ import com.pfex.pack.leader.model.users.user;
 import com.pfex.pack.leader.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@RequestMapping("users")
+@RestController
 public class UserController {
     @Autowired
     private UserRepository repository;
@@ -41,4 +40,15 @@ public class UserController {
 
         }
     }
+
+    @GetMapping()
+    public ResponseEntity allusers() {
+        List<user> response = repository.findAll();
+        if (response.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(response);
+        }
+    }
+
 }
