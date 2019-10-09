@@ -15,7 +15,17 @@ public class DeletedTodosService {
     private final DeletedTodoRepository deletedTodoRepository;
     private final TodoRepository todoRepository;
 
+    public Boolean checkId(Integer id) {
+        Boolean vaildId = false;
+        if (id <= 0) {
+            throw new IllegalArgumentException("Id is invalid");
+        }
+        vaildId= true;
+        return vaildId;
+    }
+
     public Optional<DeletedTodos> createDeletedTodo(Integer id){
+        checkId(id);
         Optional<Todos> optionalTodos = todoRepository.findById(id);
         if(!optionalTodos.isPresent()) {
             return Optional.empty();
@@ -34,9 +44,8 @@ public class DeletedTodosService {
     }
 
     public Optional<Todos> RecoverDeletedTodos(Integer id) {
-        if (id == 1) {
-            throw new IllegalArgumentException("Id is invalid");
-        }
+        checkId(id);
+
         Optional<DeletedTodos> optionalDeletedTodos = deletedTodoRepository.findById(id);
         if(!optionalDeletedTodos.isPresent()) {
             return Optional.empty();

@@ -93,6 +93,16 @@ public class DeletedTodosServiceTest {
         System.out.print(response);
     }
 
+//    @Test(expected = java.lang.IllegalArgumentException.class)
+//    public void creatingANewToDoWithInvalidId() {
+//        // Arrange
+//        Integer recoverTodoID = 0;
+//        Todos newTodo = new Todos(0,null);
+//        when(deletedTodosService.checkId(recoverTodoID)).thenReturn(throw new IllegalArgumentException("Id is invalid"));
+//        // Act
+//        deletedTodosService.createDeletedTodo(recoverTodoID);
+//
+//    }
 
 
 }
