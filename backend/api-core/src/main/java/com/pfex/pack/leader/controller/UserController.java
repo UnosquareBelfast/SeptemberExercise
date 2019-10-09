@@ -17,11 +17,23 @@ public class UserController {
 
 
     @GetMapping("{id}")
-    public ResponseEntity getTodosById(@PathVariable Integer id) {
+    public ResponseEntity getUserById(@PathVariable Integer id) {
         Optional<user> response = repository.findById(id);
 
         return response.isPresent() ?
                 ResponseEntity.ok(response.get()) :
                 ResponseEntity.notFound().build();
+    }
+    @GetMapping("{username}")
+    public ResponseEntity getUserByUsername(@PathVariable String username) {
+        List<user> response = repository.findByUsername(username);
+        if (response.isEmpty()) {
+            System.out.println("Not Found");
+            return ResponseEntity.notFound().build();
+        } else {
+            System.out.println("Found");
+            return ResponseEntity.ok(response);
+
+        }
     }
 }
