@@ -28,8 +28,8 @@ public class UserController {
                 ResponseEntity.ok(response.get()) :
                 ResponseEntity.notFound().build();
     }
-    @GetMapping("{username}")
-    public ResponseEntity getUserByUsername(@PathVariable String username) {
+    @GetMapping("/username")
+    public ResponseEntity getUserByUsername(@RequestParam String username) {
         List<user> response = repository.findByUsername(username);
         if (response.isEmpty()) {
             System.out.println("Not Found");
