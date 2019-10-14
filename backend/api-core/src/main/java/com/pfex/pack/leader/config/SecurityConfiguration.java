@@ -31,7 +31,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http.csrf().disable();
+        http.authorizeRequests()
+                .antMatchers("**/secure/**").authenticated()
+                .anyRequest().permitAll()
+                .and().formLogin().permitAll();
     }
 
     private PasswordEncoder getPasswordEncoder() {
