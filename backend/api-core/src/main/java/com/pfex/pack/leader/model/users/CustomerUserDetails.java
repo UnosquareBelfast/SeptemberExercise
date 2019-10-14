@@ -5,7 +5,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class CustomerUserDetails implements UserDetails {
+public class CustomerUserDetails extends Users implements UserDetails {
+
+    public CustomerUserDetails(final Users user) {
+        super(user);
+
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -14,31 +19,31 @@ public class CustomerUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return super.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return super.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

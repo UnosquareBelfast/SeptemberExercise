@@ -1,6 +1,6 @@
 package com.pfex.pack.leader.controller;
 
-import com.pfex.pack.leader.model.users.user;
+import com.pfex.pack.leader.model.users.Users;
 import com.pfex.pack.leader.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +16,13 @@ public class UserController {
     private UserRepository repository;
 
     @PostMapping
-    public user createUser(@RequestBody user usermodel) {
+    public Users createUser(@RequestBody Users usermodel) {
         return repository.save(usermodel);
     }
 
     @GetMapping("{id}")
     public ResponseEntity getUserById(@PathVariable Integer id) {
-        Optional<user> response = repository.findById(id);
+        Optional<Users> response = repository.findById(id);
 
         return response.isPresent() ?
                 ResponseEntity.ok(response.get()) :
@@ -30,7 +30,7 @@ public class UserController {
     }
     @GetMapping("/username")
     public ResponseEntity getUserByUsername(@RequestParam String username) {
-        List<user> response = repository.findByUsername(username);
+        List<Users> response = repository.findByUsername(username);
         if (response.isEmpty()) {
             System.out.println("Not Found");
             return ResponseEntity.notFound().build();
@@ -43,7 +43,7 @@ public class UserController {
 
     @GetMapping()
     public ResponseEntity allusers() {
-        List<user> response = repository.findAll();
+        List<Users> response = repository.findAll();
         if (response.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
-public class user implements Serializable {
+public class Users implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,4 +25,10 @@ public class user implements Serializable {
     @NotNull
     private String password;
 
+    public Users(Users user) {
+        this.id = user.getId();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
+        this.getUsername();
+    }
 }
