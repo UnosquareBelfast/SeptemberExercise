@@ -5,7 +5,7 @@ import {
 
 } from './styled';
 
-export const Users = ({ retrieveUsersToDisplay, createUserOnList }) => {
+export const Users = ({ retrieveUsersToDisplay, createUserOnList,getUsertodisplay }) => {
 
 
   return (
@@ -14,7 +14,8 @@ export const Users = ({ retrieveUsersToDisplay, createUserOnList }) => {
 
       <textarea id='loginUsername'></textarea>
       <textarea id='loginpassword'></textarea>
-      <button onClick={() => retrieveUsersToDisplay()}>Log in</button>
+      <button onClick={() => getUsertodisplay(
+        document.getElementById('loginUsername').value)}>Log in</button>
 
       <UserText>If you havent got an account sign up! What are the benefits you ask? Well absolutely nothing! No benefits to signing up, so go on DO IT</UserText>
 

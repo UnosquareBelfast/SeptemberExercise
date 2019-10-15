@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveUsers,createUsers } from '../../services/usersService';
+import { retrieveUsers,createUsers,getUser } from '../../services/usersService';
 
 const Users = (Wrapped) =>
   class extends React.Component {
@@ -30,11 +30,20 @@ const Users = (Wrapped) =>
         this.retrieveUsersToDisplay();
       })
     }
+
+    getUsertodisplay = (username) => {
+      
+      getUser(username).then(() => {
+        console.log(username);
+        this.retrieveUsersToDisplay();
+      })
+    }
    
     render() {
       return <Wrapped 
       retrieveUsersToDisplay= {this.retrieveUsersToDisplay}
       createUserOnList= {this.createUserOnList}
+      getUsertodisplay={this.getUsertodisplay}
       {...this.state} 
       />;
     }
