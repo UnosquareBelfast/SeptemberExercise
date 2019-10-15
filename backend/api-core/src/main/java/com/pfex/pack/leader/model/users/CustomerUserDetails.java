@@ -14,6 +14,8 @@ public class CustomerUserDetails extends Users implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        //Havent Added in roles yet
+
         return null;
     }
 
