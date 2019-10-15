@@ -30,14 +30,15 @@ public class UserController {
     }
     @GetMapping("/username")
     public ResponseEntity getUserByUsername(@RequestParam String username) {
-        List<Users> response = repository.findByUsername(username);
-        if (response.isEmpty()) {
-            System.out.println("Not Found");
-            return ResponseEntity.notFound().build();
-        } else {
+        Optional<Users> response = repository.findByUsername(username);
+        if (response.isPresent()) {
             System.out.println("Found");
             return ResponseEntity.ok(response);
 
+        } else {
+
+            System.out.println("Not Found");
+            return ResponseEntity.notFound().build();
         }
     }
 
