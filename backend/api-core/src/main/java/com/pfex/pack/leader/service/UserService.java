@@ -16,12 +16,11 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Users> optionalUser = userRepository.findByUsername(username);
 
-        optionalUser
-                .orElseThrow(() -> new UsernameNotFoundException("Username was not found"));
+    @Override
+    public UserDetails loadUserByUsername(String userdetail) throws UsernameNotFoundException {
+        Optional<Users> optionalUser = userRepository.findByUsername(userdetail);
+        optionalUser.orElseThrow(() -> new UsernameNotFoundException("Username was not found"));
         return optionalUser.map(CustomerUserDetails::new).get();
     }
 }

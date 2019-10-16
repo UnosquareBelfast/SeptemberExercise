@@ -10,11 +10,13 @@ export const createUsers = (username, email, password) => {
 };
 
 export const getUser = (username) => {
-    const usernItem = {username: username};
+    const userItem = {username: username};
     return instance.get(`users/username?username=${username}`)
     .then((response) => response.data);
 }
 
-export const loginUser = (username, password) => {
-
+export const getPassword = (password) => {
+    const userItem = {password: password};
+    return instance.get(`users/password?password=${userItem}`)
+    .then((response) => response.data);
 }

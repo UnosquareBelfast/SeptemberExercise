@@ -32,10 +32,8 @@ const Users = (Wrapped) =>
     }
 
     getUsertodisplay = (username) => {
-      
       getUser(username).then(() => {
         console.log(username);
-        this.retrieveUsersToDisplay();
       })
     }
    
