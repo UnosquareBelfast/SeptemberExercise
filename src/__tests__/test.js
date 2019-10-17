@@ -3,8 +3,9 @@ import MockAdapter from "axios-mock-adapter";
 
 
 import { retrieveTodoList, retrieveTodoListItem, updateTodoListItem, createTodoListItem, deleteTodoListItem, searchToDoListItems } from "../services/todoService";
-
 import { retrieveDeletedTodoList, restoreDeletedTodo } from '../services/deletedTodoService';
+
+import {addNewTask} from '../pages/TodoList/components/AddNewToDoListItem';
 
 var mock = new MockAdapter(instance);
 
@@ -95,21 +96,21 @@ describe("Todos testing", () => {
   });
 
   //won't let me import the method >:(
-  // it('createTodoListItem does not create a item when title left empty', done => {
-  //     const toDotoCreate = {
-  //         id:3,
-  //         title:''
-  //     };
-  //     //mock.onPost("todos/3").reply(200, toDotoCreate);
+  it('createTodoListItem does not create a item when title left empty', done => {
+      const toDotoCreate = {
+          id:3,
+          title:''
+      };
+      //mock.onPost("todos/3").reply(200, toDotoCreate);
 
-  //     AddNewTask.addNewTask(toDotoCreate.title).then(res => {
+      addNewTask(toDotoCreate.title).then(res => {
           
-  //       console.log(res);
-  //         //expect(res.data).toStrictEqual(200, null);
+        console.log(res);
+          //expect(res.data).toStrictEqual(200, null);
           
-  //         done();
-  //     })
-  // });
+          done();
+      })
+  });
 
 //   it('createTodoListItem does not create a item when title less than 2 characters', done => {
 //     const toDotoCreate = {
